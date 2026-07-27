@@ -1,9 +1,9 @@
 t2m:
-  root_dir: /dataset/HumanML3D/HumanML3D
-  motion_dir: /dataset/HumanML3D/HumanML3D/new_joint_vecs
-  text_dir: /dataset/HumanML3D/HumanML3D/texts
-  mean_path: /dataset/HumanML3D/HumanML3D/Mean.npy
-  std_path: /dataset/HumanML3D/HumanML3D/Std.npy
+  root_dir: /data4/local_datasets/HumanML3D
+  motion_dir: /data4/local_datasets/HumanML3D/new_joint_vecs
+  text_dir: /data4/local_datasets/HumanML3D/texts
+  mean_path: /data4/local_datasets/HumanML3D/Mean.npy
+  std_path: /data4/local_datasets/HumanML3D/Std.npy
   window_size: 64
   joints_num: 22
   dim_pose: 263

@@ -1,0 +1,12 @@
+{"time":"2026-07-27T19:39:48.157410565+09:00","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2026-07-27T19:39:48.935818062+09:00","level":"INFO","msg":"stream: created new stream","id":"j3d8y86u"}
+{"time":"2026-07-27T19:39:48.935892883+09:00","level":"INFO","msg":"stream: started","id":"j3d8y86u"}
+{"time":"2026-07-27T19:39:48.936029606+09:00","level":"INFO","msg":"handler: started","stream_id":"j3d8y86u"}
+{"time":"2026-07-27T19:39:48.93604156+09:00","level":"INFO","msg":"writer: started","stream_id":"j3d8y86u"}
+{"time":"2026-07-27T19:39:48.936067658+09:00","level":"INFO","msg":"sender: started","stream_id":"j3d8y86u"}
+{"time":"2026-07-27T19:55:35.216598339+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T19:59:29.769802117+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T20:02:24.502392214+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T20:24:36.687999724+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T20:29:04.922982664+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T20:37:58.577101505+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}

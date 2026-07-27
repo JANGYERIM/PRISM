@@ -157,7 +157,7 @@ def main(args):
     if not (model_cfg.model.DiT.use or model_cfg.model.Unet1D.use):
         raise NotImplementedError(f"Model {model_cfg.model.name} not implemented")
 
-    exp_name = f"{model_cfg.model.name}_{args.train_data}_{generate_date_time()}"
+    exp_name = f"{model_cfg.model.name}_{args.train_data}_fm{model_cfg.train.full_motion}_bs{model_cfg.train.batch_size}_{generate_date_time()}"
     if args.exp_tag:
         exp_name += f"_{args.exp_tag}"
 
@@ -208,15 +208,15 @@ def main(args):
         val_dataset = t2m_dataset.Text2MotionDataset(data_cfg, vae_mean, vae_std,  split='val')
         
     refinement_batch_size = 256 if model_cfg.train.full_motion else 2048
-    refine_train_dataset = make_rf_decoder_dataset(train_dataset, vqvae, refinement_batch_size)
-    refine_val_dataset = make_rf_decoder_dataset(val_dataset, vqvae, refinement_batch_size)
+    refine_train_dataset = make_rf_decoder_dataset(train_dataset, vqvae, refinement_batch_size, cache_dir=f'{save_path}/cache/train')
+    refine_val_dataset = make_rf_decoder_dataset(val_dataset, vqvae, refinement_batch_size, cache_dir=f'{save_path}/cache/val')
     del train_dataset
     del val_dataset
     assert torch.allclose(torch.tensor(refine_train_dataset.mean), torch.tensor(vae_mean), atol=1e-5), "mean not equal"
     assert torch.allclose(torch.tensor(refine_val_dataset.std), torch.tensor(vae_std), atol=1e-5), "std not equal"
-    
-    train_dataloader = torch.utils.data.DataLoader(refine_train_dataset, batch_size=model_cfg.train.batch_size, drop_last=True, shuffle=True, pin_memory=True)
-    val_dataloader = torch.utils.data.DataLoader(refine_val_dataset, batch_size=model_cfg.val.batch_size, drop_last=True, shuffle=False, pin_memory=True)
+
+    train_dataloader = torch.utils.data.DataLoader(refine_train_dataset, batch_size=model_cfg.train.batch_size, drop_last=True, shuffle=True, pin_memory=True, num_workers=4, persistent_workers=True)
+    val_dataloader = torch.utils.data.DataLoader(refine_val_dataset, batch_size=model_cfg.val.batch_size, drop_last=True, shuffle=False, pin_memory=True, num_workers=4, persistent_workers=True)
     
     np.save(f'{save_path}/meta/mean.npy', vae_mean) # 
     np.save(f'{save_path}/meta/std.npy', vae_std)

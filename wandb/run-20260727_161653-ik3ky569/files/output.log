@@ -1,0 +1,52 @@
+100%|██████████| 23384/23384 [00:09<00:00, 2539.50it/s]
+100%|██████████| 1460/1460 [00:00<00:00, 2616.43it/s]
+Precomputing VQ-VAE outputs for the entire dataset...
+100%|██████████| 96/96 [00:26<00:00,  3.68it/s]
+Precomputing completed in 26.10 seconds.
+Total number of motions 24546
+Precomputing VQ-VAE outputs for the entire dataset...
+100%|██████████| 6/6 [00:15<00:00,  2.67s/it]
+Precomputing completed in 15.99 seconds.
+Total number of motions 1530
+100%|██████████| 1460/1460 [00:00<00:00, 2845.78it/s]
+Pointer Pointing at 0
+epoch 0 num_epochs 200
+Train Epoch: 0 [0/24546 (0%)]	Loss: 21.932007
+Traceback (most recent call last):
+  File "run/train_rf_decoder_from_vqvae.py", line 312, in <module>
+    main(args)
+  File "run/train_rf_decoder_from_vqvae.py", line 250, in main
+    train_one_epoch(model_cfg, epoch, flow,vqvae, optimizer, train_dataloader, device=device, model_params=model_params, ema_params=ema_params, use_wandb=args.wandb)
+  File "run/train_rf_decoder_from_vqvae.py", line 80, in train_one_epoch
+    loss = flow(gt, z, padding_mask=padding_mask, text_embedding=text_embedding)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/rectified_flow.py", line 341, in forward
+    output, flow, pred_flow, pred_data = get_noised_and_flows(self.net, padded_times, y=y, padding_mask = padding_mask, text_embedding = text_embedding)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/rectified_flow.py", line 331, in get_noised_and_flows
+    model_output, pred_flow = self.predict_flow(model, noised, times = t, y=y, padding_mask = padding_mask, text_embedding = text_embedding)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/rectified_flow.py", line 200, in predict_flow
+    output = self.net(noised, **model_kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/Unet1Dflow_decoder.py", line 489, in forward
+    x = self.final_res_block(x, t)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/Unet1Dflow_decoder.py", line 194, in forward
+    return h + self.res_conv(x)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 308, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 304, in _conv_forward
+    return F.conv1d(input, weight, bias, self.stride,
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 294.00 MiB. GPU 0 has a total capacity of 23.68 GiB of which 239.25 MiB is free. Including non-PyTorch memory, this process has 23.44 GiB memory in use. Of the allocated memory 22.45 GiB is allocated by PyTorch, and 744.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

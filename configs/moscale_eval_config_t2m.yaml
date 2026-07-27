@@ -1,0 +1,13 @@
+dataset_name: t2m
+checkpoints_dir: ./checkpoints/models
+
+# MoScale transformer checkpoint (under checkpoints_dir/t2m/moscale/)
+moscale_name: moscale
+# HRVQVAE checkpoint (under checkpoints_dir/t2m/hrvqvae/)
+vq_name: hrvqvae
+
+# Sampling parameters
+cond_scale: 5.0
+temperature: 1.0
+top_p_thres: 0.9
+sample_time: [1, 2, 5, 10]

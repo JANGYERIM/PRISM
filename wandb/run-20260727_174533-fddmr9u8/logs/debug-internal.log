@@ -1,0 +1,14 @@
+{"time":"2026-07-27T17:45:35.219104916+09:00","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2026-07-27T17:45:35.651028291+09:00","level":"INFO","msg":"stream: created new stream","id":"fddmr9u8"}
+{"time":"2026-07-27T17:45:35.651102297+09:00","level":"INFO","msg":"stream: started","id":"fddmr9u8"}
+{"time":"2026-07-27T17:45:35.651144394+09:00","level":"INFO","msg":"writer: started","stream_id":"fddmr9u8"}
+{"time":"2026-07-27T17:45:35.65121054+09:00","level":"INFO","msg":"sender: started","stream_id":"fddmr9u8"}
+{"time":"2026-07-27T17:45:35.651258849+09:00","level":"INFO","msg":"handler: started","stream_id":"fddmr9u8"}
+{"time":"2026-07-27T18:27:01.528571518+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fddmr9u8/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T18:54:36.887747254+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fddmr9u8/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T19:06:33.856246316+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fddmr9u8/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T19:45:41.816323005+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fddmr9u8/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T19:56:46.427285932+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fddmr9u8/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T20:05:01.576632368+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fddmr9u8/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T20:09:32.992914781+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fddmr9u8/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T20:13:02.445911867+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fddmr9u8/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}

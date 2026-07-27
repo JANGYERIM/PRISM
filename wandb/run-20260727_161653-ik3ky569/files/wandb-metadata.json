@@ -1,0 +1,71 @@
+{
+  "os": "Linux-5.4.0-216-generic-x86_64-with-glibc2.17",
+  "python": "CPython 3.8.20",
+  "startedAt": "2026-07-27T07:16:53.415412Z",
+  "args": [
+    "--data_cfg_path",
+    "./configs/config_data.yaml",
+    "--model_cfg_path",
+    "./configs/config_model.yaml",
+    "--wandb"
+  ],
+  "program": "run/train_rf_decoder_from_vqvae.py",
+  "codePath": "run/train_rf_decoder_from_vqvae.py",
+  "codePathLocal": "run/train_rf_decoder_from_vqvae.py",
+  "git": {
+    "remote": "https://github.com/JANGYERIM/PRISM",
+    "commit": "7ef80595c80e12b9d1449175dbdcb939bea357d1"
+  },
+  "email": "dpfla3573@khu.ac.kr",
+  "root": "/nas2/data/dpfla3573/code/PRISM",
+  "host": "ariel-v2",
+  "executable": "/nas2/data/dpfla3573/anaconda3/envs/prism/bin/python",
+  "cpu_count": 32,
+  "cpu_count_logical": 64,
+  "disk": {
+    "/": {
+      "total": "982240026624",
+      "used": "933494747136"
+    }
+  },
+  "memory": {
+    "total": "674877038592"
+  },
+  "slurm": {
+    "cluster_name": "ariel",
+    "conf": "/etc/slurm/slurm.conf",
+    "cpus_on_node": "8",
+    "cpus_per_gpu": "8",
+    "gpus_on_node": "1",
+    "gtids": "0",
+    "job_account": "grad",
+    "job_cpus_per_node": "8",
+    "job_gid": "20406",
+    "job_gpus": "2",
+    "job_id": "383410",
+    "job_name": "RFDecoder_BASE",
+    "job_nodelist": "ariel-v2",
+    "job_num_nodes": "1",
+    "job_partition": "batch_grad",
+    "job_qos": "qos_dpfla3573_2026_1",
+    "job_uid": "20406",
+    "job_user": "dpfla3573",
+    "jobid": "383410",
+    "localid": "0",
+    "mem_per_gpu": "49152",
+    "nnodes": "1",
+    "node_aliases": "(null)",
+    "nodeid": "0",
+    "nodelist": "ariel-v2",
+    "prio_process": "0",
+    "procid": "0",
+    "submit_dir": "/nas2/data/dpfla3573/code/PRISM",
+    "submit_host": "ariel-master",
+    "task_pid": "434133",
+    "tasks_per_node": "8",
+    "topology_addr": "ariel-v2",
+    "topology_addr_pattern": "node",
+    "working_cluster": "ariel:ariel-master:6817:9728:109"
+  },
+  "writerId": "sjg4iy4iwboxdfq0mfmcdozdunaaa4ar"
+}

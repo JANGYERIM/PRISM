@@ -58,13 +58,14 @@ class MSELoss(Module):
     def forward(self, pred, target, padding_mask=None,**kwargs):
         if padding_mask is None:
             return F.mse_loss(pred, target)
-        else:
+        else: # full motion case
             loss = F.mse_loss(pred, target, reduction = 'none')
             mask = ~padding_mask # padding mask is True for padding, we want to mask out padding
             mask = mask.unsqueeze(-1)
             mask = mask.float()
+            # padding region will habe loss 0
             masked_loss = (loss * mask).mean(dim=-1).sum()/ (mask.sum() + 1e-8)
-            return masked_loss
+            return masked_loss 
 
 
 LossBreakdown = namedtuple('LossBreakdown', ['total', 'main', 'data_match', 'velocity_match'])

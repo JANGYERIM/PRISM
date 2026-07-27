@@ -15,7 +15,14 @@
       "Bash(awk '$1==\"blob\"{print $3, $4}')",
       "Bash(awk '{print $1}')",
       "Bash(git ls-tree *)",
-      "Bash(awk '{print $4, $5}')"
+      "Bash(awk '{print $4, $5}')",
+      "Bash(scontrol show *)",
+      "Bash(sinfo -N -o \"%N %e %m\")",
+      "Bash(srun --jobid=383416 --overlap df -h /data4 /nas2 /tmp /local)",
+      "Bash(squeue -j 383416)",
+      "Bash(xxd)",
+      "Bash(python -m py_compile /nas2/data/dpfla3573/code/PRISM/run/train_rf_decoder_from_vqvae.py)",
+      "Bash(xargs md5sum)"
     ]
   }
 }

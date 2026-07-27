@@ -1,4 +1,5 @@
 import codecs as cs
+import os
 import random
 import time
 from os.path import join as pjoin
@@ -257,35 +258,48 @@ class RefinementDataset(data.Dataset):
     
     
 class RFDecoderDataset(data.Dataset):
-    def __init__(self, gt_motions, z, mean, std, m_lengths=None,captions=None):
-        self.gt_motions = gt_motions
-        self.z = z
+    """gt_motions/z live on disk as memmap files (cache_dir/gt_motions.dat,
+    cache_dir/z_encodings.dat) instead of in RAM -- each sample is fixed-shape
+    (precompute always encodes the full padded window), so no per-item padding
+    of z is needed anymore; only the m_length-derived padding_mask still is."""
+    def __init__(self, cache_dir, n, mean, std, m_lengths=None, captions=None):
+        self.cache_dir = cache_dir
+        self.n = n
+        self.gt_shape = tuple(np.load(os.path.join(cache_dir, 'gt_shape.npy')))
+        self.z_shape = tuple(np.load(os.path.join(cache_dir, 'z_shape.npy')))
         self.captions = captions
         self.m_lengths = m_lengths
         self.mean = mean
         self.std = std
-        print("Total number of motions {}".format(len(self.gt_motions)))
-        
+        self._gt_motions = None
+        self._z = None
+        print("Total number of motions {}".format(self.n))
+
+    def _ensure_open(self):
+        # each DataLoader worker process opens its own memmap handle lazily
+        if self._gt_motions is None:
+            self._gt_motions = np.memmap(os.path.join(self.cache_dir, 'gt_motions.dat'), dtype=np.float32, mode='r', shape=self.gt_shape)
+            self._z = np.memmap(os.path.join(self.cache_dir, 'z_encodings.dat'), dtype=np.float32, mode='r', shape=self.z_shape)
+
     def __len__(self):
-        return len(self.gt_motions)
+        return self.n
 
     def __getitem__(self, idx):
+        self._ensure_open()
+        gt_motion = torch.from_numpy(np.array(self._gt_motions[idx]))
+        z = torch.from_numpy(np.array(self._z[idx]))
         if self.m_lengths is not None:
             m_length = self.m_lengths[idx]
-            # padding_mask = np.concatenate([np.ones(m_length), np.zeros(196 - m_length)], axis=0)
-            padding_mask = torch.nn.functional.pad(torch.zeros(m_length), (0, 196 - m_length), value=1).bool()
-            z = self.z[idx]
-            z_length = z.shape[0]
-            padded_z = torch.nn.functional.pad(z, (0,0,0, 49 - z_length), value=0)
-            # padded_motion = torch.nn.functional.pad(output_motion, (0,0,0, 196 - m_length), value=0)
-            return self.gt_motions[idx], padded_z, m_length, self.captions[idx], padding_mask
+            max_len = self.gt_shape[1]
+            padding_mask = torch.nn.functional.pad(torch.zeros(m_length), (0, max_len - m_length), value=1).bool()
+            return gt_motion, z, m_length, self.captions[idx], padding_mask
         else:
-            return self.gt_motions[idx], self.z[idx]
-        
+            return gt_motion, z
+
     def inv_transform(self, data): # denormalize the data
         return data * self.std + self.mean
-    
-    
+
+
 class RefinementDatasetEval(data.Dataset):
     def __init__(self, gt_motions, output_motions, mean, std, word_embeddings, pos_one_hots, captions, sent_lens, m_lengths, tokens):
         self.gt_motions = gt_motions
@@ -348,41 +362,63 @@ def make_refinement_dataset(dataset, vqvae, batch_size):
     return refinement_dataset
 
 
-def make_rf_decoder_dataset(dataset, vqvae, batch_size):
-    # Precompute the VQ-VAE encodings (i.e from the codebooks) for the entire dataset using batch inference
+def make_rf_decoder_dataset(dataset, vqvae, batch_size, cache_dir):
+    # Precompute the VQ-VAE encodings (i.e from the codebooks) for the entire dataset using batch inference.
+    # Results are streamed straight to disk-backed memmap files instead of being
+    # accumulated in RAM (the full dataset no longer fits in host memory -- see OOM
+    # investigation: precompute alone needed 150GB+ RAM for HumanML3D-scale window counts).
     print("Precomputing VQ-VAE outputs for the entire dataset...")
     start_time = time.time()
     assert vqvae.__class__.__name__ in ['MotionPriorWrapper', 'VQVAE_251']
-    gt_motions, output_encodings = [], []
-    if dataset.__class__.__name__ == 'Text2MotionDataset': # this is when we use full length dataset
+    os.makedirs(cache_dir, exist_ok=True)
+    is_full_motion = dataset.__class__.__name__ == 'Text2MotionDataset'
+    if is_full_motion: # this is when we use full length dataset
         m_lengths, captions = [], []
     else:
         m_lengths, captions = None, None
-        
+
     device = next(vqvae.parameters()).device
     data_loader = data.DataLoader(dataset, batch_size=batch_size, shuffle=False)
 
+    n = len(dataset)
+    gt_mmap, z_mmap = None, None
+    write_ptr = 0
     for batch in tqdm(data_loader):
-        if dataset.__class__.__name__ == 'Text2MotionDataset':
+        if is_full_motion:
             caption, motion, m_length = batch
-            m_lengths.extend(m_length)
+            m_lengths.extend(m_length.tolist())
             captions.extend(caption)
         elif dataset.__class__.__name__ == 'MotionDataset':
             motion = batch
-            
+
         gt_batch = motion.float().to(device)
         with torch.no_grad():
             output_batch = vqvae.get_z(gt_batch.to(device)).to(device)
-        # output_batch =  torch.nn.functional.interpolate(output_batch, scale_factor=4, mode='nearest')
+        # (B, encoder dim, seq_len/q) -> (B, seq_len, encoder_dim)
         output_batch = output_batch.permute(0, 2, 1)
-        # (B, encoder dim, seq_len/q) -> (B, encoder_dim, seq_len)
-        gt_motions.extend(gt_batch.cpu())
-        output_encodings.extend(output_batch.cpu())
+
+        gt_batch_np = gt_batch.cpu().numpy()
+        z_batch_np = output_batch.cpu().numpy()
+
+        if gt_mmap is None: # first batch: now that we know per-sample shape, allocate the on-disk arrays
+            gt_shape = (n,) + gt_batch_np.shape[1:]
+            z_shape = (n,) + z_batch_np.shape[1:]
+            np.save(os.path.join(cache_dir, 'gt_shape.npy'), np.array(gt_shape))
+            np.save(os.path.join(cache_dir, 'z_shape.npy'), np.array(z_shape))
+            gt_mmap = np.memmap(os.path.join(cache_dir, 'gt_motions.dat'), dtype=np.float32, mode='w+', shape=gt_shape)
+            z_mmap = np.memmap(os.path.join(cache_dir, 'z_encodings.dat'), dtype=np.float32, mode='w+', shape=z_shape)
+
+        b = gt_batch_np.shape[0]
+        gt_mmap[write_ptr:write_ptr + b] = gt_batch_np
+        z_mmap[write_ptr:write_ptr + b] = z_batch_np
+        write_ptr += b
+    gt_mmap.flush()
+    z_mmap.flush()
     end_time = time.time()
     elapsed_time = end_time - start_time
     print(f"Precomputing completed in {elapsed_time:.2f} seconds.")
-    # Create an instance of the RefinementDataset with the precomputed motions
-    refinement_dataset = RFDecoderDataset(gt_motions, output_encodings, dataset.mean, dataset.std, m_lengths=m_lengths, captions=captions)
+    # Create an instance of the RFDecoderDataset backed by the on-disk memmap files
+    refinement_dataset = RFDecoderDataset(cache_dir, n, dataset.mean, dataset.std, m_lengths=m_lengths, captions=captions)
     # get rid of vqvae from gpu
     vqvae.cpu()
     return refinement_dataset

@@ -1,0 +1,19 @@
+100%|██████████| 23384/23384 [00:08<00:00, 2840.20it/s]
+Total number of motions 20942, snippets 1847722
+100%|██████████| 1460/1460 [00:00<00:00, 2783.00it/s]
+Total number of motions 1300, snippets 116698
+Precomputing VQ-VAE outputs for the entire dataset...
+100%|██████████| 903/903 [26:26<00:00,  1.76s/it]
+Precomputing completed in 1590.22 seconds.
+Traceback (most recent call last):
+  File "run/train_rf_decoder_from_vqvae.py", line 312, in <module>
+    main(args)
+  File "run/train_rf_decoder_from_vqvae.py", line 211, in main
+    refine_train_dataset = make_rf_decoder_dataset(train_dataset, vqvae, refinement_batch_size, cache_dir=f'{save_path}/cache/train')
+  File "/nas2/data/dpfla3573/code/PRISM/datasets/t2m_dataset.py", line 421, in make_rf_decoder_dataset
+    refinement_dataset = RFDecoderDataset(cache_dir, n, dataset.mean, dataset.std, m_lengths=m_lengths, captions=captions)
+  File "/nas2/data/dpfla3573/code/PRISM/datasets/t2m_dataset.py", line 268, in __init__
+    self.gt_shape = tuple(np.load(os.path.join(cache_dir, 'gt_shape.npy')))
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/numpy/lib/npyio.py", line 407, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: 'checkpoints/RFDecoder_t2m_0727170312/cache/train/gt_shape.npy'
