@@ -1,0 +1,7 @@
+# Install this FIRST, separately. flash-attn's setup.py does `import torch`
+# during metadata generation, which fails if torch isn't already installed
+# in the env yet (as happens when everything is installed in one shot via
+# `pip install -r requirements.txt` or `conda env create -f environment.yaml`).
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.4.1+cu121
+torchvision==0.19.1+cu121

@@ -1,0 +1,89 @@
+# Combined conda environment for MoScale (github.com/zhiwei-zzz/MoScale)
+# + DisCoRD (github.com/whwjdqls/DisCoRD).
+#
+# Both repos ship their own environment.yaml/.yml pinned to DIFFERENT CUDA
+# builds of PyTorch:
+#   - DisCoRD: conda pytorch=2.2.2 + pytorch-cuda=11.8, torchvision=0.17.2
+#   - MoScale: pip   torch==2.4.1+cu121,               torchvision (unpinned)
+# You cannot install both a conda-channel PyTorch and a pip cu121 wheel into
+# the same env, so this file standardizes on MoScale's stack (torch 2.4.1 /
+# CUDA 12.1) because flash-attn==2.7.0.post2 only ships prebuilt wheels for
+# specific (python, torch, cuda) combos, and py3.8+cu12+torch2.4 is one of
+# them (auto-fetched by flash-attn's own installer -- no local nvcc needed).
+# DisCoRD's own deps (denoising_diffusion_pytorch, vector_quantize_pytorch,
+# torchdiffeq, ema_pytorch, timm, CLIP, etc.) are pure-Python/torch-API code
+# with no CUDA-version-specific binaries, so they run fine on torch 2.4.1
+# even though DisCoRD was only tested on 2.2.2.
+#
+# Version conflicts found between the two original files, and how they were
+# resolved here:
+#   - torch:        2.2.2/cu118 (DisCoRD) vs 2.4.1/cu121 (MoScale) -> kept 2.4.1/cu121
+#   - torchvision:  0.17.2      (DisCoRD) vs unpinned    (MoScale) -> pinned 0.19.1+cu121
+#                   (the version PyTorch's compat matrix pairs with torch 2.4.1)
+#   - numpy:        =1.22       (DisCoRD) vs unpinned    (MoScale) -> kept 1.22.4
+#                   DisCoRD code may use np.float/np.int/np.bool aliases that
+#                   were REMOVED in numpy 1.24, so don't bump this casually.
+#   - scipy:        ==1.9.1     (DisCoRD) vs ==1.10.1    (MoScale) -> kept 1.10.1 (compatible w/ numpy 1.22)
+#   - matplotlib:   ==3.3.4     (DisCoRD) vs ==3.4.3     (MoScale) -> kept 3.4.3
+#   - tqdm:         ==4.66.5    (DisCoRD) vs ==4.67.1    (MoScale) -> kept 4.67.1
+#   - pip:          =20.3 (2020, DisCoRD) -> left unpinned/modern; an old pip
+#                   can mishandle --extra-index-url and flash-attn's wheel
+#                   auto-fetcher, so don't reintroduce that pin.
+#   - einops:       ==0.8.0 in both -> no conflict.
+#
+# Caveats that pinning alone can't fix:
+#   - Your NVIDIA driver must support CUDA 12.1 (driver >= 530.30 on Linux).
+#     If you're stuck on an older driver, the whole stack would need to move
+#     back to cu118 builds instead, and flash-attn would need to be pinned to
+#     a cu11 wheel variant (e.g. +cu11torch2.4...) -- see the release list at
+#     https://github.com/Dao-AILab/flash-attention/releases/tag/v2.7.0.post2
+#   - Verify at runtime that DisCoRD's code doesn't hit numpy 1.24+ deprecated
+#     aliases if you ever bump numpy independently later.
+
+name: prism
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+
+  - pip:
+      # ---- PyTorch (CUDA 12.1) — single shared stack ----
+      - --extra-index-url https://download.pytorch.org/whl/cu121
+      - torch==2.4.1+cu121
+      - torchvision==0.19.1+cu121
+
+      # ---- MoScale ----
+      - flash-attn==2.7.0.post2
+      - transformers==4.46.3
+      - sentencepiece==0.2.0
+      - wandb==0.21.1
+      - tensorboard==2.14.0
+      - imageio==2.9.0
+      - imageio-ffmpeg
+      - pyyaml
+
+      # ---- DisCoRD ----
+      - timm==0.9.12
+      - clip @ git+https://github.com/openai/CLIP.git
+      - einx==0.3.0
+      - gdown==5.2.0
+      - denoising_diffusion_pytorch==2.1.1
+      - vector-quantize-pytorch==1.6.30
+      - omegaconf==2.3.0
+      - torchdiffeq==0.2.4
+      - ema-pytorch==0.7.0
+      # required for configs/config_model.yaml's `scheduler: cosine_warmup`
+      # (train_rf_decoder_from_vqvae.py imports CosineAnnealingWarmupRestarts
+      # from this); not on PyPI, and missing from DisCoRD's own environment.yaml
+      - cosine_annealing_warmup @ git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-warmup.git
+
+      # ---- shared, version-unified (see notes above) ----
+      - numpy==1.22.4
+      - scipy==1.10.1
+      - matplotlib==3.4.3
+      - tqdm==4.67.1
+      - einops==0.8.0

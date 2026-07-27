@@ -1,0 +1,39 @@
+# pip requirements for the `prism` conda env (see environment.yaml for the
+# full rationale/version-conflict notes).
+#
+# Install requirements-torch.txt FIRST, in its own `pip install` command,
+# then this file. flash-attn's setup.py runs `import torch` at metadata-
+# generation time, which fails if torch isn't already importable in the env
+# -- pip resolves/preps metadata for every package in a requirements.txt
+# before installing any of them, so torch listed in the same file doesn't
+# help; it has to already be installed beforehand.
+
+# ---- MoScale ----
+flash-attn==2.7.0.post2
+transformers==4.46.3
+sentencepiece==0.2.0
+wandb==0.21.1
+tensorboard==2.14.0
+imageio==2.9.0
+imageio-ffmpeg
+pyyaml
+
+# ---- DisCoRD ----
+timm==0.9.12
+clip @ git+https://github.com/openai/CLIP.git
+einx==0.3.0
+gdown==5.2.0
+denoising_diffusion_pytorch==2.1.1
+vector-quantize-pytorch==1.6.30
+omegaconf==2.3.0
+torchdiffeq==0.2.4
+ema-pytorch==0.7.0
+# scheduler: cosine_warmup (configs/config_model.yaml) -- not on PyPI
+cosine_annealing_warmup @ git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-warmup.git
+
+# ---- shared, version-unified ----
+numpy==1.22.4
+scipy==1.10.1
+matplotlib==3.4.3
+tqdm==4.67.1
+einops==0.8.0

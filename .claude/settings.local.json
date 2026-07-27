@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/yerim/Code/MoDisCoRD/MotionGen/**)",
+      "Bash(python3 -c \"import sys; print\\(sys.path\\)\")",
+      "Bash(find / -iname \"transformer.py\" -path \"*momask*\")",
+      "Read(//home/yerim/Code/MoDisCoRD/**)",
+      "Read(//home/yerim/Code/MoDisCoRD/run/**)",
+      "Bash(echo \"---exit:$?\")",
+      "Bash(nvidia-smi)",
+      "Bash(python3 -c \"import torch; print\\('cuda available:', torch.cuda.is_available\\(\\)\\)\")",
+      "Bash(git count-objects *)",
+      "Bash(git rev-list *)",
+      "Bash(git cat-file *)",
+      "Bash(awk '$1==\"blob\"{print $3, $4}')",
+      "Bash(awk '{print $1}')",
+      "Bash(git ls-tree *)",
+      "Bash(awk '{print $4, $5}')"
+    ]
+  }
+}
