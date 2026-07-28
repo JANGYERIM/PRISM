@@ -181,6 +181,7 @@ def evaluation_moscale_with_rf(
     sample_time=None,
     rf_model=None,
     cal_mm=True,
+    use_refinement=True,  # False면 rf_model이 있어도 순수 가우시안 노이즈에서 시작 (refinement 이전 체크포인트 평가용)
 ):
     trans.eval()
     vq_model.eval()
@@ -197,6 +198,26 @@ def evaluation_moscale_with_rf(
     nb_sample = 0
     num_mm_batch = 3 if cal_mm else 0
 
+    def generate_pred_motions(clip_text, m_length):
+        mids = trans.generate(
+            clip_text, m_length // 4, cond_scale,
+            temperature=temperature, vq_model=vq_model,
+            sample_time=sample_time, top_p_thres=top_p_thres,
+        )
+        if rf_model is None:
+            return vq_model.forward_decoder(mids, m_length.clone())
+
+        z = vq_model.quantizer.get_codes_from_indices(mids)
+        m_len = m_length if rf_model.model_cfg.train.get('full_motion', False) else None
+
+        if use_refinement:
+            vqvae_out = vq_model.decoder(z.permute(0, 2, 1))
+            x0 = vqvae_out + rf_model.model_cfg.model.noise_std * torch.randn_like(vqvae_out)
+        else:
+            x0 = None  # 순수 가우시안 노이즈에서 시작 (refinement 이전 체크포인트와 호환)
+
+        return rf_model.sample_from_z(z, m_length=m_len, noise=x0)
+
     for i, batch in enumerate(val_loader):
         word_embeddings, pos_one_hots, clip_text, sent_len, pose, m_length, token = batch
         m_length = m_length.cuda()
@@ -205,21 +226,7 @@ def evaluation_moscale_with_rf(
         if i < num_mm_batch:
             motion_multimodality_batch = []
             for _ in range(30):
-                mids = trans.generate(
-                    clip_text, m_length // 4, cond_scale,
-                    temperature=temperature, vq_model=vq_model,
-                    sample_time=sample_time, top_p_thres=top_p_thres,
-                )
-                
-                if rf_model is not None:
-                    z= vq_model.quantizer.get_codes_from_indices(mids)
-                    if 'full_motion' in rf_model.model_cfg.train.keys() and rf_model.model_cfg.train.full_motion:
-                        pred_motions = rf_model.sample_from_z(z, m_length=m_length)
-                    else:
-                        pred_motions = rf_model.sample_from_z(z,m_length=None)
-                # else:
-                #     pred_motions = vq_model.forward_decoder(mids, m_length.clone())
-
+                pred_motions = generate_pred_motions(clip_text, m_length)
                 et_pred, em_pred = eval_wrapper.get_co_embeddings(
                     word_embeddings, pos_one_hots, sent_len, pred_motions.clone(), m_length
                 )
@@ -227,19 +234,7 @@ def evaluation_moscale_with_rf(
             motion_multimodality_batch = torch.cat(motion_multimodality_batch, dim=1)
             motion_multimodality.append(motion_multimodality_batch)
         else:
-            mids = trans.generate(
-                clip_text, m_length // 4, cond_scale,
-                temperature=temperature, vq_model=vq_model,
-                sample_time=sample_time, top_p_thres=top_p_thres,
-            )
-            pred_motions = vq_model.forward_decoder(mids, m_length.clone())
-
-            if rf_model is not None:
-                if 'full_motion' in rf_model.model_cfg.train.keys() and rf_model.model_cfg.train.full_motion:
-                    pred_motions, _ = rf_model(pred_motions, m_length=m_length)
-                else:
-                    pred_motions, _ = rf_model(pred_motions)
-
+            pred_motions = generate_pred_motions(clip_text, m_length)
             et_pred, em_pred = eval_wrapper.get_co_embeddings(
                 word_embeddings, pos_one_hots, sent_len, pred_motions.clone(), m_length
             )

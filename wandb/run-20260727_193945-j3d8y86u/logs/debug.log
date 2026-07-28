@@ -19,3 +19,4 @@ config: {'model': {'name': 'RFDecoder', 'output_dim': 263, 'noise_std': 0.1, 'us
 2026-07-27 19:39:52,473 INFO    MainThread:1755894 [wandb_run.py:_redirect():2411] Wrapping output streams.
 2026-07-27 19:39:52,473 INFO    MainThread:1755894 [wandb_run.py:_redirect():2434] Redirects installed.
 2026-07-27 19:39:52,530 INFO    MainThread:1755894 [wandb_init.py:init():1075] run started, returning control to user process
+2026-07-27 22:38:08,468 INFO    MsgRouterThr:1755894 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.

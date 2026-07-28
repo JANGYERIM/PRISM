@@ -41,7 +41,7 @@ train:
   ema_rate: 0.999
   vqvae_inference: false
   full_motion: true
-  num_epochs: 200
+  num_epochs: 500
   lr: 0.0005
   scheduler: cosine_warmup
   min_lr: 1.0e-05

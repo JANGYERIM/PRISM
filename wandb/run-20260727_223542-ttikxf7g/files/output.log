@@ -1,0 +1,6 @@
+100%|██████████| 23384/23384 [00:07<00:00, 3282.34it/s]
+Total number of motions 20942, snippets 1847722
+100%|██████████| 1460/1460 [00:00<00:00, 3246.02it/s]
+Total number of motions 1300, snippets 116698
+Precomputing VQ-VAE outputs for the entire dataset...
+ 11%|█         | 101/903 [02:49<39:50,  2.98s/it]

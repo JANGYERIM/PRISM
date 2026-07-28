@@ -1,0 +1,3199 @@
+/nas2/data/dpfla3573/code/PRISM/MotionPriors/MotionPrior.py:33: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(model_ckpt_path, map_location='cpu')
+wandb: Currently logged in as: dpfla3573 (jangyerim) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.1
+wandb: Run data is saved locally in /nas2/data/dpfla3573/code/PRISM/wandb/run-20260727_193945-j3d8y86u
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run RFDecoder_t2m_fmTrue_bs384_0727193943
+wandb: ⭐️ View project at https://wandb.ai/jangyerim/decoderRF
+wandb: 🚀 View run at https://wandb.ai/jangyerim/decoderRF/runs/j3d8y86u
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+  0%|          | 0/23384 [00:00<?, ?it/s]  1%|          | 235/23384 [00:00<00:09, 2343.88it/s]  2%|▏         | 474/23384 [00:00<00:09, 2370.09it/s]  3%|▎         | 716/23384 [00:00<00:09, 2391.85it/s]  4%|▍         | 976/23384 [00:00<00:09, 2472.54it/s]  5%|▌         | 1224/23384 [00:00<00:09, 2372.94it/s]  6%|▋         | 1483/23384 [00:00<00:08, 2442.85it/s]  7%|▋         | 1728/23384 [00:00<00:15, 1373.69it/s]  8%|▊         | 1969/23384 [00:01<00:13, 1584.29it/s]  9%|▉         | 2181/23384 [00:01<00:12, 1704.62it/s] 10%|█         | 2423/23384 [00:01<00:11, 1878.07it/s] 11%|█▏        | 2668/23384 [00:01<00:10, 2025.53it/s] 12%|█▏        | 2913/23384 [00:01<00:09, 2138.53it/s] 13%|█▎        | 3151/23384 [00:01<00:09, 2204.89it/s] 15%|█▍        | 3396/23384 [00:01<00:08, 2273.92it/s] 16%|█▌        | 3633/23384 [00:01<00:08, 2276.42it/s] 17%|█▋        | 3875/23384 [00:01<00:08, 2317.75it/s] 18%|█▊        | 4120/23384 [00:01<00:08, 2355.00it/s] 19%|█▊        | 4360/23384 [00:02<00:08, 2366.66it/s] 20%|█▉        | 4604/23384 [00:02<00:07, 2387.60it/s] 21%|██        | 4852/23384 [00:02<00:07, 2413.14it/s] 22%|██▏       | 5103/23384 [00:02<00:07, 2440.36it/s] 23%|██▎       | 5349/23384 [00:02<00:07, 2443.83it/s] 24%|██▍       | 5595/23384 [00:02<00:07, 2447.39it/s] 25%|██▍       | 5841/23384 [00:02<00:07, 2436.89it/s] 26%|██▌       | 6092/23384 [00:02<00:07, 2456.48it/s] 27%|██▋       | 6338/23384 [00:02<00:07, 2422.04it/s] 28%|██▊       | 6581/23384 [00:02<00:06, 2419.88it/s] 29%|██▉       | 6824/23384 [00:03<00:06, 2421.86it/s] 30%|███       | 7071/23384 [00:03<00:06, 2435.38it/s] 31%|███▏      | 7315/23384 [00:03<00:06, 2431.75it/s] 32%|███▏      | 7559/23384 [00:03<00:06, 2420.18it/s] 33%|███▎      | 7802/23384 [00:03<00:06, 2408.18it/s] 34%|███▍      | 8047/23384 [00:03<00:06, 2418.30it/s] 35%|███▌      | 8294/23384 [00:03<00:06, 2433.00it/s] 37%|███▋      | 8543/23384 [00:03<00:06, 2449.18it/s] 38%|███▊      | 8788/23384 [00:03<00:05, 2432.95it/s] 39%|███▊      | 9032/23384 [00:03<00:05, 2422.36it/s] 40%|███▉      | 9275/23384 [00:04<00:05, 2408.74it/s] 41%|████      | 9516/23384 [00:04<00:05, 2395.77it/s] 42%|████▏     | 9756/23384 [00:04<00:05, 2309.21it/s] 43%|████▎     | 9995/23384 [00:04<00:05, 2331.28it/s] 44%|████▍     | 10233/23384 [00:04<00:05, 2343.98it/s] 45%|████▍     | 10469/23384 [00:04<00:05, 2348.15it/s] 46%|████▌     | 10709/23384 [00:04<00:05, 2362.28it/s] 47%|████▋     | 10946/23384 [00:04<00:05, 2360.90it/s] 48%|████▊     | 11183/23384 [00:04<00:05, 2348.12it/s] 49%|████▉     | 11420/23384 [00:05<00:05, 2354.04it/s] 50%|████▉     | 11658/23384 [00:05<00:04, 2359.37it/s] 51%|█████     | 11906/23384 [00:05<00:04, 2394.50it/s] 52%|█████▏    | 12147/23384 [00:05<00:04, 2397.82it/s] 53%|█████▎    | 12387/23384 [00:05<00:04, 2309.20it/s] 54%|█████▍    | 12627/23384 [00:05<00:04, 2332.79it/s] 55%|█████▌    | 12875/23384 [00:05<00:04, 2375.26it/s] 56%|█████▌    | 13119/23384 [00:05<00:04, 2391.62it/s] 57%|█████▋    | 13359/23384 [00:05<00:04, 2302.64it/s] 58%|█████▊    | 13591/23384 [00:05<00:04, 2236.48it/s] 59%|█████▉    | 13816/23384 [00:06<00:04, 2215.29it/s] 60%|██████    | 14039/23384 [00:06<00:04, 2167.55it/s] 61%|██████    | 14285/23384 [00:06<00:04, 2249.21it/s] 62%|██████▏   | 14527/23384 [00:06<00:03, 2298.62it/s] 63%|██████▎   | 14758/23384 [00:06<00:06, 1309.24it/s] 64%|██████▍   | 14999/23384 [00:06<00:05, 1520.43it/s] 65%|██████▌   | 15239/23384 [00:06<00:04, 1709.70it/s] 66%|██████▌   | 15482/23384 [00:07<00:04, 1877.52it/s] 67%|██████▋   | 15726/23384 [00:07<00:03, 2018.21it/s] 68%|██████▊   | 15975/23384 [00:07<00:03, 2141.14it/s] 69%|██████▉   | 16220/23384 [00:07<00:03, 2225.41it/s] 70%|███████   | 16468/23384 [00:07<00:03, 2295.13it/s] 71%|███████▏  | 16710/23384 [00:07<00:02, 2328.26it/s] 72%|███████▏  | 16951/23384 [00:07<00:02, 2259.39it/s] 73%|███████▎  | 17183/23384 [00:07<00:02, 2186.45it/s] 75%|███████▍  | 17429/23384 [00:07<00:02, 2261.15it/s] 76%|███████▌  | 17671/23384 [00:07<00:02, 2303.15it/s] 77%|███████▋  | 17904/23384 [00:08<00:02, 2257.25it/s] 78%|███████▊  | 18148/23384 [00:08<00:02, 2308.19it/s] 79%|███████▊  | 18395/23384 [00:08<00:02, 2353.19it/s] 80%|███████▉  | 18643/23384 [00:08<00:01, 2389.21it/s] 81%|████████  | 18892/23384 [00:08<00:01, 2416.34it/s] 82%|████████▏ | 19136/23384 [00:08<00:01, 2422.37it/s] 83%|████████▎ | 19379/23384 [00:08<00:01, 2407.66it/s] 84%|████████▍ | 19633/23384 [00:08<00:01, 2444.29it/s] 85%|████████▌ | 19885/23384 [00:08<00:01, 2464.55it/s] 86%|████████▌ | 20132/23384 [00:08<00:01, 2449.68it/s] 87%|████████▋ | 20379/23384 [00:09<00:01, 2455.01it/s] 88%|████████▊ | 20625/23384 [00:09<00:01, 2449.22it/s] 89%|████████▉ | 20871/23384 [00:09<00:01, 2330.00it/s] 90%|█████████ | 21109/23384 [00:09<00:00, 2343.05it/s] 91%|█████████▏| 21345/23384 [00:09<00:00, 2319.87it/s] 92%|█████████▏| 21578/23384 [00:09<00:00, 2244.23it/s] 93%|█████████▎| 21817/23384 [00:09<00:00, 2283.69it/s] 94%|█████████▍| 22062/23384 [00:09<00:00, 2331.25it/s] 95%|█████████▌| 22310/23384 [00:09<00:00, 2372.29it/s] 96%|█████████▋| 22548/23384 [00:10<00:00, 2307.77it/s] 97%|█████████▋| 22794/23384 [00:10<00:00, 2350.25it/s] 99%|█████████▊| 23043/23384 [00:10<00:00, 2390.75it/s]100%|█████████▉| 23283/23384 [00:10<00:00, 2379.66it/s]100%|██████████| 23384/23384 [00:10<00:00, 2259.82it/s]
+  0%|          | 0/1460 [00:00<?, ?it/s] 17%|█▋        | 248/1460 [00:00<00:00, 2472.00it/s] 34%|███▍      | 496/1460 [00:00<00:00, 2386.36it/s] 51%|█████     | 741/1460 [00:00<00:00, 2411.91it/s] 67%|██████▋   | 983/1460 [00:00<00:00, 2301.56it/s] 85%|████████▍ | 1234/1460 [00:00<00:00, 2370.96it/s]100%|██████████| 1460/1460 [00:00<00:00, 2380.04it/s]
+Precomputing VQ-VAE outputs for the entire dataset...
+  0%|          | 0/96 [00:00<?, ?it/s]  1%|          | 1/96 [00:02<03:51,  2.44s/it]  2%|▏         | 2/96 [00:02<01:58,  1.26s/it]  3%|▎         | 3/96 [00:03<01:28,  1.05it/s]  4%|▍         | 4/96 [00:03<01:09,  1.32it/s]  5%|▌         | 5/96 [00:04<00:58,  1.56it/s]  6%|▋         | 6/96 [00:04<00:55,  1.63it/s]  7%|▋         | 7/96 [00:05<00:48,  1.84it/s]  8%|▊         | 8/96 [00:05<00:43,  2.03it/s]  9%|▉         | 9/96 [00:06<00:43,  1.98it/s] 10%|█         | 10/96 [00:06<00:41,  2.06it/s] 11%|█▏        | 11/96 [00:07<00:51,  1.65it/s] 12%|█▎        | 12/96 [00:08<00:49,  1.70it/s] 14%|█▎        | 13/96 [00:08<00:44,  1.87it/s] 15%|█▍        | 14/96 [00:08<00:40,  2.01it/s] 16%|█▌        | 15/96 [00:09<00:41,  1.97it/s] 17%|█▋        | 16/96 [00:09<00:38,  2.06it/s] 18%|█▊        | 17/96 [00:10<00:36,  2.17it/s] 19%|█▉        | 18/96 [00:10<00:39,  1.99it/s] 20%|█▉        | 19/96 [00:11<00:37,  2.07it/s] 21%|██        | 20/96 [00:11<00:35,  2.11it/s] 22%|██▏       | 21/96 [00:13<00:58,  1.28it/s] 23%|██▎       | 22/96 [00:13<00:49,  1.49it/s] 24%|██▍       | 23/96 [00:14<00:43,  1.68it/s] 25%|██▌       | 24/96 [00:14<00:41,  1.71it/s] 26%|██▌       | 25/96 [00:15<00:38,  1.85it/s] 27%|██▋       | 26/96 [00:15<00:36,  1.93it/s] 28%|██▊       | 27/96 [00:16<00:36,  1.89it/s] 29%|██▉       | 28/96 [00:16<00:34,  1.98it/s] 30%|███       | 29/96 [00:16<00:31,  2.12it/s] 31%|███▏      | 30/96 [00:17<00:34,  1.92it/s] 32%|███▏      | 31/96 [00:18<00:32,  1.99it/s] 33%|███▎      | 32/96 [00:18<00:31,  2.04it/s] 34%|███▍      | 33/96 [00:19<00:34,  1.83it/s] 35%|███▌      | 34/96 [00:19<00:31,  1.97it/s] 36%|███▋      | 35/96 [00:20<00:30,  1.99it/s] 38%|███▊      | 36/96 [00:20<00:32,  1.84it/s] 39%|███▊      | 37/96 [00:21<00:29,  1.97it/s] 40%|███▉      | 38/96 [00:21<00:27,  2.10it/s] 41%|████      | 39/96 [00:22<00:34,  1.67it/s] 42%|████▏     | 40/96 [00:22<00:30,  1.83it/s] 43%|████▎     | 41/96 [00:23<00:28,  1.92it/s] 44%|████▍     | 42/96 [00:23<00:29,  1.82it/s] 45%|████▍     | 43/96 [00:24<00:27,  1.96it/s] 46%|████▌     | 44/96 [00:24<00:25,  2.06it/s] 47%|████▋     | 45/96 [00:25<00:26,  1.96it/s] 48%|████▊     | 46/96 [00:25<00:24,  2.01it/s] 49%|████▉     | 47/96 [00:26<00:24,  1.99it/s] 50%|█████     | 48/96 [00:26<00:25,  1.88it/s] 51%|█████     | 49/96 [00:27<00:23,  2.00it/s] 52%|█████▏    | 50/96 [00:27<00:22,  2.02it/s] 53%|█████▎    | 51/96 [00:28<00:24,  1.81it/s] 54%|█████▍    | 52/96 [00:29<00:23,  1.87it/s] 55%|█████▌    | 53/96 [00:29<00:21,  1.98it/s] 56%|█████▋    | 54/96 [00:30<00:23,  1.82it/s] 57%|█████▋    | 55/96 [00:30<00:20,  1.96it/s] 58%|█████▊    | 56/96 [00:30<00:19,  2.07it/s] 59%|█████▉    | 57/96 [00:31<00:19,  2.01it/s] 60%|██████    | 58/96 [00:31<00:18,  2.05it/s] 61%|██████▏   | 59/96 [00:32<00:17,  2.15it/s] 62%|██████▎   | 60/96 [00:32<00:18,  2.00it/s] 64%|██████▎   | 61/96 [00:33<00:16,  2.11it/s] 65%|██████▍   | 62/96 [00:33<00:15,  2.19it/s] 66%|██████▌   | 63/96 [00:34<00:15,  2.08it/s] 67%|██████▋   | 64/96 [00:34<00:14,  2.17it/s] 68%|██████▊   | 65/96 [00:35<00:14,  2.18it/s] 69%|██████▉   | 66/96 [00:35<00:14,  2.06it/s] 70%|██████▉   | 67/96 [00:36<00:13,  2.13it/s] 71%|███████   | 68/96 [00:36<00:12,  2.25it/s] 72%|███████▏  | 69/96 [00:37<00:12,  2.13it/s] 73%|███████▎  | 70/96 [00:37<00:11,  2.21it/s] 74%|███████▍  | 71/96 [00:37<00:10,  2.29it/s] 75%|███████▌  | 72/96 [00:38<00:11,  2.11it/s] 76%|███████▌  | 73/96 [00:38<00:10,  2.19it/s] 77%|███████▋  | 74/96 [00:39<00:09,  2.26it/s] 78%|███████▊  | 75/96 [00:39<00:10,  2.08it/s] 79%|███████▉  | 76/96 [00:40<00:09,  2.15it/s] 80%|████████  | 77/96 [00:40<00:08,  2.19it/s] 81%|████████▏ | 78/96 [00:41<00:08,  2.06it/s] 82%|████████▏ | 79/96 [00:41<00:08,  2.08it/s] 83%|████████▎ | 80/96 [00:42<00:07,  2.18it/s] 84%|████████▍ | 81/96 [00:42<00:07,  1.95it/s] 85%|████████▌ | 82/96 [00:43<00:09,  1.55it/s] 86%|████████▋ | 83/96 [00:48<00:23,  1.83s/it] 88%|████████▊ | 84/96 [00:49<00:17,  1.48s/it] 89%|████████▊ | 85/96 [00:49<00:12,  1.17s/it] 90%|████████▉ | 86/96 [00:49<00:09,  1.05it/s] 91%|█████████ | 87/96 [00:50<00:07,  1.18it/s] 92%|█████████▏| 88/96 [00:50<00:05,  1.38it/s] 93%|█████████▎| 89/96 [00:51<00:04,  1.59it/s] 94%|█████████▍| 90/96 [00:51<00:03,  1.64it/s] 95%|█████████▍| 91/96 [00:52<00:02,  1.81it/s] 96%|█████████▌| 92/96 [00:52<00:02,  1.94it/s] 97%|█████████▋| 93/96 [00:53<00:01,  1.86it/s] 98%|█████████▊| 94/96 [00:53<00:01,  1.85it/s] 99%|█████████▉| 95/96 [00:54<00:00,  1.91it/s]100%|██████████| 96/96 [00:55<00:00,  1.79it/s]100%|██████████| 96/96 [00:55<00:00,  1.74it/s]
+Precomputing completed in 57.10 seconds.
+Total number of motions 24546
+Precomputing VQ-VAE outputs for the entire dataset...
+  0%|          | 0/6 [00:00<?, ?it/s] 17%|█▋        | 1/6 [00:08<00:40,  8.08s/it] 33%|███▎      | 2/6 [00:10<00:19,  4.99s/it] 50%|█████     | 3/6 [00:13<00:12,  4.01s/it] 67%|██████▋   | 4/6 [00:16<00:07,  3.56s/it] 83%|████████▎ | 5/6 [00:19<00:03,  3.25s/it]100%|██████████| 6/6 [00:21<00:00,  3.03s/it]100%|██████████| 6/6 [00:21<00:00,  3.65s/it]
+Precomputing completed in 22.58 seconds.
+Total number of motions 1530
+  0%|          | 0/1460 [00:00<?, ?it/s] 16%|█▌        | 230/1460 [00:00<00:00, 2296.80it/s] 32%|███▏      | 460/1460 [00:00<00:00, 2250.09it/s] 50%|████▉     | 727/1460 [00:00<00:00, 2439.32it/s] 67%|██████▋   | 972/1460 [00:00<00:00, 2362.22it/s] 83%|████████▎ | 1209/1460 [00:00<00:00, 2345.23it/s]100%|██████████| 1460/1460 [00:00<00:00, 2386.40it/s]Pointer Pointing at 0
+epoch 0 num_epochs 200
+
+Train Epoch: 0 [0/24546 (0%)]	Loss: 21.000427
+Train Epoch: 0 [50/24546 (16%)]	Loss: 19.055609
+Train Epoch: 0 [100/24546 (32%)]	Loss: 17.911400
+Train Epoch: 0 [150/24546 (48%)]	Loss: 17.084486
+Train Epoch: 0 [200/24546 (63%)]	Loss: 14.935541
+Train Epoch: 0 [250/24546 (79%)]	Loss: 14.830041
+Train Epoch: 0 [300/24546 (95%)]	Loss: 14.220197
+Train Epoch: 0	Average Loss: 0.000000
+Val Epoch: 0	Average Loss: 13.831399
+--------------------------------------------------
+Saved best model at epoch 0 with loss 13.831399
+
+epoch 1 num_epochs 200
+Train Epoch: 1 [0/24546 (0%)]	Loss: 14.179270
+Train Epoch: 1 [50/24546 (16%)]	Loss: 10.507347
+Train Epoch: 1 [100/24546 (32%)]	Loss: 7.618906
+Train Epoch: 1 [150/24546 (48%)]	Loss: 5.865055
+Train Epoch: 1 [200/24546 (63%)]	Loss: 5.045381
+Train Epoch: 1 [250/24546 (79%)]	Loss: 4.445343
+Train Epoch: 1 [300/24546 (95%)]	Loss: 4.027657
+Train Epoch: 1	Average Loss: 0.000000
+Val Epoch: 1	Average Loss: 3.920533
+--------------------------------------------------
+Saved best model at epoch 1 with loss 3.920533
+
+epoch 2 num_epochs 200
+Train Epoch: 2 [0/24546 (0%)]	Loss: 3.889728
+Train Epoch: 2 [50/24546 (16%)]	Loss: 3.863812
+Train Epoch: 2 [100/24546 (32%)]	Loss: 3.894040
+Train Epoch: 2 [150/24546 (48%)]	Loss: 3.704302
+Train Epoch: 2 [200/24546 (63%)]	Loss: 3.060390
+Train Epoch: 2 [250/24546 (79%)]	Loss: 3.047530
+Train Epoch: 2 [300/24546 (95%)]	Loss: 3.153050
+Train Epoch: 2	Average Loss: 0.000000
+Val Epoch: 2	Average Loss: 2.836418
+--------------------------------------------------
+Saved best model at epoch 2 with loss 2.836418
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 21.8172, Diversity Real. 9.4823, Diversity. 4.5155, R_precision_real. (0.5180, 0.7094, 0.7939), R_precision. (0.1476, 0.2520, 0.3444), matching_real. 2.9172, matching_pred. 6.1059, MPJPE. 0.2566
+Evaluation results:  {'FID': 21.817153870278062, 'Diversity': 4.515476, 'Top1': 0.14760638297872342, 'Top2': 0.25199468085106386, 'Top3': 0.34441489361702127, 'Matching': 6.105916774019282, 'MAE': 0.2565869}
+Saved model at epoch 2 with FID 21.81715
+
+epoch 3 num_epochs 200
+Train Epoch: 3 [0/24546 (0%)]	Loss: 3.312876
+Train Epoch: 3 [50/24546 (16%)]	Loss: 2.643573
+Train Epoch: 3 [100/24546 (32%)]	Loss: 2.594036
+Train Epoch: 3 [150/24546 (48%)]	Loss: 2.618977
+Train Epoch: 3 [200/24546 (63%)]	Loss: 2.498114
+Train Epoch: 3 [250/24546 (79%)]	Loss: 2.282124
+Train Epoch: 3 [300/24546 (95%)]	Loss: 2.215438
+Train Epoch: 3	Average Loss: 0.000000
+Val Epoch: 3	Average Loss: 2.227808
+--------------------------------------------------
+Saved best model at epoch 3 with loss 2.227808
+
+epoch 4 num_epochs 200
+Train Epoch: 4 [0/24546 (0%)]	Loss: 2.232148
+Train Epoch: 4 [50/24546 (16%)]	Loss: 2.288351
+Train Epoch: 4 [100/24546 (32%)]	Loss: 2.067374
+Train Epoch: 4 [150/24546 (48%)]	Loss: 2.054075
+Train Epoch: 4 [200/24546 (63%)]	Loss: 2.192073
+Train Epoch: 4 [250/24546 (79%)]	Loss: 2.271185
+Train Epoch: 4 [300/24546 (95%)]	Loss: 1.806059
+Train Epoch: 4	Average Loss: 0.000000
+Val Epoch: 4	Average Loss: 1.987726
+--------------------------------------------------
+Saved best model at epoch 4 with loss 1.987726
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 18.6506, Diversity Real. 9.4265, Diversity. 5.0553, R_precision_real. (0.5213, 0.7068, 0.7985), R_precision. (0.2001, 0.3418, 0.4468), matching_real. 2.9122, matching_pred. 5.7526, MPJPE. 0.2512
+Evaluation results:  {'FID': 18.65061736809765, 'Diversity': 5.055313, 'Top1': 0.20013297872340424, 'Top2': 0.34175531914893614, 'Top3': 0.44680851063829785, 'Matching': 5.752640531418171, 'MAE': 0.25116295}
+Saved model at epoch 4 with FID 18.65062
+
+epoch 5 num_epochs 200
+Train Epoch: 5 [0/24546 (0%)]	Loss: 1.881512
+Train Epoch: 5 [50/24546 (16%)]	Loss: 1.911471
+Train Epoch: 5 [100/24546 (32%)]	Loss: 2.174342
+Train Epoch: 5 [150/24546 (48%)]	Loss: 2.160265
+Train Epoch: 5 [200/24546 (63%)]	Loss: 1.863181
+Train Epoch: 5 [250/24546 (79%)]	Loss: 1.941389
+Train Epoch: 5 [300/24546 (95%)]	Loss: 1.762346
+Train Epoch: 5	Average Loss: 0.000000
+Val Epoch: 5	Average Loss: 1.836628
+--------------------------------------------------
+Saved best model at epoch 5 with loss 1.836628
+
+epoch 6 num_epochs 200
+Train Epoch: 6 [0/24546 (0%)]	Loss: 1.834439
+Train Epoch: 6 [50/24546 (16%)]	Loss: 1.746823
+Train Epoch: 6 [100/24546 (32%)]	Loss: 1.981451
+Train Epoch: 6 [150/24546 (48%)]	Loss: 1.709552
+Train Epoch: 6 [200/24546 (63%)]	Loss: 1.773269
+Train Epoch: 6 [250/24546 (79%)]	Loss: 1.755708
+Train Epoch: 6 [300/24546 (95%)]	Loss: 1.682190
+Train Epoch: 6	Average Loss: 0.000000
+Val Epoch: 6	Average Loss: 1.790957
+--------------------------------------------------
+Saved best model at epoch 6 with loss 1.790957
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 19.3103, Diversity Real. 9.5531, Diversity. 5.0365, R_precision_real. (0.5233, 0.7201, 0.8025), R_precision. (0.2254, 0.3710, 0.4747), matching_real. 2.9272, matching_pred. 5.5874, MPJPE. 0.2481
+Evaluation results:  {'FID': 19.310297813138263, 'Diversity': 5.036491, 'Top1': 0.22539893617021275, 'Top2': 0.37101063829787234, 'Top3': 0.4747340425531915, 'Matching': 5.587421194035956, 'MAE': 0.24807088}
+Saved model at epoch 6 with FID 19.31030
+
+epoch 7 num_epochs 200
+Train Epoch: 7 [0/24546 (0%)]	Loss: 1.702393
+Train Epoch: 7 [50/24546 (16%)]	Loss: 1.662586
+Train Epoch: 7 [100/24546 (32%)]	Loss: 1.718728
+Train Epoch: 7 [150/24546 (48%)]	Loss: 1.735875
+Train Epoch: 7 [200/24546 (63%)]	Loss: 1.704051
+Train Epoch: 7 [250/24546 (79%)]	Loss: 2.000965
+Train Epoch: 7 [300/24546 (95%)]	Loss: 1.778549
+Train Epoch: 7	Average Loss: 0.000000
+Val Epoch: 7	Average Loss: 1.617778
+--------------------------------------------------
+Saved best model at epoch 7 with loss 1.617778
+
+epoch 8 num_epochs 200
+Train Epoch: 8 [0/24546 (0%)]	Loss: 1.617502
+Train Epoch: 8 [50/24546 (16%)]	Loss: 1.730731
+Train Epoch: 8 [100/24546 (32%)]	Loss: 1.617617
+Train Epoch: 8 [150/24546 (48%)]	Loss: 1.775862
+Train Epoch: 8 [200/24546 (63%)]	Loss: 1.671115
+Train Epoch: 8 [250/24546 (79%)]	Loss: 1.810062
+Train Epoch: 8 [300/24546 (95%)]	Loss: 1.588706
+Train Epoch: 8	Average Loss: 0.000000
+Val Epoch: 8	Average Loss: 1.543121
+--------------------------------------------------
+Saved best model at epoch 8 with loss 1.543121
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 15.0053, Diversity Real. 9.3056, Diversity. 5.9605, R_precision_real. (0.5000, 0.6815, 0.7839), R_precision. (0.2420, 0.3757, 0.4914), matching_real. 2.9259, matching_pred. 5.3420, MPJPE. 0.2440
+Evaluation results:  {'FID': 15.005289359539077, 'Diversity': 5.960487, 'Top1': 0.24202127659574468, 'Top2': 0.37566489361702127, 'Top3': 0.4913563829787234, 'Matching': 5.342007951533541, 'MAE': 0.24403039}
+Saved model at epoch 8 with FID 15.00529
+
+epoch 9 num_epochs 200
+Train Epoch: 9 [0/24546 (0%)]	Loss: 1.560195
+Train Epoch: 9 [50/24546 (16%)]	Loss: 1.490681
+Train Epoch: 9 [100/24546 (32%)]	Loss: 1.593237
+Train Epoch: 9 [150/24546 (48%)]	Loss: 1.621481
+Train Epoch: 9 [200/24546 (63%)]	Loss: 1.634749
+Train Epoch: 9 [250/24546 (79%)]	Loss: 1.555545
+Train Epoch: 9 [300/24546 (95%)]	Loss: 1.400383
+Train Epoch: 9	Average Loss: 0.000000
+Val Epoch: 9	Average Loss: 1.561804
+--------------------------------------------------
+epoch 10 num_epochs 200
+Train Epoch: 10 [0/24546 (0%)]	Loss: 1.710617
+Train Epoch: 10 [50/24546 (16%)]	Loss: 1.477454
+Train Epoch: 10 [100/24546 (32%)]	Loss: 1.471810
+Train Epoch: 10 [150/24546 (48%)]	Loss: 1.820870
+Train Epoch: 10 [200/24546 (63%)]	Loss: 1.523425
+Train Epoch: 10 [250/24546 (79%)]	Loss: 1.475897
+Train Epoch: 10 [300/24546 (95%)]	Loss: 1.328873
+Train Epoch: 10	Average Loss: 0.000000
+Val Epoch: 10	Average Loss: 1.451819
+--------------------------------------------------
+Saved best model at epoch 10 with loss 1.451819
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 14.8530, Diversity Real. 9.4743, Diversity. 5.5898, R_precision_real. (0.5113, 0.6968, 0.7826), R_precision. (0.2600, 0.4195, 0.5339), matching_real. 2.8971, matching_pred. 5.1091, MPJPE. 0.2137
+Evaluation results:  {'FID': 14.853041612675426, 'Diversity': 5.589837, 'Top1': 0.2599734042553192, 'Top2': 0.4195478723404255, 'Top3': 0.5339095744680851, 'Matching': 5.109138072805202, 'MAE': 0.21368924}
+Saved model at epoch 10 with FID 14.85304
+
+epoch 11 num_epochs 200
+Train Epoch: 11 [0/24546 (0%)]	Loss: 1.323339
+Train Epoch: 11 [50/24546 (16%)]	Loss: 1.310549
+Train Epoch: 11 [100/24546 (32%)]	Loss: 1.432406
+Train Epoch: 11 [150/24546 (48%)]	Loss: 1.293729
+Train Epoch: 11 [200/24546 (63%)]	Loss: 1.326281
+Train Epoch: 11 [250/24546 (79%)]	Loss: 1.304654
+Train Epoch: 11 [300/24546 (95%)]	Loss: 1.341293
+Train Epoch: 11	Average Loss: 0.000000
+Val Epoch: 11	Average Loss: 1.418843
+--------------------------------------------------
+Saved best model at epoch 11 with loss 1.418843
+
+epoch 12 num_epochs 200
+Train Epoch: 12 [0/24546 (0%)]	Loss: 1.353231
+Train Epoch: 12 [50/24546 (16%)]	Loss: 1.254770
+Train Epoch: 12 [100/24546 (32%)]	Loss: 1.195234
+Train Epoch: 12 [150/24546 (48%)]	Loss: 1.232253
+Train Epoch: 12 [200/24546 (63%)]	Loss: 1.348934
+Train Epoch: 12 [250/24546 (79%)]	Loss: 1.243733
+Train Epoch: 12 [300/24546 (95%)]	Loss: 1.198936
+Train Epoch: 12	Average Loss: 0.000000
+Val Epoch: 12	Average Loss: 1.262759
+--------------------------------------------------
+Saved best model at epoch 12 with loss 1.262759
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 10.9824, Diversity Real. 9.4327, Diversity. 5.8679, R_precision_real. (0.5093, 0.7074, 0.8032), R_precision. (0.2832, 0.4382, 0.5465), matching_real. 2.9108, matching_pred. 4.7924, MPJPE. 0.2019
+Evaluation results:  {'FID': 10.982405095534332, 'Diversity': 5.8679156, 'Top1': 0.28324468085106386, 'Top2': 0.43816489361702127, 'Top3': 0.5465425531914894, 'Matching': 4.792404022622616, 'MAE': 0.20193003}
+Saved model at epoch 12 with FID 10.98241
+
+epoch 13 num_epochs 200
+Train Epoch: 13 [0/24546 (0%)]	Loss: 1.228306
+Train Epoch: 13 [50/24546 (16%)]	Loss: 1.280191
+Train Epoch: 13 [100/24546 (32%)]	Loss: 1.172090
+Train Epoch: 13 [150/24546 (48%)]	Loss: 1.224518
+Train Epoch: 13 [200/24546 (63%)]	Loss: 2.100452
+Train Epoch: 13 [250/24546 (79%)]	Loss: 1.252061
+Train Epoch: 13 [300/24546 (95%)]	Loss: 1.233121
+Train Epoch: 13	Average Loss: 0.000000
+Val Epoch: 13	Average Loss: 1.229232
+--------------------------------------------------
+Saved best model at epoch 13 with loss 1.229232
+
+epoch 14 num_epochs 200
+Train Epoch: 14 [0/24546 (0%)]	Loss: 1.121476
+Train Epoch: 14 [50/24546 (16%)]	Loss: 1.231215
+Train Epoch: 14 [100/24546 (32%)]	Loss: 1.073601
+Train Epoch: 14 [150/24546 (48%)]	Loss: 1.153986
+Train Epoch: 14 [200/24546 (63%)]	Loss: 1.069529
+Train Epoch: 14 [250/24546 (79%)]	Loss: 1.173519
+Train Epoch: 14 [300/24546 (95%)]	Loss: 1.140566
+Train Epoch: 14	Average Loss: 0.000000
+Val Epoch: 14	Average Loss: 1.127071
+--------------------------------------------------
+Saved best model at epoch 14 with loss 1.127071
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 7.4094, Diversity Real. 9.5138, Diversity. 6.6251, R_precision_real. (0.5020, 0.6915, 0.7965), R_precision. (0.3039, 0.4781, 0.6044), matching_real. 2.9310, matching_pred. 4.3949, MPJPE. 0.1830
+Evaluation results:  {'FID': 7.409428794554785, 'Diversity': 6.6250935, 'Top1': 0.3038563829787234, 'Top2': 0.47805851063829785, 'Top3': 0.6043882978723404, 'Matching': 4.394908732556282, 'MAE': 0.18300061}
+Saved model at epoch 14 with FID 7.40943
+
+epoch 15 num_epochs 200
+Train Epoch: 15 [0/24546 (0%)]	Loss: 1.364891
+Train Epoch: 15 [50/24546 (16%)]	Loss: 1.408806
+Train Epoch: 15 [100/24546 (32%)]	Loss: 1.091695
+Train Epoch: 15 [150/24546 (48%)]	Loss: 1.176512
+Train Epoch: 15 [200/24546 (63%)]	Loss: 1.093134
+Train Epoch: 15 [250/24546 (79%)]	Loss: 1.024533
+Train Epoch: 15 [300/24546 (95%)]	Loss: 1.121071
+Train Epoch: 15	Average Loss: 0.000000
+Val Epoch: 15	Average Loss: 1.052831
+--------------------------------------------------
+Saved best model at epoch 15 with loss 1.052831
+
+epoch 16 num_epochs 200
+Train Epoch: 16 [0/24546 (0%)]	Loss: 1.032928
+Train Epoch: 16 [50/24546 (16%)]	Loss: 1.062515
+Train Epoch: 16 [100/24546 (32%)]	Loss: 1.075254
+Train Epoch: 16 [150/24546 (48%)]	Loss: 1.025864
+Train Epoch: 16 [200/24546 (63%)]	Loss: 1.195678
+Train Epoch: 16 [250/24546 (79%)]	Loss: 0.948619
+Train Epoch: 16 [300/24546 (95%)]	Loss: 1.474573
+Train Epoch: 16	Average Loss: 0.000000
+Val Epoch: 16	Average Loss: 1.050780
+--------------------------------------------------
+Saved best model at epoch 16 with loss 1.050780
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 6.1979, Diversity Real. 9.2521, Diversity. 6.7828, R_precision_real. (0.5219, 0.7247, 0.8138), R_precision. (0.3271, 0.5027, 0.6297), matching_real. 2.8791, matching_pred. 4.2530, MPJPE. 0.1791
+Evaluation results:  {'FID': 6.197883882678866, 'Diversity': 6.782806, 'Top1': 0.3271276595744681, 'Top2': 0.5026595744680851, 'Top3': 0.629654255319149, 'Matching': 4.252983351971241, 'MAE': 0.17908262}
+Saved model at epoch 16 with FID 6.19788
+
+epoch 17 num_epochs 200
+Train Epoch: 17 [0/24546 (0%)]	Loss: 0.991971
+Train Epoch: 17 [50/24546 (16%)]	Loss: 1.018300
+Train Epoch: 17 [100/24546 (32%)]	Loss: 0.922079
+Train Epoch: 17 [150/24546 (48%)]	Loss: 0.951611
+Train Epoch: 17 [200/24546 (63%)]	Loss: 0.911068
+Train Epoch: 17 [250/24546 (79%)]	Loss: 0.915706
+Train Epoch: 17 [300/24546 (95%)]	Loss: 0.986926
+Train Epoch: 17	Average Loss: 0.000000
+Val Epoch: 17	Average Loss: 0.962421
+--------------------------------------------------
+Saved best model at epoch 17 with loss 0.962421
+
+epoch 18 num_epochs 200
+Train Epoch: 18 [0/24546 (0%)]	Loss: 0.959491
+Train Epoch: 18 [50/24546 (16%)]	Loss: 0.932036
+Train Epoch: 18 [100/24546 (32%)]	Loss: 1.262084
+Train Epoch: 18 [150/24546 (48%)]	Loss: 0.954388
+Train Epoch: 18 [200/24546 (63%)]	Loss: 1.004197
+Train Epoch: 18 [250/24546 (79%)]	Loss: 0.998632
+Train Epoch: 18 [300/24546 (95%)]	Loss: 0.885511
+Train Epoch: 18	Average Loss: 0.000000
+Val Epoch: 18	Average Loss: 0.901549
+--------------------------------------------------
+Saved best model at epoch 18 with loss 0.901549
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 4.1081, Diversity Real. 9.4376, Diversity. 7.7075, R_precision_real. (0.4967, 0.6855, 0.7852), R_precision. (0.3404, 0.5326, 0.6423), matching_real. 2.9469, matching_pred. 4.0336, MPJPE. 0.1610
+Evaluation results:  {'FID': 4.108101092769147, 'Diversity': 7.7075357, 'Top1': 0.3404255319148936, 'Top2': 0.5325797872340425, 'Top3': 0.6422872340425532, 'Matching': 4.0336184045101735, 'MAE': 0.16103323}
+Saved model at epoch 18 with FID 4.10810
+
+epoch 19 num_epochs 200
+Train Epoch: 19 [0/24546 (0%)]	Loss: 0.879622
+Train Epoch: 19 [50/24546 (16%)]	Loss: 0.955705
+Train Epoch: 19 [100/24546 (32%)]	Loss: 0.907272
+Train Epoch: 19 [150/24546 (48%)]	Loss: 0.829191
+Train Epoch: 19 [200/24546 (63%)]	Loss: 0.878478
+Train Epoch: 19 [250/24546 (79%)]	Loss: 0.824015
+Train Epoch: 19 [300/24546 (95%)]	Loss: 0.979201
+Train Epoch: 19	Average Loss: 0.000000
+Val Epoch: 19	Average Loss: 0.866821
+--------------------------------------------------
+Saved best model at epoch 19 with loss 0.866821
+
+epoch 20 num_epochs 200
+Train Epoch: 20 [0/24546 (0%)]	Loss: 0.855629
+Train Epoch: 20 [50/24546 (16%)]	Loss: 0.784806
+Train Epoch: 20 [100/24546 (32%)]	Loss: 0.810868
+Train Epoch: 20 [150/24546 (48%)]	Loss: 0.918581
+Train Epoch: 20 [200/24546 (63%)]	Loss: 1.038911
+Train Epoch: 20 [250/24546 (79%)]	Loss: 0.801586
+Train Epoch: 20 [300/24546 (95%)]	Loss: 0.896931
+Train Epoch: 20	Average Loss: 0.000000
+Val Epoch: 20	Average Loss: 0.855032
+--------------------------------------------------
+Saved best model at epoch 20 with loss 0.855032
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 2.2402, Diversity Real. 9.3143, Diversity. 7.7506, R_precision_real. (0.5040, 0.6915, 0.7985), R_precision. (0.3517, 0.5399, 0.6589), matching_real. 2.9426, matching_pred. 3.7853, MPJPE. 0.1618
+Evaluation results:  {'FID': 2.2401770320883116, 'Diversity': 7.750617, 'Top1': 0.3517287234042553, 'Top2': 0.5398936170212766, 'Top3': 0.6589095744680851, 'Matching': 3.785312424314783, 'MAE': 0.16181491}
+Saved model at epoch 20 with FID 2.24018
+
+epoch 21 num_epochs 200
+Train Epoch: 21 [0/24546 (0%)]	Loss: 0.851089
+Train Epoch: 21 [50/24546 (16%)]	Loss: 0.908003
+Train Epoch: 21 [100/24546 (32%)]	Loss: 0.847898
+Train Epoch: 21 [150/24546 (48%)]	Loss: 1.191931
+Train Epoch: 21 [200/24546 (63%)]	Loss: 0.856310
+Train Epoch: 21 [250/24546 (79%)]	Loss: 0.880323
+Train Epoch: 21 [300/24546 (95%)]	Loss: 0.749794
+Train Epoch: 21	Average Loss: 0.000000
+Val Epoch: 21	Average Loss: 0.846021
+--------------------------------------------------
+Saved best model at epoch 21 with loss 0.846021
+
+epoch 22 num_epochs 200
+Train Epoch: 22 [0/24546 (0%)]	Loss: 0.842933
+Train Epoch: 22 [50/24546 (16%)]	Loss: 0.725011
+Train Epoch: 22 [100/24546 (32%)]	Loss: 0.742907
+Train Epoch: 22 [150/24546 (48%)]	Loss: 0.798146
+Train Epoch: 22 [200/24546 (63%)]	Loss: 0.732363
+Train Epoch: 22 [250/24546 (79%)]	Loss: 0.892385
+Train Epoch: 22 [300/24546 (95%)]	Loss: 0.833156
+Train Epoch: 22	Average Loss: 0.000000
+Val Epoch: 22	Average Loss: 0.847506
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 2.3107, Diversity Real. 9.6091, Diversity. 7.5852, R_precision_real. (0.5100, 0.7114, 0.8092), R_precision. (0.3843, 0.5705, 0.6968), matching_real. 2.9006, matching_pred. 3.6738, MPJPE. 0.1564
+Evaluation results:  {'FID': 2.310732116791769, 'Diversity': 7.5852065, 'Top1': 0.38430851063829785, 'Top2': 0.5704787234042553, 'Top3': 0.6968085106382979, 'Matching': 3.67381767009167, 'MAE': 0.1563674}
+Saved model at epoch 22 with FID 2.31073
+
+epoch 23 num_epochs 200
+Train Epoch: 23 [0/24546 (0%)]	Loss: 0.860806
+Train Epoch: 23 [50/24546 (16%)]	Loss: 0.701967
+Train Epoch: 23 [100/24546 (32%)]	Loss: 0.806464
+Train Epoch: 23 [150/24546 (48%)]	Loss: 0.660168
+Train Epoch: 23 [200/24546 (63%)]	Loss: 0.998901
+Train Epoch: 23 [250/24546 (79%)]	Loss: 0.796116
+Train Epoch: 23 [300/24546 (95%)]	Loss: 0.626564
+Train Epoch: 23	Average Loss: 0.000000
+Val Epoch: 23	Average Loss: 0.720926
+--------------------------------------------------
+Saved best model at epoch 23 with loss 0.720926
+
+epoch 24 num_epochs 200
+Train Epoch: 24 [0/24546 (0%)]	Loss: 0.657229
+Train Epoch: 24 [50/24546 (16%)]	Loss: 0.689320
+Train Epoch: 24 [100/24546 (32%)]	Loss: 0.703154
+Train Epoch: 24 [150/24546 (48%)]	Loss: 0.653472
+Train Epoch: 24 [200/24546 (63%)]	Loss: 0.589669
+Train Epoch: 24 [250/24546 (79%)]	Loss: 0.649984
+Train Epoch: 24 [300/24546 (95%)]	Loss: 0.685748
+Train Epoch: 24	Average Loss: 0.000000
+Val Epoch: 24	Average Loss: 0.681637
+--------------------------------------------------
+Saved best model at epoch 24 with loss 0.681637
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 2.0380, Diversity Real. 9.8006, Diversity. 7.8659, R_precision_real. (0.5352, 0.7081, 0.7999), R_precision. (0.4049, 0.6031, 0.7148), matching_real. 2.9086, matching_pred. 3.6320, MPJPE. 0.1298
+Evaluation results:  {'FID': 2.0379879217005623, 'Diversity': 7.865879, 'Top1': 0.40492021276595747, 'Top2': 0.6030585106382979, 'Top3': 0.7147606382978723, 'Matching': 3.6319657995345747, 'MAE': 0.12976307}
+Saved model at epoch 24 with FID 2.03799
+
+epoch 25 num_epochs 200
+Train Epoch: 25 [0/24546 (0%)]	Loss: 0.676840
+Train Epoch: 25 [50/24546 (16%)]	Loss: 0.703410
+Train Epoch: 25 [100/24546 (32%)]	Loss: 0.647341
+Train Epoch: 25 [150/24546 (48%)]	Loss: 0.633534
+Train Epoch: 25 [200/24546 (63%)]	Loss: 0.615409
+Train Epoch: 25 [250/24546 (79%)]	Loss: 0.599202
+Train Epoch: 25 [300/24546 (95%)]	Loss: 0.638795
+Train Epoch: 25	Average Loss: 0.000000
+Val Epoch: 25	Average Loss: 0.640405
+--------------------------------------------------
+Saved best model at epoch 25 with loss 0.640405
+
+epoch 26 num_epochs 200
+Train Epoch: 26 [0/24546 (0%)]	Loss: 0.625948
+Train Epoch: 26 [50/24546 (16%)]	Loss: 0.671127
+Train Epoch: 26 [100/24546 (32%)]	Loss: 0.665194
+Train Epoch: 26 [150/24546 (48%)]	Loss: 0.832731
+Train Epoch: 26 [200/24546 (63%)]	Loss: 0.654852
+Train Epoch: 26 [250/24546 (79%)]	Loss: 0.636119
+Train Epoch: 26 [300/24546 (95%)]	Loss: 0.569620
+Train Epoch: 26	Average Loss: 0.000000
+Val Epoch: 26	Average Loss: 0.668948
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 1.8633, Diversity Real. 9.4242, Diversity. 7.8237, R_precision_real. (0.4993, 0.6961, 0.7945), R_precision. (0.3936, 0.5831, 0.6928), matching_real. 2.8846, matching_pred. 3.5060, MPJPE. 0.1165
+Evaluation results:  {'FID': 1.8633341904840819, 'Diversity': 7.8237224, 'Top1': 0.39361702127659576, 'Top2': 0.5831117021276596, 'Top3': 0.6928191489361702, 'Matching': 3.5060340242182955, 'MAE': 0.11648205}
+Saved model at epoch 26 with FID 1.86333
+
+epoch 27 num_epochs 200
+Train Epoch: 27 [0/24546 (0%)]	Loss: 0.720663
+Train Epoch: 27 [50/24546 (16%)]	Loss: 0.674793
+Train Epoch: 27 [100/24546 (32%)]	Loss: 0.644101
+Train Epoch: 27 [150/24546 (48%)]	Loss: 0.548410
+Train Epoch: 27 [200/24546 (63%)]	Loss: 0.593731
+Train Epoch: 27 [250/24546 (79%)]	Loss: 0.657981
+Train Epoch: 27 [300/24546 (95%)]	Loss: 0.733564
+Train Epoch: 27	Average Loss: 0.000000
+Val Epoch: 27	Average Loss: 0.585168
+--------------------------------------------------
+Saved best model at epoch 27 with loss 0.585168
+
+epoch 28 num_epochs 200
+Train Epoch: 28 [0/24546 (0%)]	Loss: 0.663723
+Train Epoch: 28 [50/24546 (16%)]	Loss: 0.713367
+Train Epoch: 28 [100/24546 (32%)]	Loss: 0.768943
+Train Epoch: 28 [150/24546 (48%)]	Loss: 0.514100
+Train Epoch: 28 [200/24546 (63%)]	Loss: 0.592741
+Train Epoch: 28 [250/24546 (79%)]	Loss: 0.583081
+Train Epoch: 28 [300/24546 (95%)]	Loss: 0.591723
+Train Epoch: 28	Average Loss: 0.000000
+Val Epoch: 28	Average Loss: 0.644424
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 1.2610, Diversity Real. 9.6032, Diversity. 8.1848, R_precision_real. (0.5233, 0.7207, 0.8085), R_precision. (0.4162, 0.6157, 0.7234), matching_real. 2.8956, matching_pred. 3.4760, MPJPE. 0.1247
+Evaluation results:  {'FID': 1.2610355576121322, 'Diversity': 8.184814, 'Top1': 0.4162234042553192, 'Top2': 0.6156914893617021, 'Top3': 0.723404255319149, 'Matching': 3.476014898178425, 'MAE': 0.12467841}
+Saved model at epoch 28 with FID 1.26104
+
+epoch 29 num_epochs 200
+Train Epoch: 29 [0/24546 (0%)]	Loss: 0.654422
+Train Epoch: 29 [50/24546 (16%)]	Loss: 0.541145
+Train Epoch: 29 [100/24546 (32%)]	Loss: 0.606387
+Train Epoch: 29 [150/24546 (48%)]	Loss: 0.771001
+Train Epoch: 29 [200/24546 (63%)]	Loss: 0.555200
+Train Epoch: 29 [250/24546 (79%)]	Loss: 0.644863
+Train Epoch: 29 [300/24546 (95%)]	Loss: 0.548285
+Train Epoch: 29	Average Loss: 0.000000
+Val Epoch: 29	Average Loss: 0.553953
+--------------------------------------------------
+Saved best model at epoch 29 with loss 0.553953
+
+epoch 30 num_epochs 200
+Train Epoch: 30 [0/24546 (0%)]	Loss: 0.785634
+Train Epoch: 30 [50/24546 (16%)]	Loss: 0.556971
+Train Epoch: 30 [100/24546 (32%)]	Loss: 0.567756
+Train Epoch: 30 [150/24546 (48%)]	Loss: 0.533756
+Train Epoch: 30 [200/24546 (63%)]	Loss: 0.585159
+Train Epoch: 30 [250/24546 (79%)]	Loss: 0.591853
+Train Epoch: 30 [300/24546 (95%)]	Loss: 0.581594
+Train Epoch: 30	Average Loss: 0.000000
+Val Epoch: 30	Average Loss: 0.600841
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 1.6513, Diversity Real. 9.6789, Diversity. 8.0922, R_precision_real. (0.5213, 0.6948, 0.7972), R_precision. (0.4036, 0.6017, 0.7108), matching_real. 2.8893, matching_pred. 3.4835, MPJPE. 0.1312
+Evaluation results:  {'FID': 1.6512512974601208, 'Diversity': 8.092179, 'Top1': 0.4035904255319149, 'Top2': 0.6017287234042553, 'Top3': 0.7107712765957447, 'Matching': 3.4835345491449883, 'MAE': 0.13124847}
+Saved model at epoch 30 with FID 1.65125
+
+epoch 31 num_epochs 200
+Train Epoch: 31 [0/24546 (0%)]	Loss: 0.527164
+Train Epoch: 31 [50/24546 (16%)]	Loss: 0.541049
+Train Epoch: 31 [100/24546 (32%)]	Loss: 0.558986
+Train Epoch: 31 [150/24546 (48%)]	Loss: 0.566310
+Train Epoch: 31 [200/24546 (63%)]	Loss: 0.635578
+Train Epoch: 31 [250/24546 (79%)]	Loss: 0.654685
+Train Epoch: 31 [300/24546 (95%)]	Loss: 0.661279
+Train Epoch: 31	Average Loss: 0.000000
+Val Epoch: 31	Average Loss: 0.531544
+--------------------------------------------------
+Saved best model at epoch 31 with loss 0.531544
+
+epoch 32 num_epochs 200
+Train Epoch: 32 [0/24546 (0%)]	Loss: 0.522728
+Train Epoch: 32 [50/24546 (16%)]	Loss: 0.491629
+Train Epoch: 32 [100/24546 (32%)]	Loss: 0.552071
+Train Epoch: 32 [150/24546 (48%)]	Loss: 0.559873
+Train Epoch: 32 [200/24546 (63%)]	Loss: 0.624380
+Train Epoch: 32 [250/24546 (79%)]	Loss: 0.550259
+Train Epoch: 32 [300/24546 (95%)]	Loss: 0.537444
+Train Epoch: 32	Average Loss: 0.000000
+Val Epoch: 32	Average Loss: 0.516898
+--------------------------------------------------
+Saved best model at epoch 32 with loss 0.516898
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.9240, Diversity Real. 9.5515, Diversity. 8.4650, R_precision_real. (0.5133, 0.7048, 0.7972), R_precision. (0.4309, 0.6084, 0.7214), matching_real. 2.9331, matching_pred. 3.3355, MPJPE. 0.1106
+Evaluation results:  {'FID': 0.9240286530557569, 'Diversity': 8.465013, 'Top1': 0.4308510638297872, 'Top2': 0.6083776595744681, 'Top3': 0.7214095744680851, 'Matching': 3.3355460471295295, 'MAE': 0.11056036}
+Saved model at epoch 32 with FID 0.92403
+
+epoch 33 num_epochs 200
+Train Epoch: 33 [0/24546 (0%)]	Loss: 0.478204
+Train Epoch: 33 [50/24546 (16%)]	Loss: 0.506034
+Train Epoch: 33 [100/24546 (32%)]	Loss: 0.577499
+Train Epoch: 33 [150/24546 (48%)]	Loss: 0.553432
+Train Epoch: 33 [200/24546 (63%)]	Loss: 0.592466
+Train Epoch: 33 [250/24546 (79%)]	Loss: 0.484444
+Train Epoch: 33 [300/24546 (95%)]	Loss: 0.586486
+Train Epoch: 33	Average Loss: 0.000000
+Val Epoch: 33	Average Loss: 0.577149
+--------------------------------------------------
+epoch 34 num_epochs 200
+Train Epoch: 34 [0/24546 (0%)]	Loss: 0.634186
+Train Epoch: 34 [50/24546 (16%)]	Loss: 0.623544
+Train Epoch: 34 [100/24546 (32%)]	Loss: 0.554280
+Train Epoch: 34 [150/24546 (48%)]	Loss: 0.496454
+Train Epoch: 34 [200/24546 (63%)]	Loss: 0.538927
+Train Epoch: 34 [250/24546 (79%)]	Loss: 0.489167
+Train Epoch: 34 [300/24546 (95%)]	Loss: 0.561181
+Train Epoch: 34	Average Loss: 0.000000
+Val Epoch: 34	Average Loss: 0.499216
+--------------------------------------------------
+Saved best model at epoch 34 with loss 0.499216
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.9260, Diversity Real. 9.4417, Diversity. 8.3360, R_precision_real. (0.5146, 0.7061, 0.8039), R_precision. (0.4295, 0.6297, 0.7327), matching_real. 2.9194, matching_pred. 3.3383, MPJPE. 0.1085
+Evaluation results:  {'FID': 0.9260300996725732, 'Diversity': 8.3360405, 'Top1': 0.4295212765957447, 'Top2': 0.629654255319149, 'Top3': 0.7327127659574468, 'Matching': 3.3382901536657457, 'MAE': 0.108530186}
+Saved model at epoch 34 with FID 0.92603
+
+epoch 35 num_epochs 200
+Train Epoch: 35 [0/24546 (0%)]	Loss: 0.553216
+Train Epoch: 35 [50/24546 (16%)]	Loss: 0.552466
+Train Epoch: 35 [100/24546 (32%)]	Loss: 0.532545
+Train Epoch: 35 [150/24546 (48%)]	Loss: 0.498797
+Train Epoch: 35 [200/24546 (63%)]	Loss: 0.493752
+Train Epoch: 35 [250/24546 (79%)]	Loss: 0.540528
+Train Epoch: 35 [300/24546 (95%)]	Loss: 0.466107
+Train Epoch: 35	Average Loss: 0.000000
+Val Epoch: 35	Average Loss: 0.511866
+--------------------------------------------------
+epoch 36 num_epochs 200
+Train Epoch: 36 [0/24546 (0%)]	Loss: 0.567239
+Train Epoch: 36 [50/24546 (16%)]	Loss: 0.565347
+Train Epoch: 36 [100/24546 (32%)]	Loss: 0.544896
+Train Epoch: 36 [150/24546 (48%)]	Loss: 0.463953
+Train Epoch: 36 [200/24546 (63%)]	Loss: 0.503023
+Train Epoch: 36 [250/24546 (79%)]	Loss: 0.487983
+Train Epoch: 36 [300/24546 (95%)]	Loss: 0.469208
+Train Epoch: 36	Average Loss: 0.000000
+Val Epoch: 36	Average Loss: 0.495467
+--------------------------------------------------
+Saved best model at epoch 36 with loss 0.495467
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.8918, Diversity Real. 9.5623, Diversity. 8.4979, R_precision_real. (0.5253, 0.7181, 0.8112), R_precision. (0.4515, 0.6376, 0.7453), matching_real. 2.8793, matching_pred. 3.2668, MPJPE. 0.1065
+Evaluation results:  {'FID': 0.891816010820321, 'Diversity': 8.497946, 'Top1': 0.45146276595744683, 'Top2': 0.6376329787234043, 'Top3': 0.745345744680851, 'Matching': 3.2668003122857274, 'MAE': 0.10651859}
+Saved model at epoch 36 with FID 0.89182
+
+epoch 37 num_epochs 200
+Train Epoch: 37 [0/24546 (0%)]	Loss: 0.514331
+Train Epoch: 37 [50/24546 (16%)]	Loss: 0.486412
+Train Epoch: 37 [100/24546 (32%)]	Loss: 0.521125
+Train Epoch: 37 [150/24546 (48%)]	Loss: 0.469320
+Train Epoch: 37 [200/24546 (63%)]	Loss: 0.523414
+Train Epoch: 37 [250/24546 (79%)]	Loss: 0.487982
+Train Epoch: 37 [300/24546 (95%)]	Loss: 0.571397
+Train Epoch: 37	Average Loss: 0.000000
+Val Epoch: 37	Average Loss: 0.555498
+--------------------------------------------------
+epoch 38 num_epochs 200
+Train Epoch: 38 [0/24546 (0%)]	Loss: 0.556440
+Train Epoch: 38 [50/24546 (16%)]	Loss: 0.526325
+Train Epoch: 38 [100/24546 (32%)]	Loss: 0.533686
+Train Epoch: 38 [150/24546 (48%)]	Loss: 0.431176
+Train Epoch: 38 [200/24546 (63%)]	Loss: 0.477213
+Train Epoch: 38 [250/24546 (79%)]	Loss: 0.517371
+Train Epoch: 38 [300/24546 (95%)]	Loss: 0.532852
+Train Epoch: 38	Average Loss: 0.000000
+Val Epoch: 38	Average Loss: 0.502581
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.9122, Diversity Real. 9.6177, Diversity. 8.5475, R_precision_real. (0.5173, 0.7021, 0.7959), R_precision. (0.4322, 0.6243, 0.7320), matching_real. 2.9081, matching_pred. 3.3539, MPJPE. 0.1098
+Evaluation results:  {'FID': 0.9122434763858251, 'Diversity': 8.547467, 'Top1': 0.4321808510638298, 'Top2': 0.6243351063829787, 'Top3': 0.7320478723404256, 'Matching': 3.3538910277346345, 'MAE': 0.10976634}
+Saved model at epoch 38 with FID 0.91224
+
+epoch 39 num_epochs 200
+Train Epoch: 39 [0/24546 (0%)]	Loss: 0.650128
+Train Epoch: 39 [50/24546 (16%)]	Loss: 0.456635
+Train Epoch: 39 [100/24546 (32%)]	Loss: 0.502230
+Train Epoch: 39 [150/24546 (48%)]	Loss: 0.591215
+Train Epoch: 39 [200/24546 (63%)]	Loss: 0.438852
+Train Epoch: 39 [250/24546 (79%)]	Loss: 0.543390
+Train Epoch: 39 [300/24546 (95%)]	Loss: 0.469287
+Train Epoch: 39	Average Loss: 0.000000
+Val Epoch: 39	Average Loss: 0.461492
+--------------------------------------------------
+Saved best model at epoch 39 with loss 0.461492
+
+epoch 40 num_epochs 200
+Train Epoch: 40 [0/24546 (0%)]	Loss: 0.494909
+Train Epoch: 40 [50/24546 (16%)]	Loss: 0.437847
+Train Epoch: 40 [100/24546 (32%)]	Loss: 0.435276
+Train Epoch: 40 [150/24546 (48%)]	Loss: 0.444179
+Train Epoch: 40 [200/24546 (63%)]	Loss: 0.456660
+Train Epoch: 40 [250/24546 (79%)]	Loss: 0.457466
+Train Epoch: 40 [300/24546 (95%)]	Loss: 0.433464
+Train Epoch: 40	Average Loss: 0.000000
+Val Epoch: 40	Average Loss: 0.440259
+--------------------------------------------------
+Saved best model at epoch 40 with loss 0.440259
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.8172, Diversity Real. 9.6602, Diversity. 8.7616, R_precision_real. (0.5086, 0.7001, 0.8025), R_precision. (0.4461, 0.6297, 0.7374), matching_real. 2.9021, matching_pred. 3.2694, MPJPE. 0.1002
+Evaluation results:  {'FID': 0.8171643609688886, 'Diversity': 8.7615795, 'Top1': 0.4461436170212766, 'Top2': 0.629654255319149, 'Top3': 0.7373670212765957, 'Matching': 3.2693686333108456, 'MAE': 0.10023806}
+Saved model at epoch 40 with FID 0.81716
+
+epoch 41 num_epochs 200
+Train Epoch: 41 [0/24546 (0%)]	Loss: 0.465888
+Train Epoch: 41 [50/24546 (16%)]	Loss: 0.436808
+Train Epoch: 41 [100/24546 (32%)]	Loss: 0.495141
+Train Epoch: 41 [150/24546 (48%)]	Loss: 0.491616
+Train Epoch: 41 [200/24546 (63%)]	Loss: 0.482778
+Train Epoch: 41 [250/24546 (79%)]	Loss: 0.481865
+Train Epoch: 41 [300/24546 (95%)]	Loss: 0.467362
+Train Epoch: 41	Average Loss: 0.000000
+Val Epoch: 41	Average Loss: 0.478202
+--------------------------------------------------
+epoch 42 num_epochs 200
+Train Epoch: 42 [0/24546 (0%)]	Loss: 0.533978
+Train Epoch: 42 [50/24546 (16%)]	Loss: 0.420291
+Train Epoch: 42 [100/24546 (32%)]	Loss: 0.505077
+Train Epoch: 42 [150/24546 (48%)]	Loss: 0.567948
+Train Epoch: 42 [200/24546 (63%)]	Loss: 0.665463
+Train Epoch: 42 [250/24546 (79%)]	Loss: 0.461420
+Train Epoch: 42 [300/24546 (95%)]	Loss: 0.596390
+Train Epoch: 42	Average Loss: 0.000000
+Val Epoch: 42	Average Loss: 0.469132
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.4614, Diversity Real. 9.6850, Diversity. 8.7760, R_precision_real. (0.5040, 0.6935, 0.7866), R_precision. (0.4395, 0.6316, 0.7287), matching_real. 2.9028, matching_pred. 3.2595, MPJPE. 0.1019
+Evaluation results:  {'FID': 0.46138125654559303, 'Diversity': 8.776045, 'Top1': 0.43949468085106386, 'Top2': 0.6316489361702128, 'Top3': 0.7287234042553191, 'Matching': 3.259493183582387, 'MAE': 0.10189909}
+Saved model at epoch 42 with FID 0.46138
+
+epoch 43 num_epochs 200
+Train Epoch: 43 [0/24546 (0%)]	Loss: 0.405729
+Train Epoch: 43 [50/24546 (16%)]	Loss: 0.532684
+Train Epoch: 43 [100/24546 (32%)]	Loss: 0.468626
+Train Epoch: 43 [150/24546 (48%)]	Loss: 0.520886
+Train Epoch: 43 [200/24546 (63%)]	Loss: 0.499927
+Train Epoch: 43 [250/24546 (79%)]	Loss: 0.423711
+Train Epoch: 43 [300/24546 (95%)]	Loss: 0.451778
+Train Epoch: 43	Average Loss: 0.000000
+Val Epoch: 43	Average Loss: 0.472847
+--------------------------------------------------
+epoch 44 num_epochs 200
+Train Epoch: 44 [0/24546 (0%)]	Loss: 0.386609
+Train Epoch: 44 [50/24546 (16%)]	Loss: 0.465138
+Train Epoch: 44 [100/24546 (32%)]	Loss: 0.448673
+Train Epoch: 44 [150/24546 (48%)]	Loss: 0.435300
+Train Epoch: 44 [200/24546 (63%)]	Loss: 0.461426
+Train Epoch: 44 [250/24546 (79%)]	Loss: 0.427563
+Train Epoch: 44 [300/24546 (95%)]	Loss: 0.550877
+Train Epoch: 44	Average Loss: 0.000000
+Val Epoch: 44	Average Loss: 0.534876
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.7092, Diversity Real. 9.9201, Diversity. 8.7537, R_precision_real. (0.5140, 0.7028, 0.8085), R_precision. (0.4515, 0.6330, 0.7360), matching_real. 2.8921, matching_pred. 3.3718, MPJPE. 0.1177
+Evaluation results:  {'FID': 0.7092210184264047, 'Diversity': 8.753729, 'Top1': 0.45146276595744683, 'Top2': 0.6329787234042553, 'Top3': 0.7360372340425532, 'Matching': 3.3718164626588214, 'MAE': 0.11771365}
+Saved model at epoch 44 with FID 0.70922
+
+epoch 45 num_epochs 200
+Train Epoch: 45 [0/24546 (0%)]	Loss: 0.541787
+Train Epoch: 45 [50/24546 (16%)]	Loss: 0.447877
+Train Epoch: 45 [100/24546 (32%)]	Loss: 0.486765
+Train Epoch: 45 [150/24546 (48%)]	Loss: 0.511110
+Train Epoch: 45 [200/24546 (63%)]	Loss: 0.416212
+Train Epoch: 45 [250/24546 (79%)]	Loss: 0.378434
+Train Epoch: 45 [300/24546 (95%)]	Loss: 0.396658
+Train Epoch: 45	Average Loss: 0.000000
+Val Epoch: 45	Average Loss: 0.446019
+--------------------------------------------------
+epoch 46 num_epochs 200
+Train Epoch: 46 [0/24546 (0%)]	Loss: 0.502913
+Train Epoch: 46 [50/24546 (16%)]	Loss: 0.447833
+Train Epoch: 46 [100/24546 (32%)]	Loss: 0.498090
+Train Epoch: 46 [150/24546 (48%)]	Loss: 0.448718
+Train Epoch: 46 [200/24546 (63%)]	Loss: 0.465134
+Train Epoch: 46 [250/24546 (79%)]	Loss: 0.454808
+Train Epoch: 46 [300/24546 (95%)]	Loss: 0.422378
+Train Epoch: 46	Average Loss: 0.000000
+Val Epoch: 46	Average Loss: 0.469137
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.9056, Diversity Real. 9.2748, Diversity. 8.2096, R_precision_real. (0.5073, 0.6935, 0.7952), R_precision. (0.4441, 0.6290, 0.7267), matching_real. 2.9075, matching_pred. 3.3369, MPJPE. 0.1098
+Evaluation results:  {'FID': 0.9056012404528531, 'Diversity': 8.20959, 'Top1': 0.4441489361702128, 'Top2': 0.6289893617021277, 'Top3': 0.7267287234042553, 'Matching': 3.3369169945412493, 'MAE': 0.1098262}
+Saved model at epoch 46 with FID 0.90560
+
+epoch 47 num_epochs 200
+Train Epoch: 47 [0/24546 (0%)]	Loss: 0.443094
+Train Epoch: 47 [50/24546 (16%)]	Loss: 0.427600
+Train Epoch: 47 [100/24546 (32%)]	Loss: 0.436661
+Train Epoch: 47 [150/24546 (48%)]	Loss: 0.456653
+Train Epoch: 47 [200/24546 (63%)]	Loss: 0.476443
+Train Epoch: 47 [250/24546 (79%)]	Loss: 0.391606
+Train Epoch: 47 [300/24546 (95%)]	Loss: 0.522745
+Train Epoch: 47	Average Loss: 0.000000
+Val Epoch: 47	Average Loss: 0.493552
+--------------------------------------------------
+epoch 48 num_epochs 200
+Train Epoch: 48 [0/24546 (0%)]	Loss: 0.515656
+Train Epoch: 48 [50/24546 (16%)]	Loss: 0.445751
+Train Epoch: 48 [100/24546 (32%)]	Loss: 0.414345
+Train Epoch: 48 [150/24546 (48%)]	Loss: 0.461004
+Train Epoch: 48 [200/24546 (63%)]	Loss: 0.470531
+Train Epoch: 48 [250/24546 (79%)]	Loss: 0.503172
+Train Epoch: 48 [300/24546 (95%)]	Loss: 0.468694
+Train Epoch: 48	Average Loss: 0.000000
+Val Epoch: 48	Average Loss: 0.439982
+--------------------------------------------------
+Saved best model at epoch 48 with loss 0.439982
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.4834, Diversity Real. 9.6449, Diversity. 8.4518, R_precision_real. (0.5253, 0.7108, 0.8019), R_precision. (0.4521, 0.6443, 0.7487), matching_real. 2.8783, matching_pred. 3.1839, MPJPE. 0.1011
+Evaluation results:  {'FID': 0.48344829180945226, 'Diversity': 8.451838, 'Top1': 0.4521276595744681, 'Top2': 0.644281914893617, 'Top3': 0.7486702127659575, 'Matching': 3.1839379706281297, 'MAE': 0.101086326}
+Saved model at epoch 48 with FID 0.48345
+
+epoch 49 num_epochs 200
+Train Epoch: 49 [0/24546 (0%)]	Loss: 0.431339
+Train Epoch: 49 [50/24546 (16%)]	Loss: 0.422237
+Train Epoch: 49 [100/24546 (32%)]	Loss: 0.506135
+Train Epoch: 49 [150/24546 (48%)]	Loss: 0.364307
+Train Epoch: 49 [200/24546 (63%)]	Loss: 0.405452
+Train Epoch: 49 [250/24546 (79%)]	Loss: 0.447762
+Train Epoch: 49 [300/24546 (95%)]	Loss: 0.413901
+Train Epoch: 49	Average Loss: 0.000000
+Val Epoch: 49	Average Loss: 0.446187
+--------------------------------------------------
+epoch 50 num_epochs 200
+Train Epoch: 50 [0/24546 (0%)]	Loss: 0.401437
+Train Epoch: 50 [50/24546 (16%)]	Loss: 0.401423
+Train Epoch: 50 [100/24546 (32%)]	Loss: 0.421078
+Train Epoch: 50 [150/24546 (48%)]	Loss: 0.418525
+Train Epoch: 50 [200/24546 (63%)]	Loss: 0.446103
+Train Epoch: 50 [250/24546 (79%)]	Loss: 0.525449
+Train Epoch: 50 [300/24546 (95%)]	Loss: 0.455543
+Train Epoch: 50	Average Loss: 0.000000
+Val Epoch: 50	Average Loss: 0.443952
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.4972, Diversity Real. 9.5859, Diversity. 8.4966, R_precision_real. (0.5180, 0.6988, 0.7906), R_precision. (0.4495, 0.6257, 0.7254), matching_real. 2.9216, matching_pred. 3.3136, MPJPE. 0.0965
+Evaluation results:  {'FID': 0.49719768859080204, 'Diversity': 8.496613, 'Top1': 0.449468085106383, 'Top2': 0.6256648936170213, 'Top3': 0.7253989361702128, 'Matching': 3.313601367017056, 'MAE': 0.096533366}
+Saved model at epoch 50 with FID 0.49720
+
+epoch 51 num_epochs 200
+Train Epoch: 51 [0/24546 (0%)]	Loss: 0.402057
+Train Epoch: 51 [50/24546 (16%)]	Loss: 0.399741
+Train Epoch: 51 [100/24546 (32%)]	Loss: 0.388721
+Train Epoch: 51 [150/24546 (48%)]	Loss: 0.386323
+Train Epoch: 51 [200/24546 (63%)]	Loss: 0.399995
+Train Epoch: 51 [250/24546 (79%)]	Loss: 0.450284
+Train Epoch: 51 [300/24546 (95%)]	Loss: 0.460469
+Train Epoch: 51	Average Loss: 0.000000
+Val Epoch: 51	Average Loss: 0.492786
+--------------------------------------------------
+epoch 52 num_epochs 200
+Train Epoch: 52 [0/24546 (0%)]	Loss: 0.407520
+Train Epoch: 52 [50/24546 (16%)]	Loss: 0.422917
+Train Epoch: 52 [100/24546 (32%)]	Loss: 0.399087
+Train Epoch: 52 [150/24546 (48%)]	Loss: 0.399705
+Train Epoch: 52 [200/24546 (63%)]	Loss: 0.504236
+Train Epoch: 52 [250/24546 (79%)]	Loss: 0.477759
+Train Epoch: 52 [300/24546 (95%)]	Loss: 0.423163
+Train Epoch: 52	Average Loss: 0.000000
+Val Epoch: 52	Average Loss: 0.464389
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.4613, Diversity Real. 9.3041, Diversity. 8.7300, R_precision_real. (0.5379, 0.7101, 0.8085), R_precision. (0.4594, 0.6496, 0.7447), matching_real. 2.8512, matching_pred. 3.1380, MPJPE. 0.1004
+Evaluation results:  {'FID': 0.4613044159866746, 'Diversity': 8.729999, 'Top1': 0.45944148936170215, 'Top2': 0.6496010638297872, 'Top3': 0.7446808510638298, 'Matching': 3.1380000773896564, 'MAE': 0.10037424}
+Saved model at epoch 52 with FID 0.46130
+
+epoch 53 num_epochs 200
+Train Epoch: 53 [0/24546 (0%)]	Loss: 0.431378
+Train Epoch: 53 [50/24546 (16%)]	Loss: 0.488869
+Train Epoch: 53 [100/24546 (32%)]	Loss: 0.388269
+Train Epoch: 53 [150/24546 (48%)]	Loss: 0.431363
+Train Epoch: 53 [200/24546 (63%)]	Loss: 0.410755
+Train Epoch: 53 [250/24546 (79%)]	Loss: 0.398025
+Train Epoch: 53 [300/24546 (95%)]	Loss: 0.444473
+Train Epoch: 53	Average Loss: 0.000000
+Val Epoch: 53	Average Loss: 0.451130
+--------------------------------------------------
+epoch 54 num_epochs 200
+Train Epoch: 54 [0/24546 (0%)]	Loss: 0.456761
+Train Epoch: 54 [50/24546 (16%)]	Loss: 0.436519
+Train Epoch: 54 [100/24546 (32%)]	Loss: 0.417985
+Train Epoch: 54 [150/24546 (48%)]	Loss: 0.423465
+Train Epoch: 54 [200/24546 (63%)]	Loss: 0.425189
+Train Epoch: 54 [250/24546 (79%)]	Loss: 0.353074
+Train Epoch: 54 [300/24546 (95%)]	Loss: 0.417747
+Train Epoch: 54	Average Loss: 0.000000
+Val Epoch: 54	Average Loss: 0.420061
+--------------------------------------------------
+Saved best model at epoch 54 with loss 0.420061
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.4275, Diversity Real. 9.4271, Diversity. 8.4099, R_precision_real. (0.5199, 0.7254, 0.8098), R_precision. (0.4561, 0.6576, 0.7513), matching_real. 2.8727, matching_pred. 3.1935, MPJPE. 0.0947
+Evaluation results:  {'FID': 0.42746301909058104, 'Diversity': 8.409887, 'Top1': 0.45611702127659576, 'Top2': 0.6575797872340425, 'Top3': 0.7513297872340425, 'Matching': 3.193457436054311, 'MAE': 0.09466046}
+Saved model at epoch 54 with FID 0.42746
+
+epoch 55 num_epochs 200
+Train Epoch: 55 [0/24546 (0%)]	Loss: 0.460861
+Train Epoch: 55 [50/24546 (16%)]	Loss: 0.413747
+Train Epoch: 55 [100/24546 (32%)]	Loss: 0.364139
+Train Epoch: 55 [150/24546 (48%)]	Loss: 0.367581
+Train Epoch: 55 [200/24546 (63%)]	Loss: 0.423811
+Train Epoch: 55 [250/24546 (79%)]	Loss: 0.370292
+Train Epoch: 55 [300/24546 (95%)]	Loss: 0.423941
+Train Epoch: 55	Average Loss: 0.000000
+Val Epoch: 55	Average Loss: 0.446627
+--------------------------------------------------
+epoch 56 num_epochs 200
+Train Epoch: 56 [0/24546 (0%)]	Loss: 0.400843
+Train Epoch: 56 [50/24546 (16%)]	Loss: 0.457393
+Train Epoch: 56 [100/24546 (32%)]	Loss: 0.492524
+Train Epoch: 56 [150/24546 (48%)]	Loss: 0.344664
+Train Epoch: 56 [200/24546 (63%)]	Loss: 0.345010
+Train Epoch: 56 [250/24546 (79%)]	Loss: 0.355197
+Train Epoch: 56 [300/24546 (95%)]	Loss: 0.389963
+Train Epoch: 56	Average Loss: 0.000000
+Val Epoch: 56	Average Loss: 0.443354
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.3500, Diversity Real. 9.6342, Diversity. 9.2100, R_precision_real. (0.5199, 0.7254, 0.8145), R_precision. (0.4408, 0.6529, 0.7673), matching_real. 2.8872, matching_pred. 3.1971, MPJPE. 0.0980
+Evaluation results:  {'FID': 0.350047420683822, 'Diversity': 9.20999, 'Top1': 0.4408244680851064, 'Top2': 0.6529255319148937, 'Top3': 0.7672872340425532, 'Matching': 3.1971000509059175, 'MAE': 0.09801768}
+Saved model at epoch 56 with FID 0.35005
+
+epoch 57 num_epochs 200
+Train Epoch: 57 [0/24546 (0%)]	Loss: 0.413285
+Train Epoch: 57 [50/24546 (16%)]	Loss: 0.402385
+Train Epoch: 57 [100/24546 (32%)]	Loss: 0.454331
+Train Epoch: 57 [150/24546 (48%)]	Loss: 0.388569
+Train Epoch: 57 [200/24546 (63%)]	Loss: 0.336083
+Train Epoch: 57 [250/24546 (79%)]	Loss: 0.479745
+Train Epoch: 57 [300/24546 (95%)]	Loss: 0.390119
+Train Epoch: 57	Average Loss: 0.000000
+Val Epoch: 57	Average Loss: 0.421745
+--------------------------------------------------
+epoch 58 num_epochs 200
+Train Epoch: 58 [0/24546 (0%)]	Loss: 0.381596
+Train Epoch: 58 [50/24546 (16%)]	Loss: 0.359938
+Train Epoch: 58 [100/24546 (32%)]	Loss: 0.538039
+Train Epoch: 58 [150/24546 (48%)]	Loss: 0.424012
+Train Epoch: 58 [200/24546 (63%)]	Loss: 0.432695
+Train Epoch: 58 [250/24546 (79%)]	Loss: 0.334390
+Train Epoch: 58 [300/24546 (95%)]	Loss: 0.402403
+Train Epoch: 58	Average Loss: 0.000000
+Val Epoch: 58	Average Loss: 0.400890
+--------------------------------------------------
+Saved best model at epoch 58 with loss 0.400890
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.4153, Diversity Real. 9.7669, Diversity. 8.8677, R_precision_real. (0.5120, 0.7021, 0.8025), R_precision. (0.4621, 0.6463, 0.7560), matching_real. 2.9224, matching_pred. 3.1996, MPJPE. 0.0900
+Evaluation results:  {'FID': 0.4152766605657092, 'Diversity': 8.867708, 'Top1': 0.4621010638297872, 'Top2': 0.6462765957446809, 'Top3': 0.7559840425531915, 'Matching': 3.1995851739924004, 'MAE': 0.09000928}
+Saved model at epoch 58 with FID 0.41528
+
+epoch 59 num_epochs 200
+Train Epoch: 59 [0/24546 (0%)]	Loss: 0.393926
+Train Epoch: 59 [50/24546 (16%)]	Loss: 0.374630
+Train Epoch: 59 [100/24546 (32%)]	Loss: 0.382860
+Train Epoch: 59 [150/24546 (48%)]	Loss: 0.461437
+Train Epoch: 59 [200/24546 (63%)]	Loss: 0.381743
+Train Epoch: 59 [250/24546 (79%)]	Loss: 0.347833
+Train Epoch: 59 [300/24546 (95%)]	Loss: 0.418443
+Train Epoch: 59	Average Loss: 0.000000
+Val Epoch: 59	Average Loss: 0.389567
+--------------------------------------------------
+Saved best model at epoch 59 with loss 0.389567
+
+epoch 60 num_epochs 200
+Train Epoch: 60 [0/24546 (0%)]	Loss: 0.506612
+Train Epoch: 60 [50/24546 (16%)]	Loss: 0.458731
+Train Epoch: 60 [100/24546 (32%)]	Loss: 0.372231
+Train Epoch: 60 [150/24546 (48%)]	Loss: 0.342067
+Train Epoch: 60 [200/24546 (63%)]	Loss: 0.377494
+Train Epoch: 60 [250/24546 (79%)]	Loss: 0.370450
+Train Epoch: 60 [300/24546 (95%)]	Loss: 0.375477
+Train Epoch: 60	Average Loss: 0.000000
+Val Epoch: 60	Average Loss: 0.390896
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.2893, Diversity Real. 9.1012, Diversity. 8.9840, R_precision_real. (0.5133, 0.7141, 0.8025), R_precision. (0.4674, 0.6582, 0.7633), matching_real. 2.8784, matching_pred. 3.1148, MPJPE. 0.0904
+Evaluation results:  {'FID': 0.28934472140646506, 'Diversity': 8.983988, 'Top1': 0.46742021276595747, 'Top2': 0.6582446808510638, 'Top3': 0.7632978723404256, 'Matching': 3.1148020358795816, 'MAE': 0.090422794}
+Saved model at epoch 60 with FID 0.28934
+
+epoch 61 num_epochs 200
+Train Epoch: 61 [0/24546 (0%)]	Loss: 0.337936
+Train Epoch: 61 [50/24546 (16%)]	Loss: 0.355616
+Train Epoch: 61 [100/24546 (32%)]	Loss: 0.404306
+Train Epoch: 61 [150/24546 (48%)]	Loss: 0.432500
+Train Epoch: 61 [200/24546 (63%)]	Loss: 0.414017
+Train Epoch: 61 [250/24546 (79%)]	Loss: 0.467067
+Train Epoch: 61 [300/24546 (95%)]	Loss: 0.405669
+Train Epoch: 61	Average Loss: 0.000000
+Val Epoch: 61	Average Loss: 0.380307
+--------------------------------------------------
+Saved best model at epoch 61 with loss 0.380307
+
+epoch 62 num_epochs 200
+Train Epoch: 62 [0/24546 (0%)]	Loss: 0.345057
+Train Epoch: 62 [50/24546 (16%)]	Loss: 0.373354
+Train Epoch: 62 [100/24546 (32%)]	Loss: 0.403951
+Train Epoch: 62 [150/24546 (48%)]	Loss: 0.368963
+Train Epoch: 62 [200/24546 (63%)]	Loss: 0.341757
+Train Epoch: 62 [250/24546 (79%)]	Loss: 0.344392
+Train Epoch: 62 [300/24546 (95%)]	Loss: 0.380847
+Train Epoch: 62	Average Loss: 0.000000
+Val Epoch: 62	Average Loss: 0.365404
+--------------------------------------------------
+Saved best model at epoch 62 with loss 0.365404
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.3197, Diversity Real. 9.7226, Diversity. 8.7175, R_precision_real. (0.5219, 0.7194, 0.8112), R_precision. (0.4521, 0.6609, 0.7673), matching_real. 2.8485, matching_pred. 3.1187, MPJPE. 0.0849
+Evaluation results:  {'FID': 0.31968128343260105, 'Diversity': 8.717467, 'Top1': 0.4521276595744681, 'Top2': 0.660904255319149, 'Top3': 0.7672872340425532, 'Matching': 3.118723341759215, 'MAE': 0.08487025}
+Saved model at epoch 62 with FID 0.31968
+
+epoch 63 num_epochs 200
+Train Epoch: 63 [0/24546 (0%)]	Loss: 0.317771
+Train Epoch: 63 [50/24546 (16%)]	Loss: 0.398611
+Train Epoch: 63 [100/24546 (32%)]	Loss: 0.376291
+Train Epoch: 63 [150/24546 (48%)]	Loss: 0.364830
+Train Epoch: 63 [200/24546 (63%)]	Loss: 0.385080
+Train Epoch: 63 [250/24546 (79%)]	Loss: 0.401825
+Train Epoch: 63 [300/24546 (95%)]	Loss: 0.413610
+Train Epoch: 63	Average Loss: 0.000000
+Val Epoch: 63	Average Loss: 0.395488
+--------------------------------------------------
+epoch 64 num_epochs 200
+Train Epoch: 64 [0/24546 (0%)]	Loss: 0.372568
+Train Epoch: 64 [50/24546 (16%)]	Loss: 0.390401
+Train Epoch: 64 [100/24546 (32%)]	Loss: 0.395660
+Train Epoch: 64 [150/24546 (48%)]	Loss: 0.431225
+Train Epoch: 64 [200/24546 (63%)]	Loss: 0.345581
+Train Epoch: 64 [250/24546 (79%)]	Loss: 0.449373
+Train Epoch: 64 [300/24546 (95%)]	Loss: 0.463391
+Train Epoch: 64	Average Loss: 0.000000
+Val Epoch: 64	Average Loss: 0.414437
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.5229, Diversity Real. 9.4429, Diversity. 9.0506, R_precision_real. (0.5186, 0.7068, 0.8045), R_precision. (0.4355, 0.6316, 0.7400), matching_real. 2.9012, matching_pred. 3.2836, MPJPE. 0.0988
+Evaluation results:  {'FID': 0.5229296998825674, 'Diversity': 9.050569, 'Top1': 0.43550531914893614, 'Top2': 0.6316489361702128, 'Top3': 0.7400265957446809, 'Matching': 3.283624922975581, 'MAE': 0.098846264}
+Saved model at epoch 64 with FID 0.52293
+
+epoch 65 num_epochs 200
+Train Epoch: 65 [0/24546 (0%)]	Loss: 0.388435
+Train Epoch: 65 [50/24546 (16%)]	Loss: 0.389913
+Train Epoch: 65 [100/24546 (32%)]	Loss: 0.383225
+Train Epoch: 65 [150/24546 (48%)]	Loss: 0.402236
+Train Epoch: 65 [200/24546 (63%)]	Loss: 0.356512
+Train Epoch: 65 [250/24546 (79%)]	Loss: 0.336540
+Train Epoch: 65 [300/24546 (95%)]	Loss: 0.381218
+Train Epoch: 65	Average Loss: 0.000000
+Val Epoch: 65	Average Loss: 0.354090
+--------------------------------------------------
+Saved best model at epoch 65 with loss 0.354090
+
+epoch 66 num_epochs 200
+Train Epoch: 66 [0/24546 (0%)]	Loss: 0.338361
+Train Epoch: 66 [50/24546 (16%)]	Loss: 0.380086
+Train Epoch: 66 [100/24546 (32%)]	Loss: 0.354992
+Train Epoch: 66 [150/24546 (48%)]	Loss: 0.432486
+Train Epoch: 66 [200/24546 (63%)]	Loss: 0.376894
+Train Epoch: 66 [250/24546 (79%)]	Loss: 0.369459
+Train Epoch: 66 [300/24546 (95%)]	Loss: 0.406962
+Train Epoch: 66	Average Loss: 0.000000
+Val Epoch: 66	Average Loss: 0.369721
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.3034, Diversity Real. 9.7216, Diversity. 9.1080, R_precision_real. (0.5073, 0.6981, 0.7939), R_precision. (0.4668, 0.6243, 0.7540), matching_real. 2.9327, matching_pred. 3.2078, MPJPE. 0.1016
+Evaluation results:  {'FID': 0.30340451784823586, 'Diversity': 9.108018, 'Top1': 0.46675531914893614, 'Top2': 0.6243351063829787, 'Top3': 0.7539893617021277, 'Matching': 3.207835136575902, 'MAE': 0.10155715}
+Saved model at epoch 66 with FID 0.30340
+
+epoch 67 num_epochs 200
+Train Epoch: 67 [0/24546 (0%)]	Loss: 0.420637
+Train Epoch: 67 [50/24546 (16%)]	Loss: 0.380913
+Train Epoch: 67 [100/24546 (32%)]	Loss: 0.364291
+Train Epoch: 67 [150/24546 (48%)]	Loss: 0.411331
+Train Epoch: 67 [200/24546 (63%)]	Loss: 0.386876
+Train Epoch: 67 [250/24546 (79%)]	Loss: 0.379435
+Train Epoch: 67 [300/24546 (95%)]	Loss: 0.369309
+Train Epoch: 67	Average Loss: 0.000000
+Val Epoch: 67	Average Loss: 0.381866
+--------------------------------------------------
+epoch 68 num_epochs 200
+Train Epoch: 68 [0/24546 (0%)]	Loss: 0.357069
+Train Epoch: 68 [50/24546 (16%)]	Loss: 0.372527
+Train Epoch: 68 [100/24546 (32%)]	Loss: 0.342396
+Train Epoch: 68 [150/24546 (48%)]	Loss: 0.363343
+Train Epoch: 68 [200/24546 (63%)]	Loss: 0.323545
+Train Epoch: 68 [250/24546 (79%)]	Loss: 0.347821
+Train Epoch: 68 [300/24546 (95%)]	Loss: 0.345392
+Train Epoch: 68	Average Loss: 0.000000
+Val Epoch: 68	Average Loss: 0.350798
+--------------------------------------------------
+Saved best model at epoch 68 with loss 0.350798
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.2106, Diversity Real. 9.5219, Diversity. 8.8569, R_precision_real. (0.5166, 0.7074, 0.8012), R_precision. (0.4820, 0.6636, 0.7666), matching_real. 2.9298, matching_pred. 3.1391, MPJPE. 0.0879
+Evaluation results:  {'FID': 0.21058913781128297, 'Diversity': 8.856936, 'Top1': 0.4820478723404255, 'Top2': 0.663563829787234, 'Top3': 0.7666223404255319, 'Matching': 3.1391111637683626, 'MAE': 0.087850936}
+Saved model at epoch 68 with FID 0.21059
+
+epoch 69 num_epochs 200
+Train Epoch: 69 [0/24546 (0%)]	Loss: 0.372911
+Train Epoch: 69 [50/24546 (16%)]	Loss: 0.339613
+Train Epoch: 69 [100/24546 (32%)]	Loss: 0.392909
+Train Epoch: 69 [150/24546 (48%)]	Loss: 0.397173
+Train Epoch: 69 [200/24546 (63%)]	Loss: 0.360314
+Train Epoch: 69 [250/24546 (79%)]	Loss: 0.407886
+Train Epoch: 69 [300/24546 (95%)]	Loss: 0.375127
+Train Epoch: 69	Average Loss: 0.000000
+Val Epoch: 69	Average Loss: 0.396611
+--------------------------------------------------
+epoch 70 num_epochs 200
+Train Epoch: 70 [0/24546 (0%)]	Loss: 0.371011
+Train Epoch: 70 [50/24546 (16%)]	Loss: 0.317666
+Train Epoch: 70 [100/24546 (32%)]	Loss: 0.334642
+Train Epoch: 70 [150/24546 (48%)]	Loss: 0.337805
+Train Epoch: 70 [200/24546 (63%)]	Loss: 0.333806
+Train Epoch: 70 [250/24546 (79%)]	Loss: 0.348569
+Train Epoch: 70 [300/24546 (95%)]	Loss: 0.313943
+Train Epoch: 70	Average Loss: 0.000000
+Val Epoch: 70	Average Loss: 0.346714
+--------------------------------------------------
+Saved best model at epoch 70 with loss 0.346714
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1677, Diversity Real. 9.7329, Diversity. 9.3024, R_precision_real. (0.5479, 0.7234, 0.8025), R_precision. (0.5053, 0.6709, 0.7706), matching_real. 2.8561, matching_pred. 3.0835, MPJPE. 0.0823
+Evaluation results:  {'FID': 0.16766248593057753, 'Diversity': 9.302429, 'Top1': 0.5053191489361702, 'Top2': 0.6708776595744681, 'Top3': 0.7706117021276596, 'Matching': 3.083471698963896, 'MAE': 0.08229129}
+Saved model at epoch 70 with FID 0.16766
+
+epoch 71 num_epochs 200
+Train Epoch: 71 [0/24546 (0%)]	Loss: 0.399733
+Train Epoch: 71 [50/24546 (16%)]	Loss: 0.329737
+Train Epoch: 71 [100/24546 (32%)]	Loss: 0.367125
+Train Epoch: 71 [150/24546 (48%)]	Loss: 0.336681
+Train Epoch: 71 [200/24546 (63%)]	Loss: 0.354881
+Train Epoch: 71 [250/24546 (79%)]	Loss: 0.360188
+Train Epoch: 71 [300/24546 (95%)]	Loss: 0.353589
+Train Epoch: 71	Average Loss: 0.000000
+Val Epoch: 71	Average Loss: 0.352659
+--------------------------------------------------
+epoch 72 num_epochs 200
+Train Epoch: 72 [0/24546 (0%)]	Loss: 0.332644
+Train Epoch: 72 [50/24546 (16%)]	Loss: 0.330453
+Train Epoch: 72 [100/24546 (32%)]	Loss: 0.278575
+Train Epoch: 72 [150/24546 (48%)]	Loss: 0.365697
+Train Epoch: 72 [200/24546 (63%)]	Loss: 0.372887
+Train Epoch: 72 [250/24546 (79%)]	Loss: 0.305374
+Train Epoch: 72 [300/24546 (95%)]	Loss: 0.365240
+Train Epoch: 72	Average Loss: 0.000000
+Val Epoch: 72	Average Loss: 0.362049
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.2505, Diversity Real. 9.6700, Diversity. 9.0019, R_precision_real. (0.4894, 0.7035, 0.8045), R_precision. (0.4455, 0.6489, 0.7513), matching_real. 2.9017, matching_pred. 3.1345, MPJPE. 0.0897
+Evaluation results:  {'FID': 0.25047191557510473, 'Diversity': 9.001866, 'Top1': 0.4454787234042553, 'Top2': 0.648936170212766, 'Top3': 0.7513297872340425, 'Matching': 3.134461661602588, 'MAE': 0.0897208}
+Saved model at epoch 72 with FID 0.25047
+
+epoch 73 num_epochs 200
+Train Epoch: 73 [0/24546 (0%)]	Loss: 0.312617
+Train Epoch: 73 [50/24546 (16%)]	Loss: 0.307940
+Train Epoch: 73 [100/24546 (32%)]	Loss: 0.342159
+Train Epoch: 73 [150/24546 (48%)]	Loss: 0.323947
+Train Epoch: 73 [200/24546 (63%)]	Loss: 0.389100
+Train Epoch: 73 [250/24546 (79%)]	Loss: 0.379140
+Train Epoch: 73 [300/24546 (95%)]	Loss: 0.328335
+Train Epoch: 73	Average Loss: 0.000000
+Val Epoch: 73	Average Loss: 0.382380
+--------------------------------------------------
+epoch 74 num_epochs 200
+Train Epoch: 74 [0/24546 (0%)]	Loss: 0.344932
+Train Epoch: 74 [50/24546 (16%)]	Loss: 0.340315
+Train Epoch: 74 [100/24546 (32%)]	Loss: 0.352625
+Train Epoch: 74 [150/24546 (48%)]	Loss: 0.415113
+Train Epoch: 74 [200/24546 (63%)]	Loss: 0.346501
+Train Epoch: 74 [250/24546 (79%)]	Loss: 0.391543
+Train Epoch: 74 [300/24546 (95%)]	Loss: 0.511086
+Train Epoch: 74	Average Loss: 0.000000
+Val Epoch: 74	Average Loss: 0.387323
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.4033, Diversity Real. 9.5332, Diversity. 8.5396, R_precision_real. (0.5133, 0.6888, 0.7926), R_precision. (0.4601, 0.6403, 0.7453), matching_real. 2.8983, matching_pred. 3.1699, MPJPE. 0.0976
+Evaluation results:  {'FID': 0.4032675349151589, 'Diversity': 8.539572, 'Top1': 0.4601063829787234, 'Top2': 0.6402925531914894, 'Top3': 0.745345744680851, 'Matching': 3.16994172968763, 'MAE': 0.09756534}
+Saved model at epoch 74 with FID 0.40327
+
+epoch 75 num_epochs 200
+Train Epoch: 75 [0/24546 (0%)]	Loss: 0.357089
+Train Epoch: 75 [50/24546 (16%)]	Loss: 0.403390
+Train Epoch: 75 [100/24546 (32%)]	Loss: 0.307683
+Train Epoch: 75 [150/24546 (48%)]	Loss: 0.310379
+Train Epoch: 75 [200/24546 (63%)]	Loss: 0.333964
+Train Epoch: 75 [250/24546 (79%)]	Loss: 0.341959
+Train Epoch: 75 [300/24546 (95%)]	Loss: 0.351499
+Train Epoch: 75	Average Loss: 0.000000
+Val Epoch: 75	Average Loss: 0.323732
+--------------------------------------------------
+Saved best model at epoch 75 with loss 0.323732
+
+epoch 76 num_epochs 200
+Train Epoch: 76 [0/24546 (0%)]	Loss: 0.327124
+Train Epoch: 76 [50/24546 (16%)]	Loss: 0.326931
+Train Epoch: 76 [100/24546 (32%)]	Loss: 0.322255
+Train Epoch: 76 [150/24546 (48%)]	Loss: 0.324011
+Train Epoch: 76 [200/24546 (63%)]	Loss: 0.300524
+Train Epoch: 76 [250/24546 (79%)]	Loss: 0.382942
+Train Epoch: 76 [300/24546 (95%)]	Loss: 0.347893
+Train Epoch: 76	Average Loss: 0.000000
+Val Epoch: 76	Average Loss: 0.332681
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1872, Diversity Real. 9.6302, Diversity. 9.1143, R_precision_real. (0.5100, 0.6975, 0.7886), R_precision. (0.4727, 0.6503, 0.7586), matching_real. 2.9120, matching_pred. 3.1240, MPJPE. 0.0825
+Evaluation results:  {'FID': 0.18719920195960071, 'Diversity': 9.1143465, 'Top1': 0.47273936170212766, 'Top2': 0.6502659574468085, 'Top3': 0.7586436170212766, 'Matching': 3.123982089631101, 'MAE': 0.08250529}
+Saved model at epoch 76 with FID 0.18720
+
+epoch 77 num_epochs 200
+Train Epoch: 77 [0/24546 (0%)]	Loss: 0.294814
+Train Epoch: 77 [50/24546 (16%)]	Loss: 0.344797
+Train Epoch: 77 [100/24546 (32%)]	Loss: 0.309176
+Train Epoch: 77 [150/24546 (48%)]	Loss: 0.333288
+Train Epoch: 77 [200/24546 (63%)]	Loss: 0.383383
+Train Epoch: 77 [250/24546 (79%)]	Loss: 0.299637
+Train Epoch: 77 [300/24546 (95%)]	Loss: 0.375616
+Train Epoch: 77	Average Loss: 0.000000
+Val Epoch: 77	Average Loss: 0.316942
+--------------------------------------------------
+Saved best model at epoch 77 with loss 0.316942
+
+epoch 78 num_epochs 200
+Train Epoch: 78 [0/24546 (0%)]	Loss: 0.334228
+Train Epoch: 78 [50/24546 (16%)]	Loss: 0.325760
+Train Epoch: 78 [100/24546 (32%)]	Loss: 0.331977
+Train Epoch: 78 [150/24546 (48%)]	Loss: 0.363012
+Train Epoch: 78 [200/24546 (63%)]	Loss: 0.298544
+Train Epoch: 78 [250/24546 (79%)]	Loss: 0.321659
+Train Epoch: 78 [300/24546 (95%)]	Loss: 0.301188
+Train Epoch: 78	Average Loss: 0.000000
+Val Epoch: 78	Average Loss: 0.328149
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1897, Diversity Real. 9.4968, Diversity. 8.7639, R_precision_real. (0.5126, 0.7055, 0.7979), R_precision. (0.4694, 0.6503, 0.7593), matching_real. 2.9255, matching_pred. 3.1324, MPJPE. 0.0894
+Evaluation results:  {'FID': 0.18968018965101408, 'Diversity': 8.763897, 'Top1': 0.46941489361702127, 'Top2': 0.6502659574468085, 'Top3': 0.7593085106382979, 'Matching': 3.1323862633806594, 'MAE': 0.089426175}
+Saved model at epoch 78 with FID 0.18968
+
+epoch 79 num_epochs 200
+Train Epoch: 79 [0/24546 (0%)]	Loss: 0.354872
+Train Epoch: 79 [50/24546 (16%)]	Loss: 0.388756
+Train Epoch: 79 [100/24546 (32%)]	Loss: 0.314584
+Train Epoch: 79 [150/24546 (48%)]	Loss: 0.315535
+Train Epoch: 79 [200/24546 (63%)]	Loss: 0.344891
+Train Epoch: 79 [250/24546 (79%)]	Loss: 0.334399
+Train Epoch: 79 [300/24546 (95%)]	Loss: 0.349655
+Train Epoch: 79	Average Loss: 0.000000
+Val Epoch: 79	Average Loss: 0.337500
+--------------------------------------------------
+epoch 80 num_epochs 200
+Train Epoch: 80 [0/24546 (0%)]	Loss: 0.317481
+Train Epoch: 80 [50/24546 (16%)]	Loss: 0.292342
+Train Epoch: 80 [100/24546 (32%)]	Loss: 0.323772
+Train Epoch: 80 [150/24546 (48%)]	Loss: 0.323907
+Train Epoch: 80 [200/24546 (63%)]	Loss: 0.298742
+Train Epoch: 80 [250/24546 (79%)]	Loss: 0.331764
+Train Epoch: 80 [300/24546 (95%)]	Loss: 0.294270
+Train Epoch: 80	Average Loss: 0.000000
+Val Epoch: 80	Average Loss: 0.341853
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.2288, Diversity Real. 9.5108, Diversity. 9.0900, R_precision_real. (0.5213, 0.6961, 0.8025), R_precision. (0.4767, 0.6656, 0.7606), matching_real. 2.9462, matching_pred. 3.1784, MPJPE. 0.0891
+Evaluation results:  {'FID': 0.22878196741811507, 'Diversity': 9.0900345, 'Top1': 0.4767287234042553, 'Top2': 0.6655585106382979, 'Top3': 0.7606382978723404, 'Matching': 3.1784079176314335, 'MAE': 0.08911858}
+Saved model at epoch 80 with FID 0.22878
+
+epoch 81 num_epochs 200
+Train Epoch: 81 [0/24546 (0%)]	Loss: 0.323207
+Train Epoch: 81 [50/24546 (16%)]	Loss: 0.456808
+Train Epoch: 81 [100/24546 (32%)]	Loss: 0.358808
+Train Epoch: 81 [150/24546 (48%)]	Loss: 0.307115
+Train Epoch: 81 [200/24546 (63%)]	Loss: 0.323600
+Train Epoch: 81 [250/24546 (79%)]	Loss: 0.288541
+Train Epoch: 81 [300/24546 (95%)]	Loss: 0.294396
+Train Epoch: 81	Average Loss: 0.000000
+Val Epoch: 81	Average Loss: 0.335378
+--------------------------------------------------
+epoch 82 num_epochs 200
+Train Epoch: 82 [0/24546 (0%)]	Loss: 0.316894
+Train Epoch: 82 [50/24546 (16%)]	Loss: 0.311145
+Train Epoch: 82 [100/24546 (32%)]	Loss: 0.335583
+Train Epoch: 82 [150/24546 (48%)]	Loss: 0.289976
+Train Epoch: 82 [200/24546 (63%)]	Loss: 0.341347
+Train Epoch: 82 [250/24546 (79%)]	Loss: 0.336412
+Train Epoch: 82 [300/24546 (95%)]	Loss: 0.324611
+Train Epoch: 82	Average Loss: 0.000000
+Val Epoch: 82	Average Loss: 0.319729
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.2188, Diversity Real. 9.2617, Diversity. 9.1546, R_precision_real. (0.5100, 0.7021, 0.7872), R_precision. (0.4621, 0.6456, 0.7533), matching_real. 2.9780, matching_pred. 3.1851, MPJPE. 0.0873
+Evaluation results:  {'FID': 0.21878354790412402, 'Diversity': 9.1545725, 'Top1': 0.4621010638297872, 'Top2': 0.6456117021276596, 'Top3': 0.7533244680851063, 'Matching': 3.185087969962587, 'MAE': 0.087316476}
+Saved model at epoch 82 with FID 0.21878
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_2_2.836418_fid21.81715_mpjpe0.25659.pth
+epoch 83 num_epochs 200
+Train Epoch: 83 [0/24546 (0%)]	Loss: 0.368615
+Train Epoch: 83 [50/24546 (16%)]	Loss: 0.349301
+Train Epoch: 83 [100/24546 (32%)]	Loss: 0.346931
+Train Epoch: 83 [150/24546 (48%)]	Loss: 0.315011
+Train Epoch: 83 [200/24546 (63%)]	Loss: 0.334683
+Train Epoch: 83 [250/24546 (79%)]	Loss: 0.301868
+Train Epoch: 83 [300/24546 (95%)]	Loss: 0.318561
+Train Epoch: 83	Average Loss: 0.000000
+Val Epoch: 83	Average Loss: 0.313490
+--------------------------------------------------
+Saved best model at epoch 83 with loss 0.313490
+
+epoch 84 num_epochs 200
+Train Epoch: 84 [0/24546 (0%)]	Loss: 0.366490
+Train Epoch: 84 [50/24546 (16%)]	Loss: 0.315701
+Train Epoch: 84 [100/24546 (32%)]	Loss: 0.328067
+Train Epoch: 84 [150/24546 (48%)]	Loss: 0.307874
+Train Epoch: 84 [200/24546 (63%)]	Loss: 0.270972
+Train Epoch: 84 [250/24546 (79%)]	Loss: 0.339436
+Train Epoch: 84 [300/24546 (95%)]	Loss: 0.292812
+Train Epoch: 84	Average Loss: 0.000000
+Val Epoch: 84	Average Loss: 0.330259
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1572, Diversity Real. 9.8135, Diversity. 8.9153, R_precision_real. (0.5213, 0.7048, 0.7912), R_precision. (0.4787, 0.6762, 0.7680), matching_real. 2.9011, matching_pred. 3.0655, MPJPE. 0.0841
+Evaluation results:  {'FID': 0.15715684150885068, 'Diversity': 8.915272, 'Top1': 0.4787234042553192, 'Top2': 0.6761968085106383, 'Top3': 0.7679521276595744, 'Matching': 3.0654884551433805, 'MAE': 0.08409858}
+Saved model at epoch 84 with FID 0.15716
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_6_1.790957_fid19.31030_mpjpe0.24807.pth
+epoch 85 num_epochs 200
+Train Epoch: 85 [0/24546 (0%)]	Loss: 0.300677
+Train Epoch: 85 [50/24546 (16%)]	Loss: 0.316063
+Train Epoch: 85 [100/24546 (32%)]	Loss: 0.268489
+Train Epoch: 85 [150/24546 (48%)]	Loss: 0.304240
+Train Epoch: 85 [200/24546 (63%)]	Loss: 0.346270
+Train Epoch: 85 [250/24546 (79%)]	Loss: 0.288142
+Train Epoch: 85 [300/24546 (95%)]	Loss: 0.307480
+Train Epoch: 85	Average Loss: 0.000000
+Val Epoch: 85	Average Loss: 0.332841
+--------------------------------------------------
+epoch 86 num_epochs 200
+Train Epoch: 86 [0/24546 (0%)]	Loss: 0.315092
+Train Epoch: 86 [50/24546 (16%)]	Loss: 0.292103
+Train Epoch: 86 [100/24546 (32%)]	Loss: 0.310964
+Train Epoch: 86 [150/24546 (48%)]	Loss: 0.327956
+Train Epoch: 86 [200/24546 (63%)]	Loss: 0.342326
+Train Epoch: 86 [250/24546 (79%)]	Loss: 0.313277
+Train Epoch: 86 [300/24546 (95%)]	Loss: 0.307110
+Train Epoch: 86	Average Loss: 0.000000
+Val Epoch: 86	Average Loss: 0.342172
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1332, Diversity Real. 9.7540, Diversity. 9.3961, R_precision_real. (0.5140, 0.7048, 0.7959), R_precision. (0.4840, 0.6782, 0.7746), matching_real. 2.9082, matching_pred. 3.1056, MPJPE. 0.0875
+Evaluation results:  {'FID': 0.1331716345828653, 'Diversity': 9.396115, 'Top1': 0.48404255319148937, 'Top2': 0.6781914893617021, 'Top3': 0.7746010638297872, 'Matching': 3.1056308695610535, 'MAE': 0.08748425}
+Saved model at epoch 86 with FID 0.13317
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_4_1.987726_fid18.65062_mpjpe0.25116.pth
+epoch 87 num_epochs 200
+Train Epoch: 87 [0/24546 (0%)]	Loss: 0.279725
+Train Epoch: 87 [50/24546 (16%)]	Loss: 0.290808
+Train Epoch: 87 [100/24546 (32%)]	Loss: 0.306025
+Train Epoch: 87 [150/24546 (48%)]	Loss: 0.343250
+Train Epoch: 87 [200/24546 (63%)]	Loss: 0.282958
+Train Epoch: 87 [250/24546 (79%)]	Loss: 0.353113
+Train Epoch: 87 [300/24546 (95%)]	Loss: 0.287264
+Train Epoch: 87	Average Loss: 0.000000
+Val Epoch: 87	Average Loss: 0.321907
+--------------------------------------------------
+epoch 88 num_epochs 200
+Train Epoch: 88 [0/24546 (0%)]	Loss: 0.283633
+Train Epoch: 88 [50/24546 (16%)]	Loss: 0.309269
+Train Epoch: 88 [100/24546 (32%)]	Loss: 0.272785
+Train Epoch: 88 [150/24546 (48%)]	Loss: 0.262235
+Train Epoch: 88 [200/24546 (63%)]	Loss: 0.310329
+Train Epoch: 88 [250/24546 (79%)]	Loss: 0.328483
+Train Epoch: 88 [300/24546 (95%)]	Loss: 0.345258
+Train Epoch: 88	Average Loss: 0.000000
+Val Epoch: 88	Average Loss: 0.327596
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.2184, Diversity Real. 9.2489, Diversity. 9.0578, R_precision_real. (0.5226, 0.7074, 0.8045), R_precision. (0.4641, 0.6596, 0.7693), matching_real. 2.8825, matching_pred. 3.0794, MPJPE. 0.0834
+Evaluation results:  {'FID': 0.2184368932243359, 'Diversity': 9.057803, 'Top1': 0.4640957446808511, 'Top2': 0.6595744680851063, 'Top3': 0.769281914893617, 'Matching': 3.079447518003748, 'MAE': 0.08341099}
+Saved model at epoch 88 with FID 0.21844
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_8_1.543121_fid15.00529_mpjpe0.24403.pth
+epoch 89 num_epochs 200
+Train Epoch: 89 [0/24546 (0%)]	Loss: 0.328961
+Train Epoch: 89 [50/24546 (16%)]	Loss: 0.323995
+Train Epoch: 89 [100/24546 (32%)]	Loss: 0.278886
+Train Epoch: 89 [150/24546 (48%)]	Loss: 0.273998
+Train Epoch: 89 [200/24546 (63%)]	Loss: 0.286619
+Train Epoch: 89 [250/24546 (79%)]	Loss: 0.314724
+Train Epoch: 89 [300/24546 (95%)]	Loss: 0.281272
+Train Epoch: 89	Average Loss: 0.000000
+Val Epoch: 89	Average Loss: 0.316897
+--------------------------------------------------
+epoch 90 num_epochs 200
+Train Epoch: 90 [0/24546 (0%)]	Loss: 0.342024
+Train Epoch: 90 [50/24546 (16%)]	Loss: 0.323884
+Train Epoch: 90 [100/24546 (32%)]	Loss: 0.317767
+Train Epoch: 90 [150/24546 (48%)]	Loss: 0.313296
+Train Epoch: 90 [200/24546 (63%)]	Loss: 0.277019
+Train Epoch: 90 [250/24546 (79%)]	Loss: 0.325216
+Train Epoch: 90 [300/24546 (95%)]	Loss: 0.312392
+Train Epoch: 90	Average Loss: 0.000000
+Val Epoch: 90	Average Loss: 0.332853
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.2077, Diversity Real. 9.1975, Diversity. 8.9898, R_precision_real. (0.5273, 0.6915, 0.7879), R_precision. (0.4754, 0.6589, 0.7633), matching_real. 2.9172, matching_pred. 3.0991, MPJPE. 0.0816
+Evaluation results:  {'FID': 0.20769734633270787, 'Diversity': 8.98977, 'Top1': 0.4753989361702128, 'Top2': 0.6589095744680851, 'Top3': 0.7632978723404256, 'Matching': 3.099077524022853, 'MAE': 0.081563726}
+Saved model at epoch 90 with FID 0.20770
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_10_1.451819_fid14.85304_mpjpe0.21369.pth
+epoch 91 num_epochs 200
+Train Epoch: 91 [0/24546 (0%)]	Loss: 0.278892
+Train Epoch: 91 [50/24546 (16%)]	Loss: 0.298092
+Train Epoch: 91 [100/24546 (32%)]	Loss: 0.283455
+Train Epoch: 91 [150/24546 (48%)]	Loss: 0.270282
+Train Epoch: 91 [200/24546 (63%)]	Loss: 0.340554
+Train Epoch: 91 [250/24546 (79%)]	Loss: 0.278909
+Train Epoch: 91 [300/24546 (95%)]	Loss: 0.290386
+Train Epoch: 91	Average Loss: 0.000000
+Val Epoch: 91	Average Loss: 0.319050
+--------------------------------------------------
+epoch 92 num_epochs 200
+Train Epoch: 92 [0/24546 (0%)]	Loss: 0.295727
+Train Epoch: 92 [50/24546 (16%)]	Loss: 0.289879
+Train Epoch: 92 [100/24546 (32%)]	Loss: 0.310688
+Train Epoch: 92 [150/24546 (48%)]	Loss: 0.295504
+Train Epoch: 92 [200/24546 (63%)]	Loss: 0.337805
+Train Epoch: 92 [250/24546 (79%)]	Loss: 0.289164
+Train Epoch: 92 [300/24546 (95%)]	Loss: 0.373494
+Train Epoch: 92	Average Loss: 0.000000
+Val Epoch: 92	Average Loss: 0.311581
+--------------------------------------------------
+Saved best model at epoch 92 with loss 0.311581
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.2650, Diversity Real. 9.5175, Diversity. 9.2728, R_precision_real. (0.5106, 0.7128, 0.7992), R_precision. (0.4608, 0.6609, 0.7653), matching_real. 2.9246, matching_pred. 3.1376, MPJPE. 0.0831
+Evaluation results:  {'FID': 0.26504519045229813, 'Diversity': 9.272795, 'Top1': 0.4607712765957447, 'Top2': 0.660904255319149, 'Top3': 0.7652925531914894, 'Matching': 3.1375623256602188, 'MAE': 0.083120964}
+Saved model at epoch 92 with FID 0.26505
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_12_1.262759_fid10.98241_mpjpe0.20193.pth
+epoch 93 num_epochs 200
+Train Epoch: 93 [0/24546 (0%)]	Loss: 0.282774
+Train Epoch: 93 [50/24546 (16%)]	Loss: 0.314218
+Train Epoch: 93 [100/24546 (32%)]	Loss: 0.328406
+Train Epoch: 93 [150/24546 (48%)]	Loss: 0.427862
+Train Epoch: 93 [200/24546 (63%)]	Loss: 0.318940
+Train Epoch: 93 [250/24546 (79%)]	Loss: 0.342772
+Train Epoch: 93 [300/24546 (95%)]	Loss: 0.342402
+Train Epoch: 93	Average Loss: 0.000000
+Val Epoch: 93	Average Loss: 0.297898
+--------------------------------------------------
+Saved best model at epoch 93 with loss 0.297898
+
+epoch 94 num_epochs 200
+Train Epoch: 94 [0/24546 (0%)]	Loss: 0.302691
+Train Epoch: 94 [50/24546 (16%)]	Loss: 0.286983
+Train Epoch: 94 [100/24546 (32%)]	Loss: 0.253968
+Train Epoch: 94 [150/24546 (48%)]	Loss: 0.277012
+Train Epoch: 94 [200/24546 (63%)]	Loss: 0.285001
+Train Epoch: 94 [250/24546 (79%)]	Loss: 0.280604
+Train Epoch: 94 [300/24546 (95%)]	Loss: 0.299401
+Train Epoch: 94	Average Loss: 0.000000
+Val Epoch: 94	Average Loss: 0.329632
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1353, Diversity Real. 9.5989, Diversity. 9.2247, R_precision_real. (0.5007, 0.6981, 0.7919), R_precision. (0.4694, 0.6536, 0.7620), matching_real. 2.9222, matching_pred. 3.0987, MPJPE. 0.0783
+Evaluation results:  {'FID': 0.13528441127888868, 'Diversity': 9.224707, 'Top1': 0.46941489361702127, 'Top2': 0.6535904255319149, 'Top3': 0.761968085106383, 'Matching': 3.0987073360605444, 'MAE': 0.078301586}
+Saved model at epoch 94 with FID 0.13528
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_14_1.127071_fid7.40943_mpjpe0.18300.pth
+epoch 95 num_epochs 200
+Train Epoch: 95 [0/24546 (0%)]	Loss: 0.289511
+Train Epoch: 95 [50/24546 (16%)]	Loss: 0.297000
+Train Epoch: 95 [100/24546 (32%)]	Loss: 0.321788
+Train Epoch: 95 [150/24546 (48%)]	Loss: 0.291780
+Train Epoch: 95 [200/24546 (63%)]	Loss: 0.272039
+Train Epoch: 95 [250/24546 (79%)]	Loss: 0.366200
+Train Epoch: 95 [300/24546 (95%)]	Loss: 0.256167
+Train Epoch: 95	Average Loss: 0.000000
+Val Epoch: 95	Average Loss: 0.302580
+--------------------------------------------------
+epoch 96 num_epochs 200
+Train Epoch: 96 [0/24546 (0%)]	Loss: 0.276283
+Train Epoch: 96 [50/24546 (16%)]	Loss: 0.332373
+Train Epoch: 96 [100/24546 (32%)]	Loss: 0.291620
+Train Epoch: 96 [150/24546 (48%)]	Loss: 0.318149
+Train Epoch: 96 [200/24546 (63%)]	Loss: 0.307234
+Train Epoch: 96 [250/24546 (79%)]	Loss: 0.328031
+Train Epoch: 96 [300/24546 (95%)]	Loss: 0.272968
+Train Epoch: 96	Average Loss: 0.000000
+Val Epoch: 96	Average Loss: 0.352238
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1468, Diversity Real. 9.5420, Diversity. 9.1690, R_precision_real. (0.5160, 0.6948, 0.7919), R_precision. (0.4727, 0.6609, 0.7693), matching_real. 2.9042, matching_pred. 3.1020, MPJPE. 0.0775
+Evaluation results:  {'FID': 0.14682635650966347, 'Diversity': 9.168963, 'Top1': 0.47273936170212766, 'Top2': 0.660904255319149, 'Top3': 0.769281914893617, 'Matching': 3.1020225971303086, 'MAE': 0.07751341}
+Saved model at epoch 96 with FID 0.14683
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_16_1.050780_fid6.19788_mpjpe0.17908.pth
+epoch 97 num_epochs 200
+Train Epoch: 97 [0/24546 (0%)]	Loss: 0.294804
+Train Epoch: 97 [50/24546 (16%)]	Loss: 0.284244
+Train Epoch: 97 [100/24546 (32%)]	Loss: 0.281467
+Train Epoch: 97 [150/24546 (48%)]	Loss: 0.280721
+Train Epoch: 97 [200/24546 (63%)]	Loss: 0.342766
+Train Epoch: 97 [250/24546 (79%)]	Loss: 0.279931
+Train Epoch: 97 [300/24546 (95%)]	Loss: 0.266325
+Train Epoch: 97	Average Loss: 0.000000
+Val Epoch: 97	Average Loss: 0.291134
+--------------------------------------------------
+Saved best model at epoch 97 with loss 0.291134
+
+epoch 98 num_epochs 200
+Train Epoch: 98 [0/24546 (0%)]	Loss: 0.307342
+Train Epoch: 98 [50/24546 (16%)]	Loss: 0.265506
+Train Epoch: 98 [100/24546 (32%)]	Loss: 0.339216
+Train Epoch: 98 [150/24546 (48%)]	Loss: 0.262985
+Train Epoch: 98 [200/24546 (63%)]	Loss: 0.302837
+Train Epoch: 98 [250/24546 (79%)]	Loss: 0.277781
+Train Epoch: 98 [300/24546 (95%)]	Loss: 0.330628
+Train Epoch: 98	Average Loss: 0.000000
+Val Epoch: 98	Average Loss: 0.324388
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.2015, Diversity Real. 9.5278, Diversity. 9.2077, R_precision_real. (0.5186, 0.7074, 0.8078), R_precision. (0.4721, 0.6782, 0.7779), matching_real. 2.8343, matching_pred. 3.0229, MPJPE. 0.0835
+Evaluation results:  {'FID': 0.20154432392506294, 'Diversity': 9.207746, 'Top1': 0.4720744680851064, 'Top2': 0.6781914893617021, 'Top3': 0.7779255319148937, 'Matching': 3.022908332500052, 'MAE': 0.08353314}
+Saved model at epoch 98 with FID 0.20154
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_18_0.901549_fid4.10810_mpjpe0.16103.pth
+epoch 99 num_epochs 200
+Train Epoch: 99 [0/24546 (0%)]	Loss: 0.268517
+Train Epoch: 99 [50/24546 (16%)]	Loss: 0.290440
+Train Epoch: 99 [100/24546 (32%)]	Loss: 0.305837
+Train Epoch: 99 [150/24546 (48%)]	Loss: 0.278818
+Train Epoch: 99 [200/24546 (63%)]	Loss: 0.297748
+Train Epoch: 99 [250/24546 (79%)]	Loss: 0.297684
+Train Epoch: 99 [300/24546 (95%)]	Loss: 0.300469
+Train Epoch: 99	Average Loss: 0.000000
+Val Epoch: 99	Average Loss: 0.305578
+--------------------------------------------------
+epoch 100 num_epochs 200
+Train Epoch: 100 [0/24546 (0%)]	Loss: 0.321587
+Train Epoch: 100 [50/24546 (16%)]	Loss: 0.249311
+Train Epoch: 100 [100/24546 (32%)]	Loss: 0.296854
+Train Epoch: 100 [150/24546 (48%)]	Loss: 0.281302
+Train Epoch: 100 [200/24546 (63%)]	Loss: 0.335697
+Train Epoch: 100 [250/24546 (79%)]	Loss: 0.249181
+Train Epoch: 100 [300/24546 (95%)]	Loss: 0.303429
+Train Epoch: 100	Average Loss: 0.000000
+Val Epoch: 100	Average Loss: 0.305319
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1897, Diversity Real. 9.5808, Diversity. 8.9136, R_precision_real. (0.5047, 0.6935, 0.7846), R_precision. (0.4727, 0.6549, 0.7593), matching_real. 2.9597, matching_pred. 3.1419, MPJPE. 0.0806
+Evaluation results:  {'FID': 0.18966032309663206, 'Diversity': 8.913551, 'Top1': 0.47273936170212766, 'Top2': 0.6549202127659575, 'Top3': 0.7593085106382979, 'Matching': 3.1419385950616063, 'MAE': 0.08061847}
+Saved model at epoch 100 with FID 0.18966
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_22_0.847506_fid2.31073_mpjpe0.15637.pth
+epoch 101 num_epochs 200
+Train Epoch: 101 [0/24546 (0%)]	Loss: 0.244439
+Train Epoch: 101 [50/24546 (16%)]	Loss: 0.271465
+Train Epoch: 101 [100/24546 (32%)]	Loss: 0.271932
+Train Epoch: 101 [150/24546 (48%)]	Loss: 0.285641
+Train Epoch: 101 [200/24546 (63%)]	Loss: 0.279215
+Train Epoch: 101 [250/24546 (79%)]	Loss: 0.272272
+Train Epoch: 101 [300/24546 (95%)]	Loss: 0.279983
+Train Epoch: 101	Average Loss: 0.000000
+Val Epoch: 101	Average Loss: 0.296760
+--------------------------------------------------
+epoch 102 num_epochs 200
+Train Epoch: 102 [0/24546 (0%)]	Loss: 0.305146
+Train Epoch: 102 [50/24546 (16%)]	Loss: 0.247722
+Train Epoch: 102 [100/24546 (32%)]	Loss: 0.293274
+Train Epoch: 102 [150/24546 (48%)]	Loss: 0.287424
+Train Epoch: 102 [200/24546 (63%)]	Loss: 0.295091
+Train Epoch: 102 [250/24546 (79%)]	Loss: 0.265906
+Train Epoch: 102 [300/24546 (95%)]	Loss: 0.290494
+Train Epoch: 102	Average Loss: 0.000000
+Val Epoch: 102	Average Loss: 0.300668
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1378, Diversity Real. 9.3716, Diversity. 8.9965, R_precision_real. (0.5173, 0.7055, 0.7999), R_precision. (0.4900, 0.6762, 0.7640), matching_real. 2.8821, matching_pred. 3.0317, MPJPE. 0.0824
+Evaluation results:  {'FID': 0.13776662343066448, 'Diversity': 8.996527, 'Top1': 0.4900265957446808, 'Top2': 0.6761968085106383, 'Top3': 0.7639627659574468, 'Matching': 3.0316631591066403, 'MAE': 0.08238263}
+Saved model at epoch 102 with FID 0.13777
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_20_0.855032_fid2.24018_mpjpe0.16181.pth
+epoch 103 num_epochs 200
+Train Epoch: 103 [0/24546 (0%)]	Loss: 0.285048
+Train Epoch: 103 [50/24546 (16%)]	Loss: 0.292393
+Train Epoch: 103 [100/24546 (32%)]	Loss: 0.250679
+Train Epoch: 103 [150/24546 (48%)]	Loss: 0.283068
+Train Epoch: 103 [200/24546 (63%)]	Loss: 0.305386
+Train Epoch: 103 [250/24546 (79%)]	Loss: 0.400120
+Train Epoch: 103 [300/24546 (95%)]	Loss: 0.290874
+Train Epoch: 103	Average Loss: 0.000000
+Val Epoch: 103	Average Loss: 0.295679
+--------------------------------------------------
+epoch 104 num_epochs 200
+Train Epoch: 104 [0/24546 (0%)]	Loss: 0.272122
+Train Epoch: 104 [50/24546 (16%)]	Loss: 0.281494
+Train Epoch: 104 [100/24546 (32%)]	Loss: 0.322774
+Train Epoch: 104 [150/24546 (48%)]	Loss: 0.261194
+Train Epoch: 104 [200/24546 (63%)]	Loss: 0.268398
+Train Epoch: 104 [250/24546 (79%)]	Loss: 0.318959
+Train Epoch: 104 [300/24546 (95%)]	Loss: 0.257545
+Train Epoch: 104	Average Loss: 0.000000
+Val Epoch: 104	Average Loss: 0.287964
+--------------------------------------------------
+Saved best model at epoch 104 with loss 0.287964
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1030, Diversity Real. 9.7488, Diversity. 9.0790, R_precision_real. (0.5007, 0.7074, 0.7919), R_precision. (0.4694, 0.6642, 0.7673), matching_real. 2.9704, matching_pred. 3.1232, MPJPE. 0.0749
+Evaluation results:  {'FID': 0.10296337166177238, 'Diversity': 9.079007, 'Top1': 0.46941489361702127, 'Top2': 0.6642287234042553, 'Top3': 0.7672872340425532, 'Matching': 3.123232973382828, 'MAE': 0.07489302}
+Saved model at epoch 104 with FID 0.10296
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_24_0.681637_fid2.03799_mpjpe0.12976.pth
+epoch 105 num_epochs 200
+Train Epoch: 105 [0/24546 (0%)]	Loss: 0.285769
+Train Epoch: 105 [50/24546 (16%)]	Loss: 0.265889
+Train Epoch: 105 [100/24546 (32%)]	Loss: 0.315488
+Train Epoch: 105 [150/24546 (48%)]	Loss: 0.292307
+Train Epoch: 105 [200/24546 (63%)]	Loss: 0.277744
+Train Epoch: 105 [250/24546 (79%)]	Loss: 0.256676
+Train Epoch: 105 [300/24546 (95%)]	Loss: 0.259020
+Train Epoch: 105	Average Loss: 0.000000
+Val Epoch: 105	Average Loss: 0.274405
+--------------------------------------------------
+Saved best model at epoch 105 with loss 0.274405
+
+epoch 106 num_epochs 200
+Train Epoch: 106 [0/24546 (0%)]	Loss: 0.290442
+Train Epoch: 106 [50/24546 (16%)]	Loss: 0.259592
+Train Epoch: 106 [100/24546 (32%)]	Loss: 0.258987
+Train Epoch: 106 [150/24546 (48%)]	Loss: 0.273539
+Train Epoch: 106 [200/24546 (63%)]	Loss: 0.317222
+Train Epoch: 106 [250/24546 (79%)]	Loss: 0.249416
+Train Epoch: 106 [300/24546 (95%)]	Loss: 0.302594
+Train Epoch: 106	Average Loss: 0.000000
+Val Epoch: 106	Average Loss: 0.293507
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1186, Diversity Real. 9.8276, Diversity. 9.0632, R_precision_real. (0.4987, 0.6902, 0.7979), R_precision. (0.4747, 0.6715, 0.7673), matching_real. 2.9182, matching_pred. 3.0740, MPJPE. 0.0757
+Evaluation results:  {'FID': 0.11860712185470845, 'Diversity': 9.063245, 'Top1': 0.4747340425531915, 'Top2': 0.6715425531914894, 'Top3': 0.7672872340425532, 'Matching': 3.073950620407754, 'MAE': 0.07566394}
+Saved model at epoch 106 with FID 0.11861
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_26_0.668948_fid1.86333_mpjpe0.11648.pth
+epoch 107 num_epochs 200
+Train Epoch: 107 [0/24546 (0%)]	Loss: 0.285729
+Train Epoch: 107 [50/24546 (16%)]	Loss: 0.265966
+Train Epoch: 107 [100/24546 (32%)]	Loss: 0.254396
+Train Epoch: 107 [150/24546 (48%)]	Loss: 0.304820
+Train Epoch: 107 [200/24546 (63%)]	Loss: 0.269197
+Train Epoch: 107 [250/24546 (79%)]	Loss: 0.283236
+Train Epoch: 107 [300/24546 (95%)]	Loss: 0.272660
+Train Epoch: 107	Average Loss: 0.000000
+Val Epoch: 107	Average Loss: 0.295623
+--------------------------------------------------
+epoch 108 num_epochs 200
+Train Epoch: 108 [0/24546 (0%)]	Loss: 0.280208
+Train Epoch: 108 [50/24546 (16%)]	Loss: 0.300210
+Train Epoch: 108 [100/24546 (32%)]	Loss: 0.311253
+Train Epoch: 108 [150/24546 (48%)]	Loss: 0.335787
+Train Epoch: 108 [200/24546 (63%)]	Loss: 0.287738
+Train Epoch: 108 [250/24546 (79%)]	Loss: 0.246375
+Train Epoch: 108 [300/24546 (95%)]	Loss: 0.253897
+Train Epoch: 108	Average Loss: 0.000000
+Val Epoch: 108	Average Loss: 0.281976
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1140, Diversity Real. 9.8676, Diversity. 9.0030, R_precision_real. (0.5273, 0.7108, 0.8025), R_precision. (0.5033, 0.6722, 0.7753), matching_real. 2.8940, matching_pred. 3.0583, MPJPE. 0.0741
+Evaluation results:  {'FID': 0.11402220024669418, 'Diversity': 9.002991, 'Top1': 0.5033244680851063, 'Top2': 0.6722074468085106, 'Top3': 0.7752659574468085, 'Matching': 3.05826476786999, 'MAE': 0.07409615}
+Saved model at epoch 108 with FID 0.11402
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_30_0.600841_fid1.65125_mpjpe0.13125.pth
+epoch 109 num_epochs 200
+Train Epoch: 109 [0/24546 (0%)]	Loss: 0.308711
+Train Epoch: 109 [50/24546 (16%)]	Loss: 0.253724
+Train Epoch: 109 [100/24546 (32%)]	Loss: 0.278305
+Train Epoch: 109 [150/24546 (48%)]	Loss: 0.276485
+Train Epoch: 109 [200/24546 (63%)]	Loss: 0.284181
+Train Epoch: 109 [250/24546 (79%)]	Loss: 0.290949
+Train Epoch: 109 [300/24546 (95%)]	Loss: 0.277139
+Train Epoch: 109	Average Loss: 0.000000
+Val Epoch: 109	Average Loss: 0.293986
+--------------------------------------------------
+epoch 110 num_epochs 200
+Train Epoch: 110 [0/24546 (0%)]	Loss: 0.378109
+Train Epoch: 110 [50/24546 (16%)]	Loss: 0.257935
+Train Epoch: 110 [100/24546 (32%)]	Loss: 0.288858
+Train Epoch: 110 [150/24546 (48%)]	Loss: 0.278422
+Train Epoch: 110 [200/24546 (63%)]	Loss: 0.245078
+Train Epoch: 110 [250/24546 (79%)]	Loss: 0.290368
+Train Epoch: 110 [300/24546 (95%)]	Loss: 0.277904
+Train Epoch: 110	Average Loss: 0.000000
+Val Epoch: 110	Average Loss: 0.278327
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1214, Diversity Real. 9.5121, Diversity. 9.3027, R_precision_real. (0.5366, 0.7261, 0.8132), R_precision. (0.4914, 0.6735, 0.7852), matching_real. 2.8521, matching_pred. 2.9837, MPJPE. 0.0717
+Evaluation results:  {'FID': 0.12141784050544402, 'Diversity': 9.3026705, 'Top1': 0.4913563829787234, 'Top2': 0.6735372340425532, 'Top3': 0.7852393617021277, 'Matching': 2.9836777423290495, 'MAE': 0.07165261}
+Saved model at epoch 110 with FID 0.12142
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_28_0.644424_fid1.26104_mpjpe0.12468.pth
+epoch 111 num_epochs 200
+Train Epoch: 111 [0/24546 (0%)]	Loss: 0.292546
+Train Epoch: 111 [50/24546 (16%)]	Loss: 0.266110
+Train Epoch: 111 [100/24546 (32%)]	Loss: 0.282800
+Train Epoch: 111 [150/24546 (48%)]	Loss: 0.243135
+Train Epoch: 111 [200/24546 (63%)]	Loss: 0.276953
+Train Epoch: 111 [250/24546 (79%)]	Loss: 0.274048
+Train Epoch: 111 [300/24546 (95%)]	Loss: 0.288520
+Train Epoch: 111	Average Loss: 0.000000
+Val Epoch: 111	Average Loss: 0.284317
+--------------------------------------------------
+epoch 112 num_epochs 200
+Train Epoch: 112 [0/24546 (0%)]	Loss: 0.232570
+Train Epoch: 112 [50/24546 (16%)]	Loss: 0.285357
+Train Epoch: 112 [100/24546 (32%)]	Loss: 0.272458
+Train Epoch: 112 [150/24546 (48%)]	Loss: 0.259352
+Train Epoch: 112 [200/24546 (63%)]	Loss: 0.267431
+Train Epoch: 112 [250/24546 (79%)]	Loss: 0.273050
+Train Epoch: 112 [300/24546 (95%)]	Loss: 0.293543
+Train Epoch: 112	Average Loss: 0.000000
+Val Epoch: 112	Average Loss: 0.260039
+--------------------------------------------------
+Saved best model at epoch 112 with loss 0.260039
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1056, Diversity Real. 9.4566, Diversity. 9.2276, R_precision_real. (0.5259, 0.7068, 0.7972), R_precision. (0.4967, 0.6769, 0.7699), matching_real. 2.9286, matching_pred. 3.0831, MPJPE. 0.0732
+Evaluation results:  {'FID': 0.10559954112981984, 'Diversity': 9.227592, 'Top1': 0.4966755319148936, 'Top2': 0.6768617021276596, 'Top3': 0.7699468085106383, 'Matching': 3.0831172314096005, 'MAE': 0.073218465}
+Saved model at epoch 112 with FID 0.10560
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_34_0.499216_fid0.92603_mpjpe0.10853.pth
+epoch 113 num_epochs 200
+Train Epoch: 113 [0/24546 (0%)]	Loss: 0.304480
+Train Epoch: 113 [50/24546 (16%)]	Loss: 0.283405
+Train Epoch: 113 [100/24546 (32%)]	Loss: 0.282237
+Train Epoch: 113 [150/24546 (48%)]	Loss: 0.244697
+Train Epoch: 113 [200/24546 (63%)]	Loss: 0.302237
+Train Epoch: 113 [250/24546 (79%)]	Loss: 0.274465
+Train Epoch: 113 [300/24546 (95%)]	Loss: 0.370794
+Train Epoch: 113	Average Loss: 0.000000
+Val Epoch: 113	Average Loss: 0.275310
+--------------------------------------------------
+epoch 114 num_epochs 200
+Train Epoch: 114 [0/24546 (0%)]	Loss: 0.256533
+Train Epoch: 114 [50/24546 (16%)]	Loss: 0.257238
+Train Epoch: 114 [100/24546 (32%)]	Loss: 0.261689
+Train Epoch: 114 [150/24546 (48%)]	Loss: 0.236903
+Train Epoch: 114 [200/24546 (63%)]	Loss: 0.257989
+Train Epoch: 114 [250/24546 (79%)]	Loss: 0.257768
+Train Epoch: 114 [300/24546 (95%)]	Loss: 0.278961
+Train Epoch: 114	Average Loss: 0.000000
+Val Epoch: 114	Average Loss: 0.278591
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1266, Diversity Real. 9.3467, Diversity. 9.3101, R_precision_real. (0.5153, 0.7001, 0.8052), R_precision. (0.4874, 0.6789, 0.7852), matching_real. 2.9186, matching_pred. 3.0443, MPJPE. 0.0750
+Evaluation results:  {'FID': 0.12664988637378372, 'Diversity': 9.310053, 'Top1': 0.48736702127659576, 'Top2': 0.6788563829787234, 'Top3': 0.7852393617021277, 'Matching': 3.044317458538299, 'MAE': 0.07498353}
+Saved model at epoch 114 with FID 0.12665
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_32_0.516898_fid0.92403_mpjpe0.11056.pth
+epoch 115 num_epochs 200
+Train Epoch: 115 [0/24546 (0%)]	Loss: 0.318740
+Train Epoch: 115 [50/24546 (16%)]	Loss: 0.291898
+Train Epoch: 115 [100/24546 (32%)]	Loss: 0.263948
+Train Epoch: 115 [150/24546 (48%)]	Loss: 0.248344
+Train Epoch: 115 [200/24546 (63%)]	Loss: 0.243313
+Train Epoch: 115 [250/24546 (79%)]	Loss: 0.245639
+Train Epoch: 115 [300/24546 (95%)]	Loss: 0.275357
+Train Epoch: 115	Average Loss: 0.000000
+Val Epoch: 115	Average Loss: 0.266428
+--------------------------------------------------
+epoch 116 num_epochs 200
+Train Epoch: 116 [0/24546 (0%)]	Loss: 0.249850
+Train Epoch: 116 [50/24546 (16%)]	Loss: 0.218771
+Train Epoch: 116 [100/24546 (32%)]	Loss: 0.254073
+Train Epoch: 116 [150/24546 (48%)]	Loss: 0.254894
+Train Epoch: 116 [200/24546 (63%)]	Loss: 0.281994
+Train Epoch: 116 [250/24546 (79%)]	Loss: 0.272265
+Train Epoch: 116 [300/24546 (95%)]	Loss: 0.251270
+Train Epoch: 116	Average Loss: 0.000000
+Val Epoch: 116	Average Loss: 0.272994
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0860, Diversity Real. 9.3803, Diversity. 9.4298, R_precision_real. (0.5080, 0.7001, 0.7945), R_precision. (0.4847, 0.6562, 0.7666), matching_real. 2.8967, matching_pred. 3.0286, MPJPE. 0.0736
+Evaluation results:  {'FID': 0.08595650023423218, 'Diversity': 9.4297905, 'Top1': 0.48470744680851063, 'Top2': 0.65625, 'Top3': 0.7666223404255319, 'Matching': 3.028636673663525, 'MAE': 0.07355844}
+Saved model at epoch 116 with FID 0.08596
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_38_0.502581_fid0.91224_mpjpe0.10977.pth
+epoch 117 num_epochs 200
+Train Epoch: 117 [0/24546 (0%)]	Loss: 0.258954
+Train Epoch: 117 [50/24546 (16%)]	Loss: 0.269704
+Train Epoch: 117 [100/24546 (32%)]	Loss: 0.250573
+Train Epoch: 117 [150/24546 (48%)]	Loss: 0.251707
+Train Epoch: 117 [200/24546 (63%)]	Loss: 0.265316
+Train Epoch: 117 [250/24546 (79%)]	Loss: 0.230917
+Train Epoch: 117 [300/24546 (95%)]	Loss: 0.289612
+Train Epoch: 117	Average Loss: 0.000000
+Val Epoch: 117	Average Loss: 0.256266
+--------------------------------------------------
+Saved best model at epoch 117 with loss 0.256266
+
+epoch 118 num_epochs 200
+Train Epoch: 118 [0/24546 (0%)]	Loss: 0.262830
+Train Epoch: 118 [50/24546 (16%)]	Loss: 0.259905
+Train Epoch: 118 [100/24546 (32%)]	Loss: 0.264517
+Train Epoch: 118 [150/24546 (48%)]	Loss: 0.265759
+Train Epoch: 118 [200/24546 (63%)]	Loss: 0.270888
+Train Epoch: 118 [250/24546 (79%)]	Loss: 0.248947
+Train Epoch: 118 [300/24546 (95%)]	Loss: 0.239934
+Train Epoch: 118	Average Loss: 0.000000
+Val Epoch: 118	Average Loss: 0.279589
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0903, Diversity Real. 9.6672, Diversity. 9.4282, R_precision_real. (0.5106, 0.6975, 0.7952), R_precision. (0.4747, 0.6755, 0.7686), matching_real. 2.9185, matching_pred. 3.0484, MPJPE. 0.0747
+Evaluation results:  {'FID': 0.09032660052230312, 'Diversity': 9.428248, 'Top1': 0.4747340425531915, 'Top2': 0.675531914893617, 'Top3': 0.7686170212765957, 'Matching': 3.048413428854435, 'MAE': 0.07470939}
+Saved model at epoch 118 with FID 0.09033
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_46_0.469137_fid0.90560_mpjpe0.10983.pth
+epoch 119 num_epochs 200
+Train Epoch: 119 [0/24546 (0%)]	Loss: 0.310613
+Train Epoch: 119 [50/24546 (16%)]	Loss: 0.272470
+Train Epoch: 119 [100/24546 (32%)]	Loss: 0.284059
+Train Epoch: 119 [150/24546 (48%)]	Loss: 0.315272
+Train Epoch: 119 [200/24546 (63%)]	Loss: 0.299387
+Train Epoch: 119 [250/24546 (79%)]	Loss: 0.273844
+Train Epoch: 119 [300/24546 (95%)]	Loss: 0.217693
+Train Epoch: 119	Average Loss: 0.000000
+Val Epoch: 119	Average Loss: 0.278753
+--------------------------------------------------
+epoch 120 num_epochs 200
+Train Epoch: 120 [0/24546 (0%)]	Loss: 0.266107
+Train Epoch: 120 [50/24546 (16%)]	Loss: 0.275363
+Train Epoch: 120 [100/24546 (32%)]	Loss: 0.268705
+Train Epoch: 120 [150/24546 (48%)]	Loss: 0.241828
+Train Epoch: 120 [200/24546 (63%)]	Loss: 0.252303
+Train Epoch: 120 [250/24546 (79%)]	Loss: 0.262123
+Train Epoch: 120 [300/24546 (95%)]	Loss: 0.304238
+Train Epoch: 120	Average Loss: 0.000000
+Val Epoch: 120	Average Loss: 0.257164
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0961, Diversity Real. 9.1582, Diversity. 8.8990, R_precision_real. (0.5359, 0.7134, 0.8039), R_precision. (0.5013, 0.6809, 0.7713), matching_real. 2.8976, matching_pred. 3.0628, MPJPE. 0.0696
+Evaluation results:  {'FID': 0.09608975180184132, 'Diversity': 8.898999, 'Top1': 0.5013297872340425, 'Top2': 0.6808510638297872, 'Top3': 0.7712765957446809, 'Matching': 3.0628360941054975, 'MAE': 0.069572784}
+Saved model at epoch 120 with FID 0.09609
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_36_0.495467_fid0.89182_mpjpe0.10652.pth
+epoch 121 num_epochs 200
+Train Epoch: 121 [0/24546 (0%)]	Loss: 0.245343
+Train Epoch: 121 [50/24546 (16%)]	Loss: 0.264821
+Train Epoch: 121 [100/24546 (32%)]	Loss: 0.268549
+Train Epoch: 121 [150/24546 (48%)]	Loss: 0.238112
+Train Epoch: 121 [200/24546 (63%)]	Loss: 0.280390
+Train Epoch: 121 [250/24546 (79%)]	Loss: 0.237696
+Train Epoch: 121 [300/24546 (95%)]	Loss: 0.243550
+Train Epoch: 121	Average Loss: 0.000000
+Val Epoch: 121	Average Loss: 0.261243
+--------------------------------------------------
+epoch 122 num_epochs 200
+Train Epoch: 122 [0/24546 (0%)]	Loss: 0.244651
+Train Epoch: 122 [50/24546 (16%)]	Loss: 0.311029
+Train Epoch: 122 [100/24546 (32%)]	Loss: 0.244759
+Train Epoch: 122 [150/24546 (48%)]	Loss: 0.504187
+Train Epoch: 122 [200/24546 (63%)]	Loss: 0.259346
+Train Epoch: 122 [250/24546 (79%)]	Loss: 0.238728
+Train Epoch: 122 [300/24546 (95%)]	Loss: 0.239364
+Train Epoch: 122	Average Loss: 0.000000
+Val Epoch: 122	Average Loss: 0.262976
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0692, Diversity Real. 9.3672, Diversity. 9.2451, R_precision_real. (0.5140, 0.7061, 0.8072), R_precision. (0.4874, 0.6842, 0.7819), matching_real. 2.8981, matching_pred. 3.0482, MPJPE. 0.0712
+Evaluation results:  {'FID': 0.06924332465044358, 'Diversity': 9.245071, 'Top1': 0.48736702127659576, 'Top2': 0.6841755319148937, 'Top3': 0.7819148936170213, 'Matching': 3.048183502034938, 'MAE': 0.07122772}
+Saved model at epoch 122 with FID 0.06924
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_40_0.440259_fid0.81716_mpjpe0.10024.pth
+epoch 123 num_epochs 200
+Train Epoch: 123 [0/24546 (0%)]	Loss: 0.254350
+Train Epoch: 123 [50/24546 (16%)]	Loss: 0.302576
+Train Epoch: 123 [100/24546 (32%)]	Loss: 0.278177
+Train Epoch: 123 [150/24546 (48%)]	Loss: 0.287801
+Train Epoch: 123 [200/24546 (63%)]	Loss: 0.235631
+Train Epoch: 123 [250/24546 (79%)]	Loss: 0.238508
+Train Epoch: 123 [300/24546 (95%)]	Loss: 0.216385
+Train Epoch: 123	Average Loss: 0.000000
+Val Epoch: 123	Average Loss: 0.250627
+--------------------------------------------------
+Saved best model at epoch 123 with loss 0.250627
+
+epoch 124 num_epochs 200
+Train Epoch: 124 [0/24546 (0%)]	Loss: 0.243939
+Train Epoch: 124 [50/24546 (16%)]	Loss: 0.243856
+Train Epoch: 124 [100/24546 (32%)]	Loss: 0.261416
+Train Epoch: 124 [150/24546 (48%)]	Loss: 0.262383
+Train Epoch: 124 [200/24546 (63%)]	Loss: 0.280608
+Train Epoch: 124 [250/24546 (79%)]	Loss: 0.254949
+Train Epoch: 124 [300/24546 (95%)]	Loss: 0.276005
+Train Epoch: 124	Average Loss: 0.000000
+Val Epoch: 124	Average Loss: 0.274418
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0646, Diversity Real. 9.6114, Diversity. 9.3689, R_precision_real. (0.5166, 0.6995, 0.7866), R_precision. (0.4840, 0.6682, 0.7633), matching_real. 2.9182, matching_pred. 3.0365, MPJPE. 0.0702
+Evaluation results:  {'FID': 0.06464826747279062, 'Diversity': 9.368857, 'Top1': 0.48404255319148937, 'Top2': 0.668218085106383, 'Top3': 0.7632978723404256, 'Matching': 3.03647458806951, 'MAE': 0.070205845}
+Saved model at epoch 124 with FID 0.06465
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_44_0.534876_fid0.70922_mpjpe0.11771.pth
+epoch 125 num_epochs 200
+Train Epoch: 125 [0/24546 (0%)]	Loss: 0.241417
+Train Epoch: 125 [50/24546 (16%)]	Loss: 0.252599
+Train Epoch: 125 [100/24546 (32%)]	Loss: 0.225879
+Train Epoch: 125 [150/24546 (48%)]	Loss: 0.277100
+Train Epoch: 125 [200/24546 (63%)]	Loss: 0.250685
+Train Epoch: 125 [250/24546 (79%)]	Loss: 0.246835
+Train Epoch: 125 [300/24546 (95%)]	Loss: 0.240368
+Train Epoch: 125	Average Loss: 0.000000
+Val Epoch: 125	Average Loss: 0.293178
+--------------------------------------------------
+epoch 126 num_epochs 200
+Train Epoch: 126 [0/24546 (0%)]	Loss: 0.245577
+Train Epoch: 126 [50/24546 (16%)]	Loss: 0.244137
+Train Epoch: 126 [100/24546 (32%)]	Loss: 0.255598
+Train Epoch: 126 [150/24546 (48%)]	Loss: 0.254754
+Train Epoch: 126 [200/24546 (63%)]	Loss: 0.259878
+Train Epoch: 126 [250/24546 (79%)]	Loss: 0.243457
+Train Epoch: 126 [300/24546 (95%)]	Loss: 0.253178
+Train Epoch: 126	Average Loss: 0.000000
+Val Epoch: 126	Average Loss: 0.259582
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0740, Diversity Real. 9.4937, Diversity. 9.2808, R_precision_real. (0.5066, 0.7068, 0.7906), R_precision. (0.4688, 0.6649, 0.7699), matching_real. 2.9652, matching_pred. 3.0937, MPJPE. 0.0689
+Evaluation results:  {'FID': 0.07399593848420238, 'Diversity': 9.280849, 'Top1': 0.46875, 'Top2': 0.6648936170212766, 'Top3': 0.7699468085106383, 'Matching': 3.093711492863107, 'MAE': 0.068948135}
+Saved model at epoch 126 with FID 0.07400
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_64_0.414437_fid0.52293_mpjpe0.09885.pth
+epoch 127 num_epochs 200
+Train Epoch: 127 [0/24546 (0%)]	Loss: 0.256435
+Train Epoch: 127 [50/24546 (16%)]	Loss: 0.238904
+Train Epoch: 127 [100/24546 (32%)]	Loss: 0.242442
+Train Epoch: 127 [150/24546 (48%)]	Loss: 0.262442
+Train Epoch: 127 [200/24546 (63%)]	Loss: 0.285460
+Train Epoch: 127 [250/24546 (79%)]	Loss: 0.251133
+Train Epoch: 127 [300/24546 (95%)]	Loss: 0.251272
+Train Epoch: 127	Average Loss: 0.000000
+Val Epoch: 127	Average Loss: 0.252516
+--------------------------------------------------
+epoch 128 num_epochs 200
+Train Epoch: 128 [0/24546 (0%)]	Loss: 0.264569
+Train Epoch: 128 [50/24546 (16%)]	Loss: 0.259902
+Train Epoch: 128 [100/24546 (32%)]	Loss: 0.255217
+Train Epoch: 128 [150/24546 (48%)]	Loss: 0.245284
+Train Epoch: 128 [200/24546 (63%)]	Loss: 0.269081
+Train Epoch: 128 [250/24546 (79%)]	Loss: 0.239882
+Train Epoch: 128 [300/24546 (95%)]	Loss: 0.233014
+Train Epoch: 128	Average Loss: 0.000000
+Val Epoch: 128	Average Loss: 0.242501
+--------------------------------------------------
+Saved best model at epoch 128 with loss 0.242501
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.1503, Diversity Real. 9.4853, Diversity. 9.1757, R_precision_real. (0.4987, 0.6955, 0.7999), R_precision. (0.4648, 0.6582, 0.7573), matching_real. 2.9262, matching_pred. 3.1134, MPJPE. 0.0748
+Evaluation results:  {'FID': 0.15030872399381678, 'Diversity': 9.1756735, 'Top1': 0.46476063829787234, 'Top2': 0.6582446808510638, 'Top3': 0.757313829787234, 'Matching': 3.113387645559108, 'MAE': 0.0747962}
+Saved model at epoch 128 with FID 0.15031
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_50_0.443952_fid0.49720_mpjpe0.09653.pth
+epoch 129 num_epochs 200
+Train Epoch: 129 [0/24546 (0%)]	Loss: 0.248222
+Train Epoch: 129 [50/24546 (16%)]	Loss: 0.257222
+Train Epoch: 129 [100/24546 (32%)]	Loss: 0.269542
+Train Epoch: 129 [150/24546 (48%)]	Loss: 0.259356
+Train Epoch: 129 [200/24546 (63%)]	Loss: 0.236813
+Train Epoch: 129 [250/24546 (79%)]	Loss: 0.228141
+Train Epoch: 129 [300/24546 (95%)]	Loss: 0.266503
+Train Epoch: 129	Average Loss: 0.000000
+Val Epoch: 129	Average Loss: 0.254357
+--------------------------------------------------
+epoch 130 num_epochs 200
+Train Epoch: 130 [0/24546 (0%)]	Loss: 0.285002
+Train Epoch: 130 [50/24546 (16%)]	Loss: 0.237938
+Train Epoch: 130 [100/24546 (32%)]	Loss: 0.245120
+Train Epoch: 130 [150/24546 (48%)]	Loss: 0.256837
+Train Epoch: 130 [200/24546 (63%)]	Loss: 0.233788
+Train Epoch: 130 [250/24546 (79%)]	Loss: 0.228003
+Train Epoch: 130 [300/24546 (95%)]	Loss: 0.279656
+Train Epoch: 130	Average Loss: 0.000000
+Val Epoch: 130	Average Loss: 0.264066
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0906, Diversity Real. 9.4615, Diversity. 9.2115, R_precision_real. (0.5306, 0.7055, 0.8012), R_precision. (0.4927, 0.6815, 0.7793), matching_real. 2.8996, matching_pred. 3.0144, MPJPE. 0.0681
+Evaluation results:  {'FID': 0.09055202086106817, 'Diversity': 9.211518, 'Top1': 0.49268617021276595, 'Top2': 0.6815159574468085, 'Top3': 0.7792553191489362, 'Matching': 3.014400532905092, 'MAE': 0.06806737}
+Saved model at epoch 130 with FID 0.09055
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_48_0.439982_fid0.48345_mpjpe0.10109.pth
+epoch 131 num_epochs 200
+Train Epoch: 131 [0/24546 (0%)]	Loss: 0.236275
+Train Epoch: 131 [50/24546 (16%)]	Loss: 0.229131
+Train Epoch: 131 [100/24546 (32%)]	Loss: 0.224794
+Train Epoch: 131 [150/24546 (48%)]	Loss: 0.255161
+Train Epoch: 131 [200/24546 (63%)]	Loss: 0.242420
+Train Epoch: 131 [250/24546 (79%)]	Loss: 0.242346
+Train Epoch: 131 [300/24546 (95%)]	Loss: 0.242573
+Train Epoch: 131	Average Loss: 0.000000
+Val Epoch: 131	Average Loss: 0.256831
+--------------------------------------------------
+epoch 132 num_epochs 200
+Train Epoch: 132 [0/24546 (0%)]	Loss: 0.231705
+Train Epoch: 132 [50/24546 (16%)]	Loss: 0.225367
+Train Epoch: 132 [100/24546 (32%)]	Loss: 0.288943
+Train Epoch: 132 [150/24546 (48%)]	Loss: 0.228937
+Train Epoch: 132 [200/24546 (63%)]	Loss: 0.210990
+Train Epoch: 132 [250/24546 (79%)]	Loss: 0.227048
+Train Epoch: 132 [300/24546 (95%)]	Loss: 0.236970
+Train Epoch: 132	Average Loss: 0.000000
+Val Epoch: 132	Average Loss: 0.244383
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0707, Diversity Real. 9.8557, Diversity. 9.1622, R_precision_real. (0.5173, 0.7048, 0.8078), R_precision. (0.4801, 0.6682, 0.7826), matching_real. 2.8913, matching_pred. 3.0356, MPJPE. 0.0673
+Evaluation results:  {'FID': 0.07067122594314412, 'Diversity': 9.162162, 'Top1': 0.4800531914893617, 'Top2': 0.668218085106383, 'Top3': 0.7825797872340425, 'Matching': 3.035627162202876, 'MAE': 0.067283705}
+Saved model at epoch 132 with FID 0.07067
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_42_0.469132_fid0.46138_mpjpe0.10190.pth
+epoch 133 num_epochs 200
+Train Epoch: 133 [0/24546 (0%)]	Loss: 0.222070
+Train Epoch: 133 [50/24546 (16%)]	Loss: 0.241926
+Train Epoch: 133 [100/24546 (32%)]	Loss: 0.222647
+Train Epoch: 133 [150/24546 (48%)]	Loss: 0.248396
+Train Epoch: 133 [200/24546 (63%)]	Loss: 0.251858
+Train Epoch: 133 [250/24546 (79%)]	Loss: 0.248948
+Train Epoch: 133 [300/24546 (95%)]	Loss: 0.223263
+Train Epoch: 133	Average Loss: 0.000000
+Val Epoch: 133	Average Loss: 0.256393
+--------------------------------------------------
+epoch 134 num_epochs 200
+Train Epoch: 134 [0/24546 (0%)]	Loss: 0.214109
+Train Epoch: 134 [50/24546 (16%)]	Loss: 0.229482
+Train Epoch: 134 [100/24546 (32%)]	Loss: 0.206569
+Train Epoch: 134 [150/24546 (48%)]	Loss: 0.248319
+Train Epoch: 134 [200/24546 (63%)]	Loss: 0.238885
+Train Epoch: 134 [250/24546 (79%)]	Loss: 0.222152
+Train Epoch: 134 [300/24546 (95%)]	Loss: 0.232710
+Train Epoch: 134	Average Loss: 0.000000
+Val Epoch: 134	Average Loss: 0.235138
+--------------------------------------------------
+Saved best model at epoch 134 with loss 0.235138
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0734, Diversity Real. 9.6387, Diversity. 9.2913, R_precision_real. (0.5140, 0.6981, 0.8005), R_precision. (0.4874, 0.6789, 0.7826), matching_real. 2.9319, matching_pred. 3.0652, MPJPE. 0.0664
+Evaluation results:  {'FID': 0.07336397416131035, 'Diversity': 9.291333, 'Top1': 0.48736702127659576, 'Top2': 0.6788563829787234, 'Top3': 0.7825797872340425, 'Matching': 3.0651529900571135, 'MAE': 0.06639961}
+Saved model at epoch 134 with FID 0.07336
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_52_0.464389_fid0.46130_mpjpe0.10037.pth
+epoch 135 num_epochs 200
+Train Epoch: 135 [0/24546 (0%)]	Loss: 0.248593
+Train Epoch: 135 [50/24546 (16%)]	Loss: 0.243032
+Train Epoch: 135 [100/24546 (32%)]	Loss: 0.213981
+Train Epoch: 135 [150/24546 (48%)]	Loss: 0.225113
+Train Epoch: 135 [200/24546 (63%)]	Loss: 0.242019
+Train Epoch: 135 [250/24546 (79%)]	Loss: 0.244605
+Train Epoch: 135 [300/24546 (95%)]	Loss: 0.241204
+Train Epoch: 135	Average Loss: 0.000000
+Val Epoch: 135	Average Loss: 0.277935
+--------------------------------------------------
+epoch 136 num_epochs 200
+Train Epoch: 136 [0/24546 (0%)]	Loss: 0.221888
+Train Epoch: 136 [50/24546 (16%)]	Loss: 0.238685
+Train Epoch: 136 [100/24546 (32%)]	Loss: 0.261929
+Train Epoch: 136 [150/24546 (48%)]	Loss: 0.242403
+Train Epoch: 136 [200/24546 (63%)]	Loss: 0.251978
+Train Epoch: 136 [250/24546 (79%)]	Loss: 0.256776
+Train Epoch: 136 [300/24546 (95%)]	Loss: 0.274351
+Train Epoch: 136	Average Loss: 0.000000
+Val Epoch: 136	Average Loss: 0.270691
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0564, Diversity Real. 9.7489, Diversity. 9.1761, R_precision_real. (0.5060, 0.6902, 0.7886), R_precision. (0.4874, 0.6622, 0.7640), matching_real. 2.9455, matching_pred. 3.0439, MPJPE. 0.0680
+Evaluation results:  {'FID': 0.05635324689542642, 'Diversity': 9.176088, 'Top1': 0.48736702127659576, 'Top2': 0.6622340425531915, 'Top3': 0.7639627659574468, 'Matching': 3.0438785958797374, 'MAE': 0.06795806}
+Saved model at epoch 136 with FID 0.05635
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_54_0.420061_fid0.42746_mpjpe0.09466.pth
+epoch 137 num_epochs 200
+Train Epoch: 137 [0/24546 (0%)]	Loss: 0.227024
+Train Epoch: 137 [50/24546 (16%)]	Loss: 0.250350
+Train Epoch: 137 [100/24546 (32%)]	Loss: 0.255172
+Train Epoch: 137 [150/24546 (48%)]	Loss: 0.200618
+Train Epoch: 137 [200/24546 (63%)]	Loss: 0.232967
+Train Epoch: 137 [250/24546 (79%)]	Loss: 0.276763
+Train Epoch: 137 [300/24546 (95%)]	Loss: 0.233281
+Train Epoch: 137	Average Loss: 0.000000
+Val Epoch: 137	Average Loss: 0.257475
+--------------------------------------------------
+epoch 138 num_epochs 200
+Train Epoch: 138 [0/24546 (0%)]	Loss: 0.243780
+Train Epoch: 138 [50/24546 (16%)]	Loss: 0.235456
+Train Epoch: 138 [100/24546 (32%)]	Loss: 0.252093
+Train Epoch: 138 [150/24546 (48%)]	Loss: 0.230120
+Train Epoch: 138 [200/24546 (63%)]	Loss: 0.268148
+Train Epoch: 138 [250/24546 (79%)]	Loss: 0.272622
+Train Epoch: 138 [300/24546 (95%)]	Loss: 0.219549
+Train Epoch: 138	Average Loss: 0.000000
+Val Epoch: 138	Average Loss: 0.245470
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0722, Diversity Real. 9.2215, Diversity. 9.5546, R_precision_real. (0.5312, 0.7101, 0.8025), R_precision. (0.4947, 0.6769, 0.7746), matching_real. 2.9018, matching_pred. 3.0373, MPJPE. 0.0683
+Evaluation results:  {'FID': 0.07217676699164599, 'Diversity': 9.554632, 'Top1': 0.4946808510638298, 'Top2': 0.6768617021276596, 'Top3': 0.7746010638297872, 'Matching': 3.0373102350437895, 'MAE': 0.06833854}
+Saved model at epoch 138 with FID 0.07218
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_58_0.400890_fid0.41528_mpjpe0.09001.pth
+epoch 139 num_epochs 200
+Train Epoch: 139 [0/24546 (0%)]	Loss: 0.236096
+Train Epoch: 139 [50/24546 (16%)]	Loss: 0.240894
+Train Epoch: 139 [100/24546 (32%)]	Loss: 0.232539
+Train Epoch: 139 [150/24546 (48%)]	Loss: 0.239530
+Train Epoch: 139 [200/24546 (63%)]	Loss: 0.234237
+Train Epoch: 139 [250/24546 (79%)]	Loss: 0.309925
+Train Epoch: 139 [300/24546 (95%)]	Loss: 0.222860
+Train Epoch: 139	Average Loss: 0.000000
+Val Epoch: 139	Average Loss: 0.227946
+--------------------------------------------------
+Saved best model at epoch 139 with loss 0.227946
+
+epoch 140 num_epochs 200
+Train Epoch: 140 [0/24546 (0%)]	Loss: 0.229822
+Train Epoch: 140 [50/24546 (16%)]	Loss: 0.229411
+Train Epoch: 140 [100/24546 (32%)]	Loss: 0.211834
+Train Epoch: 140 [150/24546 (48%)]	Loss: 0.222665
+Train Epoch: 140 [200/24546 (63%)]	Loss: 0.238040
+Train Epoch: 140 [250/24546 (79%)]	Loss: 0.227548
+Train Epoch: 140 [300/24546 (95%)]	Loss: 0.257829
+Train Epoch: 140	Average Loss: 0.000000
+Val Epoch: 140	Average Loss: 0.241694
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0621, Diversity Real. 9.6926, Diversity. 9.3040, R_precision_real. (0.5213, 0.7081, 0.7965), R_precision. (0.4987, 0.6809, 0.7779), matching_real. 2.8920, matching_pred. 3.0106, MPJPE. 0.0678
+Evaluation results:  {'FID': 0.06210941512783563, 'Diversity': 9.304024, 'Top1': 0.49867021276595747, 'Top2': 0.6808510638297872, 'Top3': 0.7779255319148937, 'Matching': 3.0105620292907065, 'MAE': 0.06777118}
+Saved model at epoch 140 with FID 0.06211
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_74_0.387323_fid0.40327_mpjpe0.09757.pth
+epoch 141 num_epochs 200
+Train Epoch: 141 [0/24546 (0%)]	Loss: 0.216833
+Train Epoch: 141 [50/24546 (16%)]	Loss: 0.261339
+Train Epoch: 141 [100/24546 (32%)]	Loss: 0.236539
+Train Epoch: 141 [150/24546 (48%)]	Loss: 0.213792
+Train Epoch: 141 [200/24546 (63%)]	Loss: 0.221019
+Train Epoch: 141 [250/24546 (79%)]	Loss: 0.214646
+Train Epoch: 141 [300/24546 (95%)]	Loss: 0.239187
+Train Epoch: 141	Average Loss: 0.000000
+Val Epoch: 141	Average Loss: 0.254628
+--------------------------------------------------
+epoch 142 num_epochs 200
+Train Epoch: 142 [0/24546 (0%)]	Loss: 0.230836
+Train Epoch: 142 [50/24546 (16%)]	Loss: 0.212635
+Train Epoch: 142 [100/24546 (32%)]	Loss: 0.245727
+Train Epoch: 142 [150/24546 (48%)]	Loss: 0.274790
+Train Epoch: 142 [200/24546 (63%)]	Loss: 0.244637
+Train Epoch: 142 [250/24546 (79%)]	Loss: 0.250958
+Train Epoch: 142 [300/24546 (95%)]	Loss: 0.223605
+Train Epoch: 142	Average Loss: 0.000000
+Val Epoch: 142	Average Loss: 0.242209
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0674, Diversity Real. 9.9176, Diversity. 9.1557, R_precision_real. (0.5133, 0.6981, 0.7866), R_precision. (0.4840, 0.6795, 0.7779), matching_real. 2.8757, matching_pred. 2.9986, MPJPE. 0.0655
+Evaluation results:  {'FID': 0.06740726173215705, 'Diversity': 9.1557455, 'Top1': 0.48404255319148937, 'Top2': 0.6795212765957447, 'Top3': 0.7779255319148937, 'Matching': 2.998590560669595, 'MAE': 0.06547435}
+Saved model at epoch 142 with FID 0.06741
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_56_0.443354_fid0.35005_mpjpe0.09802.pth
+epoch 143 num_epochs 200
+Train Epoch: 143 [0/24546 (0%)]	Loss: 0.224429
+Train Epoch: 143 [50/24546 (16%)]	Loss: 0.433423
+Train Epoch: 143 [100/24546 (32%)]	Loss: 0.220029
+Train Epoch: 143 [150/24546 (48%)]	Loss: 0.221232
+Train Epoch: 143 [200/24546 (63%)]	Loss: 0.239375
+Train Epoch: 143 [250/24546 (79%)]	Loss: 0.208135
+Train Epoch: 143 [300/24546 (95%)]	Loss: 0.237909
+Train Epoch: 143	Average Loss: 0.000000
+Val Epoch: 143	Average Loss: 0.228294
+--------------------------------------------------
+epoch 144 num_epochs 200
+Train Epoch: 144 [0/24546 (0%)]	Loss: 0.227038
+Train Epoch: 144 [50/24546 (16%)]	Loss: 0.224860
+Train Epoch: 144 [100/24546 (32%)]	Loss: 0.208825
+Train Epoch: 144 [150/24546 (48%)]	Loss: 0.230991
+Train Epoch: 144 [200/24546 (63%)]	Loss: 0.256710
+Train Epoch: 144 [250/24546 (79%)]	Loss: 0.220546
+Train Epoch: 144 [300/24546 (95%)]	Loss: 0.231532
+Train Epoch: 144	Average Loss: 0.000000
+Val Epoch: 144	Average Loss: 0.238386
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0540, Diversity Real. 9.4948, Diversity. 9.3680, R_precision_real. (0.5213, 0.7141, 0.8072), R_precision. (0.5033, 0.6848, 0.7859), matching_real. 2.9087, matching_pred. 3.0123, MPJPE. 0.0654
+Evaluation results:  {'FID': 0.05398574746644158, 'Diversity': 9.367984, 'Top1': 0.5033244680851063, 'Top2': 0.6848404255319149, 'Top3': 0.785904255319149, 'Matching': 3.0123052495591183, 'MAE': 0.065370314}
+Saved model at epoch 144 with FID 0.05399
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_62_0.365404_fid0.31968_mpjpe0.08487.pth
+epoch 145 num_epochs 200
+Train Epoch: 145 [0/24546 (0%)]	Loss: 0.243510
+Train Epoch: 145 [50/24546 (16%)]	Loss: 0.216828
+Train Epoch: 145 [100/24546 (32%)]	Loss: 0.229780
+Train Epoch: 145 [150/24546 (48%)]	Loss: 0.236426
+Train Epoch: 145 [200/24546 (63%)]	Loss: 0.209252
+Train Epoch: 145 [250/24546 (79%)]	Loss: 0.232060
+Train Epoch: 145 [300/24546 (95%)]	Loss: 0.224812
+Train Epoch: 145	Average Loss: 0.000000
+Val Epoch: 145	Average Loss: 0.243268
+--------------------------------------------------
+epoch 146 num_epochs 200
+Train Epoch: 146 [0/24546 (0%)]	Loss: 0.215015
+Train Epoch: 146 [50/24546 (16%)]	Loss: 0.214131
+Train Epoch: 146 [100/24546 (32%)]	Loss: 0.242612
+Train Epoch: 146 [150/24546 (48%)]	Loss: 0.202154
+Train Epoch: 146 [200/24546 (63%)]	Loss: 0.225252
+Train Epoch: 146 [250/24546 (79%)]	Loss: 0.236776
+Train Epoch: 146 [300/24546 (95%)]	Loss: 0.232787
+Train Epoch: 146	Average Loss: 0.000000
+Val Epoch: 146	Average Loss: 0.247147
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0610, Diversity Real. 9.6671, Diversity. 9.4157, R_precision_real. (0.5086, 0.6988, 0.7945), R_precision. (0.4867, 0.6815, 0.7832), matching_real. 2.9155, matching_pred. 2.9995, MPJPE. 0.0641
+Evaluation results:  {'FID': 0.06097128436617538, 'Diversity': 9.415722, 'Top1': 0.4867021276595745, 'Top2': 0.6815159574468085, 'Top3': 0.7832446808510638, 'Matching': 2.9994634871787214, 'MAE': 0.06405253}
+Saved model at epoch 146 with FID 0.06097
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_66_0.369721_fid0.30340_mpjpe0.10156.pth
+epoch 147 num_epochs 200
+Train Epoch: 147 [0/24546 (0%)]	Loss: 0.206611
+Train Epoch: 147 [50/24546 (16%)]	Loss: 0.223936
+Train Epoch: 147 [100/24546 (32%)]	Loss: 0.215105
+Train Epoch: 147 [150/24546 (48%)]	Loss: 0.237313
+Train Epoch: 147 [200/24546 (63%)]	Loss: 0.238643
+Train Epoch: 147 [250/24546 (79%)]	Loss: 0.245067
+Train Epoch: 147 [300/24546 (95%)]	Loss: 0.228659
+Train Epoch: 147	Average Loss: 0.000000
+Val Epoch: 147	Average Loss: 0.237475
+--------------------------------------------------
+epoch 148 num_epochs 200
+Train Epoch: 148 [0/24546 (0%)]	Loss: 0.220284
+Train Epoch: 148 [50/24546 (16%)]	Loss: 0.261248
+Train Epoch: 148 [100/24546 (32%)]	Loss: 0.216889
+Train Epoch: 148 [150/24546 (48%)]	Loss: 0.259566
+Train Epoch: 148 [200/24546 (63%)]	Loss: 0.208520
+Train Epoch: 148 [250/24546 (79%)]	Loss: 0.205400
+Train Epoch: 148 [300/24546 (95%)]	Loss: 0.208758
+Train Epoch: 148	Average Loss: 0.000000
+Val Epoch: 148	Average Loss: 0.229740
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0514, Diversity Real. 9.4627, Diversity. 9.3156, R_precision_real. (0.5007, 0.7055, 0.8019), R_precision. (0.4820, 0.6809, 0.7733), matching_real. 2.9248, matching_pred. 3.0343, MPJPE. 0.0641
+Evaluation results:  {'FID': 0.05143723031517311, 'Diversity': 9.315631, 'Top1': 0.4820478723404255, 'Top2': 0.6808510638297872, 'Top3': 0.7732712765957447, 'Matching': 3.034347123288094, 'MAE': 0.064091094}
+Saved model at epoch 148 with FID 0.05144
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_60_0.390896_fid0.28934_mpjpe0.09042.pth
+epoch 149 num_epochs 200
+Train Epoch: 149 [0/24546 (0%)]	Loss: 0.240869
+Train Epoch: 149 [50/24546 (16%)]	Loss: 0.225223
+Train Epoch: 149 [100/24546 (32%)]	Loss: 0.227026
+Train Epoch: 149 [150/24546 (48%)]	Loss: 0.188113
+Train Epoch: 149 [200/24546 (63%)]	Loss: 0.232185
+Train Epoch: 149 [250/24546 (79%)]	Loss: 0.219924
+Train Epoch: 149 [300/24546 (95%)]	Loss: 0.278179
+Train Epoch: 149	Average Loss: 0.000000
+Val Epoch: 149	Average Loss: 0.235247
+--------------------------------------------------
+epoch 150 num_epochs 200
+Train Epoch: 150 [0/24546 (0%)]	Loss: 0.215728
+Train Epoch: 150 [50/24546 (16%)]	Loss: 0.215412
+Train Epoch: 150 [100/24546 (32%)]	Loss: 0.248671
+Train Epoch: 150 [150/24546 (48%)]	Loss: 0.198867
+Train Epoch: 150 [200/24546 (63%)]	Loss: 0.215066
+Train Epoch: 150 [250/24546 (79%)]	Loss: 0.225930
+Train Epoch: 150 [300/24546 (95%)]	Loss: 0.205763
+Train Epoch: 150	Average Loss: 0.000000
+Val Epoch: 150	Average Loss: 0.229360
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0534, Diversity Real. 9.4873, Diversity. 9.1154, R_precision_real. (0.5073, 0.7168, 0.8078), R_precision. (0.4953, 0.6862, 0.7839), matching_real. 2.8926, matching_pred. 3.0043, MPJPE. 0.0637
+Evaluation results:  {'FID': 0.05342850733222804, 'Diversity': 9.1154375, 'Top1': 0.4953457446808511, 'Top2': 0.6861702127659575, 'Top3': 0.7839095744680851, 'Matching': 3.0043088476708593, 'MAE': 0.06368549}
+Saved model at epoch 150 with FID 0.05343
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_92_0.311581_fid0.26505_mpjpe0.08312.pth
+epoch 151 num_epochs 200
+Train Epoch: 151 [0/24546 (0%)]	Loss: 0.236994
+Train Epoch: 151 [50/24546 (16%)]	Loss: 0.214083
+Train Epoch: 151 [100/24546 (32%)]	Loss: 0.239042
+Train Epoch: 151 [150/24546 (48%)]	Loss: 0.215730
+Train Epoch: 151 [200/24546 (63%)]	Loss: 0.225822
+Train Epoch: 151 [250/24546 (79%)]	Loss: 0.227705
+Train Epoch: 151 [300/24546 (95%)]	Loss: 0.245692
+Train Epoch: 151	Average Loss: 0.000000
+Val Epoch: 151	Average Loss: 0.230614
+--------------------------------------------------
+epoch 152 num_epochs 200
+Train Epoch: 152 [0/24546 (0%)]	Loss: 0.199970
+Train Epoch: 152 [50/24546 (16%)]	Loss: 0.212300
+Train Epoch: 152 [100/24546 (32%)]	Loss: 0.214296
+Train Epoch: 152 [150/24546 (48%)]	Loss: 0.208161
+Train Epoch: 152 [200/24546 (63%)]	Loss: 0.251471
+Train Epoch: 152 [250/24546 (79%)]	Loss: 0.205991
+Train Epoch: 152 [300/24546 (95%)]	Loss: 0.194200
+Train Epoch: 152	Average Loss: 0.000000
+Val Epoch: 152	Average Loss: 0.235600
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0479, Diversity Real. 9.8898, Diversity. 9.4076, R_precision_real. (0.5153, 0.7008, 0.8012), R_precision. (0.4907, 0.6802, 0.7806), matching_real. 2.9111, matching_pred. 3.0098, MPJPE. 0.0639
+Evaluation results:  {'FID': 0.04785244960669388, 'Diversity': 9.407615, 'Top1': 0.49069148936170215, 'Top2': 0.680186170212766, 'Top3': 0.7805851063829787, 'Matching': 3.009763854615232, 'MAE': 0.06387466}
+Saved model at epoch 152 with FID 0.04785
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_72_0.362049_fid0.25047_mpjpe0.08972.pth
+epoch 153 num_epochs 200
+Train Epoch: 153 [0/24546 (0%)]	Loss: 0.211989
+Train Epoch: 153 [50/24546 (16%)]	Loss: 0.241027
+Train Epoch: 153 [100/24546 (32%)]	Loss: 0.203643
+Train Epoch: 153 [150/24546 (48%)]	Loss: 0.251789
+Train Epoch: 153 [200/24546 (63%)]	Loss: 0.223896
+Train Epoch: 153 [250/24546 (79%)]	Loss: 0.233203
+Train Epoch: 153 [300/24546 (95%)]	Loss: 0.192664
+Train Epoch: 153	Average Loss: 0.000000
+Val Epoch: 153	Average Loss: 0.225934
+--------------------------------------------------
+Saved best model at epoch 153 with loss 0.225934
+
+epoch 154 num_epochs 200
+Train Epoch: 154 [0/24546 (0%)]	Loss: 0.227382
+Train Epoch: 154 [50/24546 (16%)]	Loss: 0.242195
+Train Epoch: 154 [100/24546 (32%)]	Loss: 0.224344
+Train Epoch: 154 [150/24546 (48%)]	Loss: 0.220753
+Train Epoch: 154 [200/24546 (63%)]	Loss: 0.205877
+Train Epoch: 154 [250/24546 (79%)]	Loss: 0.217355
+Train Epoch: 154 [300/24546 (95%)]	Loss: 0.227307
+Train Epoch: 154	Average Loss: 0.000000
+Val Epoch: 154	Average Loss: 0.244358
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0530, Diversity Real. 9.6246, Diversity. 9.7806, R_precision_real. (0.5312, 0.7128, 0.7939), R_precision. (0.5013, 0.7008, 0.7919), matching_real. 2.9018, matching_pred. 2.9799, MPJPE. 0.0640
+Evaluation results:  {'FID': 0.05302793923806348, 'Diversity': 9.780643, 'Top1': 0.5013297872340425, 'Top2': 0.7007978723404256, 'Top3': 0.7918882978723404, 'Matching': 2.97987063387607, 'MAE': 0.06401331}
+Saved model at epoch 154 with FID 0.05303
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_80_0.341853_fid0.22878_mpjpe0.08912.pth
+epoch 155 num_epochs 200
+Train Epoch: 155 [0/24546 (0%)]	Loss: 0.217887
+Train Epoch: 155 [50/24546 (16%)]	Loss: 0.211341
+Train Epoch: 155 [100/24546 (32%)]	Loss: 0.202563
+Train Epoch: 155 [150/24546 (48%)]	Loss: 0.235932
+Train Epoch: 155 [200/24546 (63%)]	Loss: 0.211936
+Train Epoch: 155 [250/24546 (79%)]	Loss: 0.195757
+Train Epoch: 155 [300/24546 (95%)]	Loss: 0.204434
+Train Epoch: 155	Average Loss: 0.000000
+Val Epoch: 155	Average Loss: 0.220178
+--------------------------------------------------
+Saved best model at epoch 155 with loss 0.220178
+
+epoch 156 num_epochs 200
+Train Epoch: 156 [0/24546 (0%)]	Loss: 0.214484
+Train Epoch: 156 [50/24546 (16%)]	Loss: 0.210464
+Train Epoch: 156 [100/24546 (32%)]	Loss: 0.249002
+Train Epoch: 156 [150/24546 (48%)]	Loss: 0.200465
+Train Epoch: 156 [200/24546 (63%)]	Loss: 0.235662
+Train Epoch: 156 [250/24546 (79%)]	Loss: 0.222674
+Train Epoch: 156 [300/24546 (95%)]	Loss: 0.197384
+Train Epoch: 156	Average Loss: 0.000000
+Val Epoch: 156	Average Loss: 0.224944
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0633, Diversity Real. 9.3702, Diversity. 9.7394, R_precision_real. (0.4907, 0.6855, 0.7972), R_precision. (0.4900, 0.6795, 0.7779), matching_real. 2.9521, matching_pred. 3.0238, MPJPE. 0.0642
+Evaluation results:  {'FID': 0.06328895908539778, 'Diversity': 9.739394, 'Top1': 0.4900265957446808, 'Top2': 0.6795212765957447, 'Top3': 0.7779255319148937, 'Matching': 3.023844115277554, 'MAE': 0.06419331}
+Saved model at epoch 156 with FID 0.06329
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_82_0.319729_fid0.21878_mpjpe0.08732.pth
+epoch 157 num_epochs 200
+Train Epoch: 157 [0/24546 (0%)]	Loss: 0.190824
+Train Epoch: 157 [50/24546 (16%)]	Loss: 0.193450
+Train Epoch: 157 [100/24546 (32%)]	Loss: 0.223970
+Train Epoch: 157 [150/24546 (48%)]	Loss: 0.210303
+Train Epoch: 157 [200/24546 (63%)]	Loss: 0.211407
+Train Epoch: 157 [250/24546 (79%)]	Loss: 0.214373
+Train Epoch: 157 [300/24546 (95%)]	Loss: 0.193512
+Train Epoch: 157	Average Loss: 0.000000
+Val Epoch: 157	Average Loss: 0.248119
+--------------------------------------------------
+epoch 158 num_epochs 200
+Train Epoch: 158 [0/24546 (0%)]	Loss: 0.202260
+Train Epoch: 158 [50/24546 (16%)]	Loss: 0.230526
+Train Epoch: 158 [100/24546 (32%)]	Loss: 0.227236
+Train Epoch: 158 [150/24546 (48%)]	Loss: 0.196166
+Train Epoch: 158 [200/24546 (63%)]	Loss: 0.224111
+Train Epoch: 158 [250/24546 (79%)]	Loss: 0.233096
+Train Epoch: 158 [300/24546 (95%)]	Loss: 0.260006
+Train Epoch: 158	Average Loss: 0.000000
+Val Epoch: 158	Average Loss: 0.239866
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0553, Diversity Real. 9.6350, Diversity. 9.3012, R_precision_real. (0.4980, 0.6975, 0.7866), R_precision. (0.4854, 0.6662, 0.7646), matching_real. 2.9289, matching_pred. 3.0315, MPJPE. 0.0630
+Evaluation results:  {'FID': 0.05530071206291609, 'Diversity': 9.301187, 'Top1': 0.4853723404255319, 'Top2': 0.6662234042553191, 'Top3': 0.7646276595744681, 'Matching': 3.031481387767386, 'MAE': 0.06300604}
+Saved model at epoch 158 with FID 0.05530
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_88_0.327596_fid0.21844_mpjpe0.08341.pth
+epoch 159 num_epochs 200
+Train Epoch: 159 [0/24546 (0%)]	Loss: 0.240229
+Train Epoch: 159 [50/24546 (16%)]	Loss: 0.211135
+Train Epoch: 159 [100/24546 (32%)]	Loss: 0.199143
+Train Epoch: 159 [150/24546 (48%)]	Loss: 0.224320
+Train Epoch: 159 [200/24546 (63%)]	Loss: 0.200346
+Train Epoch: 159 [250/24546 (79%)]	Loss: 0.205427
+Train Epoch: 159 [300/24546 (95%)]	Loss: 0.210672
+Train Epoch: 159	Average Loss: 0.000000
+Val Epoch: 159	Average Loss: 0.215632
+--------------------------------------------------
+Saved best model at epoch 159 with loss 0.215632
+
+epoch 160 num_epochs 200
+Train Epoch: 160 [0/24546 (0%)]	Loss: 0.231080
+Train Epoch: 160 [50/24546 (16%)]	Loss: 0.196624
+Train Epoch: 160 [100/24546 (32%)]	Loss: 0.244076
+Train Epoch: 160 [150/24546 (48%)]	Loss: 0.217197
+Train Epoch: 160 [200/24546 (63%)]	Loss: 0.228005
+Train Epoch: 160 [250/24546 (79%)]	Loss: 0.208947
+Train Epoch: 160 [300/24546 (95%)]	Loss: 0.215220
+Train Epoch: 160	Average Loss: 0.000000
+Val Epoch: 160	Average Loss: 0.224803
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0482, Diversity Real. 9.5424, Diversity. 9.1521, R_precision_real. (0.4947, 0.7035, 0.8039), R_precision. (0.4847, 0.6835, 0.7859), matching_real. 2.9163, matching_pred. 3.0041, MPJPE. 0.0629
+Evaluation results:  {'FID': 0.0482221829969518, 'Diversity': 9.152054, 'Top1': 0.48470744680851063, 'Top2': 0.6835106382978723, 'Top3': 0.785904255319149, 'Matching': 3.0041100319395673, 'MAE': 0.06291227}
+Saved model at epoch 160 with FID 0.04822
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_68_0.350798_fid0.21059_mpjpe0.08785.pth
+epoch 161 num_epochs 200
+Train Epoch: 161 [0/24546 (0%)]	Loss: 0.237489
+Train Epoch: 161 [50/24546 (16%)]	Loss: 0.244120
+Train Epoch: 161 [100/24546 (32%)]	Loss: 0.284074
+Train Epoch: 161 [150/24546 (48%)]	Loss: 0.219165
+Train Epoch: 161 [200/24546 (63%)]	Loss: 0.197019
+Train Epoch: 161 [250/24546 (79%)]	Loss: 0.219963
+Train Epoch: 161 [300/24546 (95%)]	Loss: 0.210863
+Train Epoch: 161	Average Loss: 0.000000
+Val Epoch: 161	Average Loss: 0.244806
+--------------------------------------------------
+epoch 162 num_epochs 200
+Train Epoch: 162 [0/24546 (0%)]	Loss: 0.209833
+Train Epoch: 162 [50/24546 (16%)]	Loss: 0.200785
+Train Epoch: 162 [100/24546 (32%)]	Loss: 0.211802
+Train Epoch: 162 [150/24546 (48%)]	Loss: 0.252073
+Train Epoch: 162 [200/24546 (63%)]	Loss: 0.212263
+Train Epoch: 162 [250/24546 (79%)]	Loss: 0.254650
+Train Epoch: 162 [300/24546 (95%)]	Loss: 0.252365
+Train Epoch: 162	Average Loss: 0.000000
+Val Epoch: 162	Average Loss: 0.227877
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0519, Diversity Real. 9.5745, Diversity. 9.5349, R_precision_real. (0.5352, 0.7347, 0.8265), R_precision. (0.5199, 0.7128, 0.8118), matching_real. 2.8430, matching_pred. 2.9403, MPJPE. 0.0632
+Evaluation results:  {'FID': 0.051946749478986476, 'Diversity': 9.534901, 'Top1': 0.5199468085106383, 'Top2': 0.7127659574468085, 'Top3': 0.8118351063829787, 'Matching': 2.940335512161255, 'MAE': 0.063165}
+Saved model at epoch 162 with FID 0.05195
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_90_0.332853_fid0.20770_mpjpe0.08156.pth
+epoch 163 num_epochs 200
+Train Epoch: 163 [0/24546 (0%)]	Loss: 0.220127
+Train Epoch: 163 [50/24546 (16%)]	Loss: 0.234485
+Train Epoch: 163 [100/24546 (32%)]	Loss: 0.204899
+Train Epoch: 163 [150/24546 (48%)]	Loss: 0.187549
+Train Epoch: 163 [200/24546 (63%)]	Loss: 0.239629
+Train Epoch: 163 [250/24546 (79%)]	Loss: 0.216640
+Train Epoch: 163 [300/24546 (95%)]	Loss: 0.191687
+Train Epoch: 163	Average Loss: 0.000000
+Val Epoch: 163	Average Loss: 0.255876
+--------------------------------------------------
+epoch 164 num_epochs 200
+Train Epoch: 164 [0/24546 (0%)]	Loss: 0.217683
+Train Epoch: 164 [50/24546 (16%)]	Loss: 0.212920
+Train Epoch: 164 [100/24546 (32%)]	Loss: 0.189359
+Train Epoch: 164 [150/24546 (48%)]	Loss: 0.510366
+Train Epoch: 164 [200/24546 (63%)]	Loss: 0.197783
+Train Epoch: 164 [250/24546 (79%)]	Loss: 0.216861
+Train Epoch: 164 [300/24546 (95%)]	Loss: 0.216939
+Train Epoch: 164	Average Loss: 0.000000
+Val Epoch: 164	Average Loss: 0.234522
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0372, Diversity Real. 9.9184, Diversity. 8.9049, R_precision_real. (0.5133, 0.7061, 0.8098), R_precision. (0.4967, 0.6895, 0.7892), matching_real. 2.9054, matching_pred. 2.9805, MPJPE. 0.0621
+Evaluation results:  {'FID': 0.037247241503294504, 'Diversity': 8.904863, 'Top1': 0.4966755319148936, 'Top2': 0.6894946808510638, 'Top3': 0.7892287234042553, 'Matching': 2.9805088651941176, 'MAE': 0.06206103}
+Saved model at epoch 164 with FID 0.03725
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_98_0.324388_fid0.20154_mpjpe0.08353.pth
+epoch 165 num_epochs 200
+Train Epoch: 165 [0/24546 (0%)]	Loss: 0.211191
+Train Epoch: 165 [50/24546 (16%)]	Loss: 0.200645
+Train Epoch: 165 [100/24546 (32%)]	Loss: 0.236038
+Train Epoch: 165 [150/24546 (48%)]	Loss: 0.191975
+Train Epoch: 165 [200/24546 (63%)]	Loss: 0.200180
+Train Epoch: 165 [250/24546 (79%)]	Loss: 0.211773
+Train Epoch: 165 [300/24546 (95%)]	Loss: 0.269328
+Train Epoch: 165	Average Loss: 0.000000
+Val Epoch: 165	Average Loss: 0.246540
+--------------------------------------------------
+epoch 166 num_epochs 200
+Train Epoch: 166 [0/24546 (0%)]	Loss: 0.228146
+Train Epoch: 166 [50/24546 (16%)]	Loss: 0.232417
+Train Epoch: 166 [100/24546 (32%)]	Loss: 0.218669
+Train Epoch: 166 [150/24546 (48%)]	Loss: 0.210953
+Train Epoch: 166 [200/24546 (63%)]	Loss: 0.198798
+Train Epoch: 166 [250/24546 (79%)]	Loss: 0.200215
+Train Epoch: 166 [300/24546 (95%)]	Loss: 0.267977
+Train Epoch: 166	Average Loss: 0.000000
+Val Epoch: 166	Average Loss: 0.231153
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0438, Diversity Real. 9.6833, Diversity. 9.1177, R_precision_real. (0.5153, 0.6968, 0.7972), R_precision. (0.4787, 0.6649, 0.7713), matching_real. 2.9198, matching_pred. 3.0291, MPJPE. 0.0620
+Evaluation results:  {'FID': 0.043813141622052854, 'Diversity': 9.117679, 'Top1': 0.4787234042553192, 'Top2': 0.6648936170212766, 'Top3': 0.7712765957446809, 'Matching': 3.0291393006101566, 'MAE': 0.061950445}
+Saved model at epoch 166 with FID 0.04381
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_78_0.328149_fid0.18968_mpjpe0.08943.pth
+epoch 167 num_epochs 200
+Train Epoch: 167 [0/24546 (0%)]	Loss: 0.226690
+Train Epoch: 167 [50/24546 (16%)]	Loss: 0.193879
+Train Epoch: 167 [100/24546 (32%)]	Loss: 0.238503
+Train Epoch: 167 [150/24546 (48%)]	Loss: 0.181741
+Train Epoch: 167 [200/24546 (63%)]	Loss: 0.215952
+Train Epoch: 167 [250/24546 (79%)]	Loss: 0.223071
+Train Epoch: 167 [300/24546 (95%)]	Loss: 0.204839
+Train Epoch: 167	Average Loss: 0.000000
+Val Epoch: 167	Average Loss: 0.230888
+--------------------------------------------------
+epoch 168 num_epochs 200
+Train Epoch: 168 [0/24546 (0%)]	Loss: 0.199834
+Train Epoch: 168 [50/24546 (16%)]	Loss: 0.208991
+Train Epoch: 168 [100/24546 (32%)]	Loss: 0.184424
+Train Epoch: 168 [150/24546 (48%)]	Loss: 0.225973
+Train Epoch: 168 [200/24546 (63%)]	Loss: 0.227992
+Train Epoch: 168 [250/24546 (79%)]	Loss: 0.216300
+Train Epoch: 168 [300/24546 (95%)]	Loss: 0.194443
+Train Epoch: 168	Average Loss: 0.000000
+Val Epoch: 168	Average Loss: 0.236314
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0449, Diversity Real. 9.6161, Diversity. 9.2669, R_precision_real. (0.5186, 0.7061, 0.8078), R_precision. (0.4940, 0.6875, 0.7806), matching_real. 2.8490, matching_pred. 2.9475, MPJPE. 0.0628
+Evaluation results:  {'FID': 0.04488758697387141, 'Diversity': 9.266875, 'Top1': 0.4940159574468085, 'Top2': 0.6875, 'Top3': 0.7805851063829787, 'Matching': 2.9475449501199926, 'MAE': 0.06281416}
+Saved model at epoch 168 with FID 0.04489
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_100_0.305319_fid0.18966_mpjpe0.08062.pth
+epoch 169 num_epochs 200
+Train Epoch: 169 [0/24546 (0%)]	Loss: 0.222039
+Train Epoch: 169 [50/24546 (16%)]	Loss: 0.229661
+Train Epoch: 169 [100/24546 (32%)]	Loss: 0.197515
+Train Epoch: 169 [150/24546 (48%)]	Loss: 0.215400
+Train Epoch: 169 [200/24546 (63%)]	Loss: 0.211897
+Train Epoch: 169 [250/24546 (79%)]	Loss: 0.226771
+Train Epoch: 169 [300/24546 (95%)]	Loss: 0.202947
+Train Epoch: 169	Average Loss: 0.000000
+Val Epoch: 169	Average Loss: 0.214526
+--------------------------------------------------
+Saved best model at epoch 169 with loss 0.214526
+
+epoch 170 num_epochs 200
+Train Epoch: 170 [0/24546 (0%)]	Loss: 0.216411
+Train Epoch: 170 [50/24546 (16%)]	Loss: 0.187421
+Train Epoch: 170 [100/24546 (32%)]	Loss: 0.278425
+Train Epoch: 170 [150/24546 (48%)]	Loss: 0.203052
+Train Epoch: 170 [200/24546 (63%)]	Loss: 0.205905
+Train Epoch: 170 [250/24546 (79%)]	Loss: 0.216436
+Train Epoch: 170 [300/24546 (95%)]	Loss: 0.222052
+Train Epoch: 170	Average Loss: 0.000000
+Val Epoch: 170	Average Loss: 0.203552
+--------------------------------------------------
+Saved best model at epoch 170 with loss 0.203552
+
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0414, Diversity Real. 9.6383, Diversity. 9.1965, R_precision_real. (0.5020, 0.6968, 0.7939), R_precision. (0.4681, 0.6809, 0.7759), matching_real. 2.9087, matching_pred. 3.0078, MPJPE. 0.0610
+Evaluation results:  {'FID': 0.04143826716976662, 'Diversity': 9.196493, 'Top1': 0.46808510638297873, 'Top2': 0.6808510638297872, 'Top3': 0.7759308510638298, 'Matching': 3.0078152139136134, 'MAE': 0.061033204}
+Saved model at epoch 170 with FID 0.04144
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_76_0.332681_fid0.18720_mpjpe0.08251.pth
+epoch 171 num_epochs 200
+Train Epoch: 171 [0/24546 (0%)]	Loss: 0.208854
+Train Epoch: 171 [50/24546 (16%)]	Loss: 0.197181
+Train Epoch: 171 [100/24546 (32%)]	Loss: 0.236284
+Train Epoch: 171 [150/24546 (48%)]	Loss: 0.214410
+Train Epoch: 171 [200/24546 (63%)]	Loss: 0.225829
+Train Epoch: 171 [250/24546 (79%)]	Loss: 0.219331
+Train Epoch: 171 [300/24546 (95%)]	Loss: 0.271627
+Train Epoch: 171	Average Loss: 0.000000
+Val Epoch: 171	Average Loss: 0.229726
+--------------------------------------------------
+epoch 172 num_epochs 200
+Train Epoch: 172 [0/24546 (0%)]	Loss: 0.192902
+Train Epoch: 172 [50/24546 (16%)]	Loss: 0.207279
+Train Epoch: 172 [100/24546 (32%)]	Loss: 0.203259
+Train Epoch: 172 [150/24546 (48%)]	Loss: 0.195669
+Train Epoch: 172 [200/24546 (63%)]	Loss: 0.202886
+Train Epoch: 172 [250/24546 (79%)]	Loss: 0.203472
+Train Epoch: 172 [300/24546 (95%)]	Loss: 0.211587
+Train Epoch: 172	Average Loss: 0.000000
+Val Epoch: 172	Average Loss: 0.236591
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0438, Diversity Real. 9.5734, Diversity. 9.2741, R_precision_real. (0.4934, 0.6995, 0.7919), R_precision. (0.4714, 0.6669, 0.7766), matching_real. 2.9312, matching_pred. 3.0103, MPJPE. 0.0617
+Evaluation results:  {'FID': 0.04376007211780575, 'Diversity': 9.27412, 'Top1': 0.4714095744680851, 'Top2': 0.6668882978723404, 'Top3': 0.776595744680851, 'Matching': 3.0102789503462772, 'MAE': 0.061740756}
+Saved model at epoch 172 with FID 0.04376
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_70_0.346714_fid0.16766_mpjpe0.08229.pth
+epoch 173 num_epochs 200
+Train Epoch: 173 [0/24546 (0%)]	Loss: 0.239914
+Train Epoch: 173 [50/24546 (16%)]	Loss: 0.205762
+Train Epoch: 173 [100/24546 (32%)]	Loss: 0.197185
+Train Epoch: 173 [150/24546 (48%)]	Loss: 0.221057
+Train Epoch: 173 [200/24546 (63%)]	Loss: 0.220771
+Train Epoch: 173 [250/24546 (79%)]	Loss: 0.206089
+Train Epoch: 173 [300/24546 (95%)]	Loss: 0.246383
+Train Epoch: 173	Average Loss: 0.000000
+Val Epoch: 173	Average Loss: 0.219787
+--------------------------------------------------
+epoch 174 num_epochs 200
+Train Epoch: 174 [0/24546 (0%)]	Loss: 0.219699
+Train Epoch: 174 [50/24546 (16%)]	Loss: 0.216424
+Train Epoch: 174 [100/24546 (32%)]	Loss: 0.190694
+Train Epoch: 174 [150/24546 (48%)]	Loss: 0.197752
+Train Epoch: 174 [200/24546 (63%)]	Loss: 0.259009
+Train Epoch: 174 [250/24546 (79%)]	Loss: 0.209773
+Train Epoch: 174 [300/24546 (95%)]	Loss: 0.192985
+Train Epoch: 174	Average Loss: 0.000000
+Val Epoch: 174	Average Loss: 0.218788
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0470, Diversity Real. 9.5175, Diversity. 9.4222, R_precision_real. (0.4960, 0.6922, 0.7979), R_precision. (0.4747, 0.6735, 0.7753), matching_real. 2.9369, matching_pred. 3.0275, MPJPE. 0.0614
+Evaluation results:  {'FID': 0.04697825935414812, 'Diversity': 9.422173, 'Top1': 0.4747340425531915, 'Top2': 0.6735372340425532, 'Top3': 0.7752659574468085, 'Matching': 3.027482661795109, 'MAE': 0.061386544}
+Saved model at epoch 174 with FID 0.04698
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_84_0.330259_fid0.15716_mpjpe0.08410.pth
+epoch 175 num_epochs 200
+Train Epoch: 175 [0/24546 (0%)]	Loss: 0.203629
+Train Epoch: 175 [50/24546 (16%)]	Loss: 0.200905
+Train Epoch: 175 [100/24546 (32%)]	Loss: 0.189590
+Train Epoch: 175 [150/24546 (48%)]	Loss: 0.207418
+Train Epoch: 175 [200/24546 (63%)]	Loss: 0.214774
+Train Epoch: 175 [250/24546 (79%)]	Loss: 0.185688
+Train Epoch: 175 [300/24546 (95%)]	Loss: 0.198842
+Train Epoch: 175	Average Loss: 0.000000
+Val Epoch: 175	Average Loss: 0.223892
+--------------------------------------------------
+epoch 176 num_epochs 200
+Train Epoch: 176 [0/24546 (0%)]	Loss: 0.207153
+Train Epoch: 176 [50/24546 (16%)]	Loss: 0.202741
+Train Epoch: 176 [100/24546 (32%)]	Loss: 0.212874
+Train Epoch: 176 [150/24546 (48%)]	Loss: 0.191003
+Train Epoch: 176 [200/24546 (63%)]	Loss: 0.249564
+Train Epoch: 176 [250/24546 (79%)]	Loss: 0.175155
+Train Epoch: 176 [300/24546 (95%)]	Loss: 0.197134
+Train Epoch: 176	Average Loss: 0.000000
+Val Epoch: 176	Average Loss: 0.211977
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0421, Diversity Real. 9.7862, Diversity. 9.1997, R_precision_real. (0.5186, 0.7101, 0.8138), R_precision. (0.4894, 0.6895, 0.7859), matching_real. 2.9276, matching_pred. 3.0207, MPJPE. 0.0606
+Evaluation results:  {'FID': 0.04208939122564459, 'Diversity': 9.199665, 'Top1': 0.48936170212765956, 'Top2': 0.6894946808510638, 'Top3': 0.785904255319149, 'Matching': 3.0207357710980354, 'MAE': 0.060560603}
+Saved model at epoch 176 with FID 0.04209
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_128_0.242501_fid0.15031_mpjpe0.07480.pth
+epoch 177 num_epochs 200
+Train Epoch: 177 [0/24546 (0%)]	Loss: 0.198144
+Train Epoch: 177 [50/24546 (16%)]	Loss: 0.202289
+Train Epoch: 177 [100/24546 (32%)]	Loss: 0.191616
+Train Epoch: 177 [150/24546 (48%)]	Loss: 0.207387
+Train Epoch: 177 [200/24546 (63%)]	Loss: 0.230215
+Train Epoch: 177 [250/24546 (79%)]	Loss: 0.217911
+Train Epoch: 177 [300/24546 (95%)]	Loss: 0.216160
+Train Epoch: 177	Average Loss: 0.000000
+Val Epoch: 177	Average Loss: 0.215071
+--------------------------------------------------
+epoch 178 num_epochs 200
+Train Epoch: 178 [0/24546 (0%)]	Loss: 0.186770
+Train Epoch: 178 [50/24546 (16%)]	Loss: 0.197357
+Train Epoch: 178 [100/24546 (32%)]	Loss: 0.187458
+Train Epoch: 178 [150/24546 (48%)]	Loss: 0.198751
+Train Epoch: 178 [200/24546 (63%)]	Loss: 0.199843
+Train Epoch: 178 [250/24546 (79%)]	Loss: 0.214123
+Train Epoch: 178 [300/24546 (95%)]	Loss: 0.198180
+Train Epoch: 178	Average Loss: 0.000000
+Val Epoch: 178	Average Loss: 0.222077
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0454, Diversity Real. 9.5305, Diversity. 9.2191, R_precision_real. (0.5332, 0.7188, 0.8059), R_precision. (0.5173, 0.6995, 0.7965), matching_real. 2.9146, matching_pred. 2.9772, MPJPE. 0.0617
+Evaluation results:  {'FID': 0.045431632182825865, 'Diversity': 9.219099, 'Top1': 0.5172872340425532, 'Top2': 0.699468085106383, 'Top3': 0.7965425531914894, 'Matching': 2.9772081070757928, 'MAE': 0.06170518}
+Saved model at epoch 178 with FID 0.04543
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_96_0.352238_fid0.14683_mpjpe0.07751.pth
+epoch 179 num_epochs 200
+Train Epoch: 179 [0/24546 (0%)]	Loss: 0.217464
+Train Epoch: 179 [50/24546 (16%)]	Loss: 0.217951
+Train Epoch: 179 [100/24546 (32%)]	Loss: 0.213875
+Train Epoch: 179 [150/24546 (48%)]	Loss: 0.223990
+Train Epoch: 179 [200/24546 (63%)]	Loss: 0.195584
+Train Epoch: 179 [250/24546 (79%)]	Loss: 0.187271
+Train Epoch: 179 [300/24546 (95%)]	Loss: 0.229548
+Train Epoch: 179	Average Loss: 0.000000
+Val Epoch: 179	Average Loss: 0.212801
+--------------------------------------------------
+epoch 180 num_epochs 200
+Train Epoch: 180 [0/24546 (0%)]	Loss: 0.208624
+Train Epoch: 180 [50/24546 (16%)]	Loss: 0.191831
+Train Epoch: 180 [100/24546 (32%)]	Loss: 0.215639
+Train Epoch: 180 [150/24546 (48%)]	Loss: 0.199816
+Train Epoch: 180 [200/24546 (63%)]	Loss: 0.203124
+Train Epoch: 180 [250/24546 (79%)]	Loss: 0.206247
+Train Epoch: 180 [300/24546 (95%)]	Loss: 0.208720
+Train Epoch: 180	Average Loss: 0.000000
+Val Epoch: 180	Average Loss: 0.247017
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0439, Diversity Real. 9.3478, Diversity. 9.1733, R_precision_real. (0.5180, 0.7015, 0.7979), R_precision. (0.4900, 0.6715, 0.7799), matching_real. 2.8863, matching_pred. 2.9842, MPJPE. 0.0608
+Evaluation results:  {'FID': 0.0439436793796375, 'Diversity': 9.173321, 'Top1': 0.4900265957446808, 'Top2': 0.6715425531914894, 'Top3': 0.7799202127659575, 'Matching': 2.9841635835931655, 'MAE': 0.060771998}
+Saved model at epoch 180 with FID 0.04394
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_102_0.300668_fid0.13777_mpjpe0.08238.pth
+epoch 181 num_epochs 200
+Train Epoch: 181 [0/24546 (0%)]	Loss: 0.173716
+Train Epoch: 181 [50/24546 (16%)]	Loss: 0.201508
+Train Epoch: 181 [100/24546 (32%)]	Loss: 0.202941
+Train Epoch: 181 [150/24546 (48%)]	Loss: 0.196290
+Train Epoch: 181 [200/24546 (63%)]	Loss: 0.220448
+Train Epoch: 181 [250/24546 (79%)]	Loss: 0.216003
+Train Epoch: 181 [300/24546 (95%)]	Loss: 0.214327
+Train Epoch: 181	Average Loss: 0.000000
+Val Epoch: 181	Average Loss: 0.209547
+--------------------------------------------------
+epoch 182 num_epochs 200
+Train Epoch: 182 [0/24546 (0%)]	Loss: 0.199438
+Train Epoch: 182 [50/24546 (16%)]	Loss: 0.237529
+Train Epoch: 182 [100/24546 (32%)]	Loss: 0.188202
+Train Epoch: 182 [150/24546 (48%)]	Loss: 0.196719
+Train Epoch: 182 [200/24546 (63%)]	Loss: 0.228905
+Train Epoch: 182 [250/24546 (79%)]	Loss: 0.199787
+Train Epoch: 182 [300/24546 (95%)]	Loss: 0.209697
+Train Epoch: 182	Average Loss: 0.000000
+Val Epoch: 182	Average Loss: 0.242446
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0408, Diversity Real. 9.6325, Diversity. 9.6745, R_precision_real. (0.5186, 0.7055, 0.8032), R_precision. (0.4980, 0.6815, 0.7706), matching_real. 2.9439, matching_pred. 3.0417, MPJPE. 0.0602
+Evaluation results:  {'FID': 0.0408144813045368, 'Diversity': 9.674497, 'Top1': 0.49800531914893614, 'Top2': 0.6815159574468085, 'Top3': 0.7706117021276596, 'Matching': 3.041727730568419, 'MAE': 0.06024701}
+Saved model at epoch 182 with FID 0.04081
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_94_0.329632_fid0.13528_mpjpe0.07830.pth
+epoch 183 num_epochs 200
+Train Epoch: 183 [0/24546 (0%)]	Loss: 0.191987
+Train Epoch: 183 [50/24546 (16%)]	Loss: 0.194813
+Train Epoch: 183 [100/24546 (32%)]	Loss: 0.185801
+Train Epoch: 183 [150/24546 (48%)]	Loss: 0.280563
+Train Epoch: 183 [200/24546 (63%)]	Loss: 0.199285
+Train Epoch: 183 [250/24546 (79%)]	Loss: 0.229965
+Train Epoch: 183 [300/24546 (95%)]	Loss: 0.225790
+Train Epoch: 183	Average Loss: 0.000000
+Val Epoch: 183	Average Loss: 0.203981
+--------------------------------------------------
+epoch 184 num_epochs 200
+Train Epoch: 184 [0/24546 (0%)]	Loss: 0.209866
+Train Epoch: 184 [50/24546 (16%)]	Loss: 0.170266
+Train Epoch: 184 [100/24546 (32%)]	Loss: 0.232041
+Train Epoch: 184 [150/24546 (48%)]	Loss: 0.201053
+Train Epoch: 184 [200/24546 (63%)]	Loss: 0.186273
+Train Epoch: 184 [250/24546 (79%)]	Loss: 0.215539
+Train Epoch: 184 [300/24546 (95%)]	Loss: 0.203853
+Train Epoch: 184	Average Loss: 0.000000
+Val Epoch: 184	Average Loss: 0.225370
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0408, Diversity Real. 9.5570, Diversity. 9.5043, R_precision_real. (0.5140, 0.7015, 0.7972), R_precision. (0.4860, 0.6875, 0.7793), matching_real. 2.9401, matching_pred. 3.0278, MPJPE. 0.0604
+Evaluation results:  {'FID': 0.040765667592467025, 'Diversity': 9.504261, 'Top1': 0.48603723404255317, 'Top2': 0.6875, 'Top3': 0.7792553191489362, 'Matching': 3.027821784323834, 'MAE': 0.06038921}
+Saved model at epoch 184 with FID 0.04077
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_86_0.342172_fid0.13317_mpjpe0.08748.pth
+epoch 185 num_epochs 200
+Train Epoch: 185 [0/24546 (0%)]	Loss: 0.220850
+Train Epoch: 185 [50/24546 (16%)]	Loss: 0.198485
+Train Epoch: 185 [100/24546 (32%)]	Loss: 0.201251
+Train Epoch: 185 [150/24546 (48%)]	Loss: 0.255939
+Train Epoch: 185 [200/24546 (63%)]	Loss: 0.200224
+Train Epoch: 185 [250/24546 (79%)]	Loss: 0.196189
+Train Epoch: 185 [300/24546 (95%)]	Loss: 0.184199
+Train Epoch: 185	Average Loss: 0.000000
+Val Epoch: 185	Average Loss: 0.207478
+--------------------------------------------------
+epoch 186 num_epochs 200
+Train Epoch: 186 [0/24546 (0%)]	Loss: 0.210834
+Train Epoch: 186 [50/24546 (16%)]	Loss: 0.189898
+Train Epoch: 186 [100/24546 (32%)]	Loss: 0.186660
+Train Epoch: 186 [150/24546 (48%)]	Loss: 0.219381
+Train Epoch: 186 [200/24546 (63%)]	Loss: 0.209384
+Train Epoch: 186 [250/24546 (79%)]	Loss: 0.218744
+Train Epoch: 186 [300/24546 (95%)]	Loss: 0.202687
+Train Epoch: 186	Average Loss: 0.000000
+Val Epoch: 186	Average Loss: 0.210356
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0461, Diversity Real. 9.2748, Diversity. 9.4684, R_precision_real. (0.5146, 0.7081, 0.8065), R_precision. (0.5040, 0.6875, 0.7812), matching_real. 2.9233, matching_pred. 3.0145, MPJPE. 0.0594
+Evaluation results:  {'FID': 0.04610737192196268, 'Diversity': 9.468434, 'Top1': 0.5039893617021277, 'Top2': 0.6875, 'Top3': 0.78125, 'Matching': 3.014541859322406, 'MAE': 0.059444048}
+Saved model at epoch 186 with FID 0.04611
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_114_0.278591_fid0.12665_mpjpe0.07498.pth
+epoch 187 num_epochs 200
+Train Epoch: 187 [0/24546 (0%)]	Loss: 0.222408
+Train Epoch: 187 [50/24546 (16%)]	Loss: 0.195217
+Train Epoch: 187 [100/24546 (32%)]	Loss: 0.228118
+Train Epoch: 187 [150/24546 (48%)]	Loss: 0.212329
+Train Epoch: 187 [200/24546 (63%)]	Loss: 0.210782
+Train Epoch: 187 [250/24546 (79%)]	Loss: 0.209310
+Train Epoch: 187 [300/24546 (95%)]	Loss: 0.204008
+Train Epoch: 187	Average Loss: 0.000000
+Val Epoch: 187	Average Loss: 0.234421
+--------------------------------------------------
+epoch 188 num_epochs 200
+Train Epoch: 188 [0/24546 (0%)]	Loss: 0.226851
+Train Epoch: 188 [50/24546 (16%)]	Loss: 0.240804
+Train Epoch: 188 [100/24546 (32%)]	Loss: 0.218001
+Train Epoch: 188 [150/24546 (48%)]	Loss: 0.181697
+Train Epoch: 188 [200/24546 (63%)]	Loss: 0.207361
+Train Epoch: 188 [250/24546 (79%)]	Loss: 0.212857
+Train Epoch: 188 [300/24546 (95%)]	Loss: 0.218378
+Train Epoch: 188	Average Loss: 0.000000
+Val Epoch: 188	Average Loss: 0.214335
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0396, Diversity Real. 9.5965, Diversity. 9.2959, R_precision_real. (0.5126, 0.7108, 0.8032), R_precision. (0.5040, 0.6988, 0.7945), matching_real. 2.8953, matching_pred. 2.9849, MPJPE. 0.0599
+Evaluation results:  {'FID': 0.03958557922257455, 'Diversity': 9.295881, 'Top1': 0.5039893617021277, 'Top2': 0.6988031914893617, 'Top3': 0.7945478723404256, 'Matching': 2.9848840439573245, 'MAE': 0.059895467}
+Saved model at epoch 188 with FID 0.03959
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_110_0.278327_fid0.12142_mpjpe0.07165.pth
+epoch 189 num_epochs 200
+Train Epoch: 189 [0/24546 (0%)]	Loss: 0.213396
+Train Epoch: 189 [50/24546 (16%)]	Loss: 0.192172
+Train Epoch: 189 [100/24546 (32%)]	Loss: 0.212192
+Train Epoch: 189 [150/24546 (48%)]	Loss: 0.225587
+Train Epoch: 189 [200/24546 (63%)]	Loss: 0.204613
+Train Epoch: 189 [250/24546 (79%)]	Loss: 0.198642
+Train Epoch: 189 [300/24546 (95%)]	Loss: 0.197180
+Train Epoch: 189	Average Loss: 0.000000
+Val Epoch: 189	Average Loss: 0.220151
+--------------------------------------------------
+epoch 190 num_epochs 200
+Train Epoch: 190 [0/24546 (0%)]	Loss: 0.197921
+Train Epoch: 190 [50/24546 (16%)]	Loss: 0.179438
+Train Epoch: 190 [100/24546 (32%)]	Loss: 0.207903
+Train Epoch: 190 [150/24546 (48%)]	Loss: 0.194469
+Train Epoch: 190 [200/24546 (63%)]	Loss: 0.217078
+Train Epoch: 190 [250/24546 (79%)]	Loss: 0.228463
+Train Epoch: 190 [300/24546 (95%)]	Loss: 0.189200
+Train Epoch: 190	Average Loss: 0.000000
+Val Epoch: 190	Average Loss: 0.207873
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0430, Diversity Real. 9.7545, Diversity. 9.1564, R_precision_real. (0.5180, 0.7008, 0.7912), R_precision. (0.4940, 0.6802, 0.7706), matching_real. 2.9053, matching_pred. 3.0004, MPJPE. 0.0605
+Evaluation results:  {'FID': 0.04299308526218226, 'Diversity': 9.156409, 'Top1': 0.4940159574468085, 'Top2': 0.680186170212766, 'Top3': 0.7706117021276596, 'Matching': 3.0003737591682595, 'MAE': 0.060513403}
+Saved model at epoch 190 with FID 0.04299
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_106_0.293507_fid0.11861_mpjpe0.07566.pth
+epoch 191 num_epochs 200
+Train Epoch: 191 [0/24546 (0%)]	Loss: 0.195366
+Train Epoch: 191 [50/24546 (16%)]	Loss: 0.199080
+Train Epoch: 191 [100/24546 (32%)]	Loss: 0.197671
+Train Epoch: 191 [150/24546 (48%)]	Loss: 0.190113
+Train Epoch: 191 [200/24546 (63%)]	Loss: 0.200580
+Train Epoch: 191 [250/24546 (79%)]	Loss: 0.194179
+Train Epoch: 191 [300/24546 (95%)]	Loss: 0.208507
+Train Epoch: 191	Average Loss: 0.000000
+Val Epoch: 191	Average Loss: 0.227639
+--------------------------------------------------
+epoch 192 num_epochs 200
+Train Epoch: 192 [0/24546 (0%)]	Loss: 0.200643
+Train Epoch: 192 [50/24546 (16%)]	Loss: 0.203245
+Train Epoch: 192 [100/24546 (32%)]	Loss: 0.193993
+Train Epoch: 192 [150/24546 (48%)]	Loss: 0.208260
+Train Epoch: 192 [200/24546 (63%)]	Loss: 0.191014
+Train Epoch: 192 [250/24546 (79%)]	Loss: 0.184077
+Train Epoch: 192 [300/24546 (95%)]	Loss: 0.194201
+Train Epoch: 192	Average Loss: 0.000000
+Val Epoch: 192	Average Loss: 0.232215
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0424, Diversity Real. 9.6766, Diversity. 9.3532, R_precision_real. (0.5000, 0.7088, 0.8059), R_precision. (0.4947, 0.6908, 0.7886), matching_real. 2.9022, matching_pred. 2.9850, MPJPE. 0.0598
+Evaluation results:  {'FID': 0.04243494690759064, 'Diversity': 9.353234, 'Top1': 0.4946808510638298, 'Top2': 0.6908244680851063, 'Top3': 0.788563829787234, 'Matching': 2.9850392087976982, 'MAE': 0.059840087}
+Saved model at epoch 192 with FID 0.04243
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_108_0.281976_fid0.11402_mpjpe0.07410.pth
+epoch 193 num_epochs 200
+Train Epoch: 193 [0/24546 (0%)]	Loss: 0.212427
+Train Epoch: 193 [50/24546 (16%)]	Loss: 0.171422
+Train Epoch: 193 [100/24546 (32%)]	Loss: 0.232340
+Train Epoch: 193 [150/24546 (48%)]	Loss: 0.187970
+Train Epoch: 193 [200/24546 (63%)]	Loss: 0.237080
+Train Epoch: 193 [250/24546 (79%)]	Loss: 0.201564
+Train Epoch: 193 [300/24546 (95%)]	Loss: 0.192856
+Train Epoch: 193	Average Loss: 0.000000
+Val Epoch: 193	Average Loss: 0.215243
+--------------------------------------------------
+epoch 194 num_epochs 200
+Train Epoch: 194 [0/24546 (0%)]	Loss: 0.182953
+Train Epoch: 194 [50/24546 (16%)]	Loss: 0.203015
+Train Epoch: 194 [100/24546 (32%)]	Loss: 0.206444
+Train Epoch: 194 [150/24546 (48%)]	Loss: 0.197813
+Train Epoch: 194 [200/24546 (63%)]	Loss: 0.186241
+Train Epoch: 194 [250/24546 (79%)]	Loss: 0.218490
+Train Epoch: 194 [300/24546 (95%)]	Loss: 0.190780
+Train Epoch: 194	Average Loss: 0.000000
+Val Epoch: 194	Average Loss: 0.218901
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0441, Diversity Real. 9.7594, Diversity. 9.3465, R_precision_real. (0.5219, 0.7188, 0.8065), R_precision. (0.4987, 0.7081, 0.7939), matching_real. 2.8843, matching_pred. 2.9903, MPJPE. 0.0602
+Evaluation results:  {'FID': 0.04414112261946457, 'Diversity': 9.346532, 'Top1': 0.49867021276595747, 'Top2': 0.7081117021276596, 'Top3': 0.7938829787234043, 'Matching': 2.990342140197754, 'MAE': 0.060191803}
+Saved model at epoch 194 with FID 0.04414
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_112_0.260039_fid0.10560_mpjpe0.07322.pth
+epoch 195 num_epochs 200
+Train Epoch: 195 [0/24546 (0%)]	Loss: 0.247716
+Train Epoch: 195 [50/24546 (16%)]	Loss: 0.209718
+Train Epoch: 195 [100/24546 (32%)]	Loss: 0.176964
+Train Epoch: 195 [150/24546 (48%)]	Loss: 0.188592
+Train Epoch: 195 [200/24546 (63%)]	Loss: 0.198647
+Train Epoch: 195 [250/24546 (79%)]	Loss: 0.215339
+Train Epoch: 195 [300/24546 (95%)]	Loss: 0.194790
+Train Epoch: 195	Average Loss: 0.000000
+Val Epoch: 195	Average Loss: 0.210759
+--------------------------------------------------
+epoch 196 num_epochs 200
+Train Epoch: 196 [0/24546 (0%)]	Loss: 0.232288
+Train Epoch: 196 [50/24546 (16%)]	Loss: 0.186378
+Train Epoch: 196 [100/24546 (32%)]	Loss: 0.198554
+Train Epoch: 196 [150/24546 (48%)]	Loss: 0.250673
+Train Epoch: 196 [200/24546 (63%)]	Loss: 0.200987
+Train Epoch: 196 [250/24546 (79%)]	Loss: 0.199614
+Train Epoch: 196 [300/24546 (95%)]	Loss: 0.207084
+Train Epoch: 196	Average Loss: 0.000000
+Val Epoch: 196	Average Loss: 0.209653
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0444, Diversity Real. 9.2701, Diversity. 9.4379, R_precision_real. (0.5146, 0.7194, 0.8132), R_precision. (0.4854, 0.6895, 0.7892), matching_real. 2.8629, matching_pred. 2.9575, MPJPE. 0.0597
+Evaluation results:  {'FID': 0.044392588868902294, 'Diversity': 9.437863, 'Top1': 0.4853723404255319, 'Top2': 0.6894946808510638, 'Top3': 0.7892287234042553, 'Matching': 2.957485792484689, 'MAE': 0.059728514}
+Saved model at epoch 196 with FID 0.04439
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_104_0.287964_fid0.10296_mpjpe0.07489.pth
+epoch 197 num_epochs 200
+Train Epoch: 197 [0/24546 (0%)]	Loss: 0.196635
+Train Epoch: 197 [50/24546 (16%)]	Loss: 0.234710
+Train Epoch: 197 [100/24546 (32%)]	Loss: 0.195994
+Train Epoch: 197 [150/24546 (48%)]	Loss: 0.207156
+Train Epoch: 197 [200/24546 (63%)]	Loss: 0.208227
+Train Epoch: 197 [250/24546 (79%)]	Loss: 0.204300
+Train Epoch: 197 [300/24546 (95%)]	Loss: 0.210387
+Train Epoch: 197	Average Loss: 0.000000
+Val Epoch: 197	Average Loss: 0.236664
+--------------------------------------------------
+epoch 198 num_epochs 200
+Train Epoch: 198 [0/24546 (0%)]	Loss: 0.195971
+Train Epoch: 198 [50/24546 (16%)]	Loss: 0.194856
+Train Epoch: 198 [100/24546 (32%)]	Loss: 0.229485
+Train Epoch: 198 [150/24546 (48%)]	Loss: 0.209368
+Train Epoch: 198 [200/24546 (63%)]	Loss: 0.206187
+Train Epoch: 198 [250/24546 (79%)]	Loss: 0.227664
+Train Epoch: 198 [300/24546 (95%)]	Loss: 0.196691
+Train Epoch: 198	Average Loss: 0.000000
+Val Epoch: 198	Average Loss: 0.222491
+--------------------------------------------------
+Reading ./checkpoints/models/t2m/Comp_v6_KLD005/opt.txt
+Loading Evaluation Model Wrapper (Epoch 28) Completed!!
+WARNING: quant_factor not found in model_cfg or vae_cfg, is this intended?
+No model checkpoint provided.
+--> 	 Eva. Re 0:, FID. 0.0445, Diversity Real. 9.5458, Diversity. 9.2635, R_precision_real. (0.5086, 0.7028, 0.7985), R_precision. (0.4747, 0.6749, 0.7766), matching_real. 2.9289, matching_pred. 3.0189, MPJPE. 0.0603
+Evaluation results:  {'FID': 0.04448188201736514, 'Diversity': 9.263518, 'Top1': 0.4747340425531915, 'Top2': 0.6748670212765957, 'Top3': 0.776595744680851, 'Matching': 3.0189042294279056, 'MAE': 0.060332816}
+Saved model at epoch 198 with FID 0.04448
+
+Removed model with worst FID: checkpoints/RFDecoder_t2m_fmTrue_bs384_0727193943/checkpoints/RFDecoder_120_0.257164_fid0.09609_mpjpe0.06957.pth
+epoch 199 num_epochs 200
+Train Epoch: 199 [0/24546 (0%)]	Loss: 0.192059
+Train Epoch: 199 [50/24546 (16%)]	Loss: 0.179424
+Train Epoch: 199 [100/24546 (32%)]	Loss: 0.205568
+Train Epoch: 199 [150/24546 (48%)]	Loss: 0.212081
+Train Epoch: 199 [200/24546 (63%)]	Loss: 0.198299
+Train Epoch: 199 [250/24546 (79%)]	Loss: 0.246122
+Train Epoch: 199 [300/24546 (95%)]	Loss: 0.193870
+/nas2/data/dpfla3573/code/PRISM/evaluation/t2m_eval_wrapper.py:18: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(pjoin(opt.checkpoints_dir, opt.dataset_name, 'text_mot_match', 'model', 'finest.tar'),
+Train Epoch: 199	Average Loss: 0.000000
+Val Epoch: 199	Average Loss: 0.220824
+--------------------------------------------------
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mRFDecoder_t2m_fmTrue_bs384_0727193943[0m at: [34mhttps://wandb.ai/jangyerim/decoderRF/runs/j3d8y86u[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20260727_193945-j3d8y86u/logs[0m

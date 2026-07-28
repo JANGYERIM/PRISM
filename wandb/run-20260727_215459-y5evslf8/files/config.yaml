@@ -1,0 +1,100 @@
+_wandb:
+    value:
+        cli_version: 0.21.1
+        e:
+            jwv7asrx0mt71jadjy55lj0h08d4gb6b:
+                args:
+                    - --data_cfg_path
+                    - ./configs/config_data.yaml
+                    - --model_cfg_path
+                    - ./configs/config_model.yaml
+                    - --wandb
+                codePath: run/train_rf_decoder_from_vqvae.py
+                codePathLocal: run/train_rf_decoder_from_vqvae.py
+                cpu_count: 32
+                cpu_count_logical: 64
+                disk:
+                    /:
+                        total: "982240026624"
+                        used: "933551079424"
+                email: dpfla3573@khu.ac.kr
+                executable: /nas2/data/dpfla3573/anaconda3/envs/prism/bin/python
+                git:
+                    commit: ba2e0d82336d0bb464e788ba22e65408905ec6fa
+                    remote: https://github.com/JANGYERIM/PRISM
+                host: ariel-v2
+                memory:
+                    total: "674877038592"
+                os: Linux-5.4.0-216-generic-x86_64-with-glibc2.17
+                program: run/train_rf_decoder_from_vqvae.py
+                python: CPython 3.8.20
+                root: /nas2/data/dpfla3573/code/PRISM
+                slurm:
+                    cluster_name: ariel
+                    conf: /etc/slurm/slurm.conf
+                    cpus_on_node: "8"
+                    cpus_per_gpu: "8"
+                    gpus_on_node: "1"
+                    gtids: "0"
+                    job_account: grad
+                    job_cpus_per_node: "8"
+                    job_gid: "20406"
+                    job_gpus: "2"
+                    job_id: "383649"
+                    job_name: RFDecoder_PostRefinement
+                    job_nodelist: ariel-v2
+                    job_num_nodes: "1"
+                    job_partition: batch_grad
+                    job_qos: qos_dpfla3573_2026_1
+                    job_uid: "20406"
+                    job_user: dpfla3573
+                    jobid: "383649"
+                    localid: "0"
+                    mem_per_gpu: "29696"
+                    nnodes: "1"
+                    node_aliases: (null)
+                    nodeid: "0"
+                    nodelist: ariel-v2
+                    prio_process: "0"
+                    procid: "0"
+                    submit_dir: /nas2/data/dpfla3573/code/PRISM
+                    submit_host: ariel-master
+                    task_pid: "439601"
+                    tasks_per_node: "8"
+                    topology_addr: ariel-v2
+                    topology_addr_pattern: node
+                    working_cluster: ariel:ariel-master:6817:9728:109
+                startedAt: "2026-07-27T12:54:59.262542Z"
+                writerId: jwv7asrx0mt71jadjy55lj0h08d4gb6b
+        m: []
+        python_version: 3.8.20
+        t:
+            "1":
+                - 1
+                - 41
+                - 49
+                - 51
+                - 63
+                - 71
+            "2":
+                - 1
+                - 41
+                - 49
+                - 51
+                - 63
+                - 71
+            "3":
+                - 13
+                - 16
+            "4": 3.8.20
+            "5": 0.21.1
+            "12": 0.21.1
+            "13": linux-x86_64
+model:
+    value: '{''name'': ''RFDecoder'', ''output_dim'': 263, ''noise_std'': 0.1, ''use_diffusion_pos_embed'': False, ''text_condition'': False, ''Unet1D'': {''use'': True, ''dim'': 512, ''dim_mults'': [1, 2], ''c_in_dim'': 512, ''c_proj_dim'': 256, ''up_conv_c'': ''Repeat_and_stack_and_linear'', ''dropout'': 0.0, ''learned_variance'': False, ''learned_sinusoidal_cond'': False, ''random_fourier_features'': False, ''learned_sinusoidal_dim'': 16, ''sinusoidal_pos_emb_theta'': 10000, ''use_attention'': False, ''attn_dim_head'': 32, ''attn_heads'': 4}, ''DiT'': {''use'': False, ''c_in_dim'': 512, ''c_proj_dim'': 384, ''hidden_size'': 512, ''num_heads'': 4, ''mlp_ratio'': 4, ''num_layers'': 4, ''t_embedder'': ''dit'', ''max_seq_len'': 200, ''drop_out_prob'': 0.0, ''pos_encoding'': ''None'', ''temporal_bias'': ''alibi_future''}, ''Reflow'': False, ''vqvae_weight_path'': ''./checkpoints/MoScale/checkpoints/net_best_fid.tar''}'
+train:
+    value: '{''ema_rate'': 0.999, ''vqvae_inference'': False, ''full_motion'': False, ''num_epochs'': 200, ''lr'': 0.0005, ''scheduler'': ''cosine_warmup'', ''min_lr'': 1e-05, ''max_grad_norm'': 1.0, ''recon_loss'': ''l1_smooth'', ''save_every'': 2, ''save_dir'': ''./checkpoints'', ''log_step'': 10, ''batch_size'': 384, ''recon_weight'': 1.0}'
+utils:
+    value: '{''seed'': 42}'
+val:
+    value: '{''batch_size'': 512}'

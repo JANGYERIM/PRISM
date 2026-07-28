@@ -1,0 +1,43 @@
+100%|██████████| 23384/23384 [00:07<00:00, 3325.08it/s]
+Total number of motions 20942, snippets 1847722
+100%|██████████| 1460/1460 [00:00<00:00, 3295.84it/s]
+Total number of motions 1300, snippets 116698
+Precomputing VQ-VAE outputs for the entire dataset...
+100%|██████████| 903/903 [27:01<00:00,  1.80s/it]
+Precomputing completed in 1621.79 seconds.
+Total number of motions 1847722
+Precomputing VQ-VAE outputs for the entire dataset...
+100%|██████████| 57/57 [05:27<00:00,  5.74s/it]
+Precomputing completed in 328.94 seconds.
+Total number of motions 116698
+100%|██████████| 1460/1460 [00:00<00:00, 2868.82it/s]
+Pointer Pointing at 0
+epoch 0 num_epochs 200
+Traceback (most recent call last):
+  File "run/train_rf_decoder_from_vqvae.py", line 316, in <module>
+    main(args)
+  File "run/train_rf_decoder_from_vqvae.py", line 254, in main
+    train_one_epoch(model_cfg, epoch, flow,vqvae, optimizer, train_dataloader, device=device, model_params=model_params, ema_params=ema_params, use_wandb=args.wandb)
+  File "run/train_rf_decoder_from_vqvae.py", line 81, in train_one_epoch
+    vqvae_out = vqvae.model.decoder(z.permute(0,2,1)) # z: (B,T,C) -> (B,C,T), decoder 입력 규격
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/MoScale/cnn_networks.py", line 148, in forward
+    x = self.embed(x)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 308, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 304, in _conv_forward
+    return F.conv1d(input, weight, bias, self.stride,
+RuntimeError: Input type (torch.cuda.FloatTensor) and weight type (torch.FloatTensor) should be the same

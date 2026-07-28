@@ -1,14 +1,18 @@
 #!/usr/bin/bash
-#SBATCH -J RFDecoder_BASE
+#SBATCH -J RFDecoder_PostRefinement
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-gpu=8
 #SBATCH --mem-per-gpu=29G
 #SBATCH -p batch_grad
-#SBATCH -w ariel-v3
+#SBATCH -w ariel-v2
 #SBATCH -t 4-0
-#SBATCH -o /nas2/data/dpfla3573/code/PRISM/logs/slurm-%A_RFDecoder_base_moscale_fmTrue.out
+#SBATCH -o /nas2/data/dpfla3573/code/PRISM/logs/slurm-%A_RFDecoder_moscale_fmFalse_postRefinement.out
 cd /nas2/data/dpfla3573/code/PRISM
 export PYTHONPATH=/nas2/data/dpfla3573/code/PRISM:$PYTHONPATH
+
+# SBATCH -o만으로는 실제 시작 시각을 파일명에 못 넣어서(제출 시점 %-치환만 지원), 여기서 실제 시작 시각을 붙여 다시 리다이렉트
+START_TIME=$(date +%Y%m%d_%H%M%S)
+exec > "logs/slurm-${SLURM_JOB_ID}_RFDecoder_moscale_fmFalse_postRefinement_${START_TIME}.out" 2>&1
 
 # ~/.netrc lives on the (node-local) /home disk, invisible to compute nodes -- wandb.init()
 # fails there with "No API key configured". Feed the key in directly via env var instead.

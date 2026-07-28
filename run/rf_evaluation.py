@@ -82,6 +82,9 @@ if __name__ == '__main__':
     parser.add_argument('--model_ckpt_path', type=str, default=None)
     parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints/models')
     parser.add_argument('--seed', type=int, default=24)
+    parser.add_argument('--no_refinement', action='store_true',
+                         help='disable refinement (x0=decoder(z)+noise) and start from pure Gaussian noise instead -- '
+                              'use this to evaluate checkpoints trained before refinement was added')
     args = parser.parse_args()
 
     eval_cfg = config_utils.get_yaml_config(args.eval_cfg_pth)
@@ -155,6 +158,7 @@ if __name__ == '__main__':
                     sample_time=list(opt.sample_time),
                     rf_model=rf_model,
                     cal_mm=True,
+                    use_refinement=not args.no_refinement,
                 )
         fid.append(best_fid)
         div.append(best_div)

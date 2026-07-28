@@ -1,0 +1,20 @@
+{"time":"2026-07-27T22:47:20.550227967+09:00","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2026-07-27T22:47:25.613431964+09:00","level":"ERROR","msg":"monitor: failed to initialize GPU resource: monitor: could not get GPU binary port: timeout reading portfile /tmp/wandb-system-monitor-portfile-997234365"}
+{"time":"2026-07-27T22:47:25.904134543+09:00","level":"INFO","msg":"stream: created new stream","id":"nmn4rprs"}
+{"time":"2026-07-27T22:47:25.904178943+09:00","level":"INFO","msg":"stream: started","id":"nmn4rprs"}
+{"time":"2026-07-27T22:47:25.904214863+09:00","level":"INFO","msg":"writer: started","stream_id":"nmn4rprs"}
+{"time":"2026-07-27T22:47:25.90428644+09:00","level":"INFO","msg":"handler: started","stream_id":"nmn4rprs"}
+{"time":"2026-07-27T22:47:25.904332349+09:00","level":"INFO","msg":"sender: started","stream_id":"nmn4rprs"}
+{"time":"2026-07-27T23:25:10.157540891+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/nmn4rprs/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T23:49:36.628452046+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/nmn4rprs/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T23:54:11.37185756+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/nmn4rprs/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-28T00:12:14.326354617+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/nmn4rprs/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-28T00:17:36.681992554+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/nmn4rprs/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-28T00:41:41.476814005+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/nmn4rprs/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-28T01:08:22.979375831+09:00","level":"ERROR","msg":"HTTP error","status":409,"method":"POST","url":"https://api.wandb.ai/files/jangyerim/decoderRF/nmn4rprs/file_stream"}
+{"time":"2026-07-28T01:08:22.979745187+09:00","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 409 Conflict path=files/jangyerim/decoderRF/nmn4rprs/file_stream: {\"error\":\"filestream at capacity, retry after 8s\"}"}
+{"time":"2026-07-28T07:05:20.004109936+09:00","level":"INFO","msg":"stream: closing","id":"nmn4rprs"}
+{"time":"2026-07-28T07:05:21.494141053+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-07-28T07:05:21.494239335+09:00","level":"INFO","msg":"handler: closed","stream_id":"nmn4rprs"}
+{"time":"2026-07-28T07:05:21.495108326+09:00","level":"INFO","msg":"sender: closed","stream_id":"nmn4rprs"}
+{"time":"2026-07-28T07:05:21.495128996+09:00","level":"INFO","msg":"stream: closed","id":"nmn4rprs"}

@@ -10,3 +10,10 @@
 {"time":"2026-07-27T20:24:36.687999724+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
 {"time":"2026-07-27T20:29:04.922982664+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
 {"time":"2026-07-27T20:37:58.577101505+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T20:52:06.828819322+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T22:08:43.332576394+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/j3d8y86u/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T22:38:08.474015588+09:00","level":"INFO","msg":"stream: closing","id":"j3d8y86u"}
+{"time":"2026-07-27T22:38:10.97299318+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-07-27T22:38:12.023167331+09:00","level":"INFO","msg":"handler: closed","stream_id":"j3d8y86u"}
+{"time":"2026-07-27T22:38:12.024424281+09:00","level":"INFO","msg":"sender: closed","stream_id":"j3d8y86u"}
+{"time":"2026-07-27T22:38:12.024449882+09:00","level":"INFO","msg":"stream: closed","id":"j3d8y86u"}

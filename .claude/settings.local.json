@@ -22,7 +22,21 @@
       "Bash(squeue -j 383416)",
       "Bash(xxd)",
       "Bash(python -m py_compile /nas2/data/dpfla3573/code/PRISM/run/train_rf_decoder_from_vqvae.py)",
-      "Bash(xargs md5sum)"
+      "Bash(xargs md5sum)",
+      "Bash(python -m py_compile /nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/rectified_flow.py)",
+      "Bash(python -m py_compile /nas2/data/dpfla3573/code/PRISM/evaluation/eval_t2m.py)",
+      "Bash(python -m py_compile /nas2/data/dpfla3573/code/PRISM/MotionPriors/MotionPrior.py)",
+      "Bash(squeue -j 383461 -o \"%.10i %.9P %.30j %.8u %.2t %.10M %.6D %R\")",
+      "Bash(sacct -j 383461 --format=JobID,Start,Elapsed,State -X)",
+      "Bash(srun --jobid=383461 --overlap nvidia-smi)",
+      "Bash(srun --jobid=383461 --overlap bash -c 'python3 -c \"import psutil; print\\(psutil.cpu_percent\\(interval=2, percpu=True\\)\\)\"')",
+      "Bash(scancel 383461)",
+      "Bash(squeue -j 383461)",
+      "Bash(srun -p batch_grad -w ariel-v3 --time=00:02:00 --cpus-per-task=1 --mem=1G bash -c 'df -h / /tmp /data4 /local /scratch 2>&1')",
+      "Bash(sinfo -o \"%.15P %.5a %.10l %.6D %N\")",
+      "Bash(srun -p debug_grad *)",
+      "Bash(squeue -j 383673 -o '%.10i %.9P %.40j %.8u %.2t %.12M %.20S %R')",
+      "Bash(sacct -j 383673 --format=JobID,Start,Elapsed,State -X)"
     ]
   }
 }

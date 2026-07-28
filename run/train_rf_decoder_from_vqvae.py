@@ -77,7 +77,11 @@ def train_one_epoch(config, epoch, flow, vqvae, optimizer, data_loader, device,m
         z = z.to(device) #(b, n, 512
         gt = gt.float().to(device)
         optimizer.zero_grad()
-        loss = flow(gt, z, padding_mask=padding_mask, text_embedding=text_embedding)
+        with torch.no_grad():
+            vqvae_out = vqvae.model.decoder(z.permute(0,2,1)) # z: (B,T,C) -> (B,C,T), decoder 입력 규격
+            x0 = vqvae_out + config.model.noise_std * torch.randn_like(vqvae_out)
+            
+        loss = flow(gt, z, padding_mask=padding_mask, text_embedding=text_embedding, noise=x0)
         loss.backward()
         if config.train.max_grad_norm:
             torch.nn.utils.clip_grad_norm_(flow.parameters(), max_norm=config.train.max_grad_norm)
@@ -117,7 +121,7 @@ def val_one_epoch(config, epoch, flow, vqvae, data_loader, device, use_wandb=Fal
     flow.to(device)
     loss_epoch = 0
     total_steps = len(data_loader)
-    
+
     with torch.no_grad():
         for i, data in enumerate(data_loader):
             if config.train.full_motion:
@@ -157,7 +161,7 @@ def main(args):
     if not (model_cfg.model.DiT.use or model_cfg.model.Unet1D.use):
         raise NotImplementedError(f"Model {model_cfg.model.name} not implemented")
 
-    exp_name = f"{model_cfg.model.name}_{args.train_data}_fm{model_cfg.train.full_motion}_bs{model_cfg.train.batch_size}_{generate_date_time()}"
+    exp_name = f"{model_cfg.model.name}_{args.train_data}_fm{model_cfg.train.full_motion}_bs{model_cfg.train.batch_size}_ep{model_cfg.train.num_epochs}_{generate_date_time()}"
     if args.exp_tag:
         exp_name += f"_{args.exp_tag}"
 
@@ -212,6 +216,7 @@ def main(args):
     refine_val_dataset = make_rf_decoder_dataset(val_dataset, vqvae, refinement_batch_size, cache_dir=f'{save_path}/cache/val')
     del train_dataset
     del val_dataset
+    vqvae.to(device)  # make_rf_decoder_dataset이 precompute 끝나고 vqvae를 cpu로 내려놓기 때문에, 학습 루프에서 vqvae.model.decoder를 쓰려면 다시 올려줘야 함
     assert torch.allclose(torch.tensor(refine_train_dataset.mean), torch.tensor(vae_mean), atol=1e-5), "mean not equal"
     assert torch.allclose(torch.tensor(refine_val_dataset.std), torch.tensor(vae_std), atol=1e-5), "std not equal"
 

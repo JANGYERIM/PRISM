@@ -1,0 +1,15 @@
+2026-07-27 22:39:11,843 INFO    MainThread:441178 [wandb_setup.py:_flush():80] Current SDK version is 0.21.1
+2026-07-27 22:39:11,843 INFO    MainThread:441178 [wandb_setup.py:_flush():80] Configure stats pid to 441178
+2026-07-27 22:39:11,843 INFO    MainThread:441178 [wandb_setup.py:_flush():80] Loading settings from /home/dpfla3573/.config/wandb/settings
+2026-07-27 22:39:11,844 INFO    MainThread:441178 [wandb_setup.py:_flush():80] Loading settings from /nas2/data/dpfla3573/code/PRISM/wandb/settings
+2026-07-27 22:39:11,844 INFO    MainThread:441178 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2026-07-27 22:39:11,844 INFO    MainThread:441178 [wandb_init.py:setup_run_log_directory():703] Logging user logs to /nas2/data/dpfla3573/code/PRISM/wandb/run-20260727_223911-yvl69xcj/logs/debug.log
+2026-07-27 22:39:11,844 INFO    MainThread:441178 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to /nas2/data/dpfla3573/code/PRISM/wandb/run-20260727_223911-yvl69xcj/logs/debug-internal.log
+2026-07-27 22:39:11,844 INFO    MainThread:441178 [wandb_init.py:init():830] calling init triggers
+2026-07-27 22:39:11,844 INFO    MainThread:441178 [wandb_init.py:init():835] wandb.init called with sweep_config: {}
+config: {'model': {'name': 'RFDecoder', 'output_dim': 263, 'noise_std': 0.1, 'use_diffusion_pos_embed': False, 'text_condition': False, 'Unet1D': {'use': True, 'dim': 512, 'dim_mults': [1, 2], 'c_in_dim': 512, 'c_proj_dim': 256, 'up_conv_c': 'Repeat_and_stack_and_linear', 'dropout': 0.0, 'learned_variance': False, 'learned_sinusoidal_cond': False, 'random_fourier_features': False, 'learned_sinusoidal_dim': 16, 'sinusoidal_pos_emb_theta': 10000, 'use_attention': False, 'attn_dim_head': 32, 'attn_heads': 4}, 'DiT': {'use': False, 'c_in_dim': 512, 'c_proj_dim': 384, 'hidden_size': 512, 'num_heads': 4, 'mlp_ratio': 4, 'num_layers': 4, 't_embedder': 'dit', 'max_seq_len': 200, 'drop_out_prob': 0.0, 'pos_encoding': 'None', 'temporal_bias': 'alibi_future'}, 'Reflow': False, 'vqvae_weight_path': './checkpoints/MoScale/checkpoints/net_best_fid.tar'}, 'train': {'ema_rate': 0.999, 'vqvae_inference': False, 'full_motion': True, 'num_epochs': 200, 'lr': 0.0005, 'scheduler': 'cosine_warmup', 'min_lr': 1e-05, 'max_grad_norm': 1.0, 'recon_loss': 'l1_smooth', 'save_every': 2, 'save_dir': './checkpoints', 'log_step': 10, 'batch_size': 384, 'recon_weight': 1.0}, 'val': {'batch_size': 512}, 'utils': {'seed': 42}, '_wandb': {}}
+2026-07-27 22:39:11,844 INFO    MainThread:441178 [wandb_init.py:init():871] starting backend
+2026-07-27 22:39:12,108 INFO    MainThread:441178 [wandb_init.py:init():874] sending inform_init request
+2026-07-27 22:39:12,150 INFO    MainThread:441178 [wandb_init.py:init():882] backend started and connected
+2026-07-27 22:39:12,153 INFO    MainThread:441178 [wandb_init.py:init():953] updated telemetry
+2026-07-27 22:39:12,193 INFO    MainThread:441178 [wandb_init.py:init():977] communicating run to backend with 90.0 second timeout

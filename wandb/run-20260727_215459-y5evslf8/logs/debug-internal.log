@@ -1,0 +1,13 @@
+{"time":"2026-07-27T21:54:59.802974337+09:00","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2026-07-27T21:55:04.856500519+09:00","level":"ERROR","msg":"monitor: failed to initialize GPU resource: monitor: could not get GPU binary port: timeout reading portfile /tmp/wandb-system-monitor-portfile-1675635002"}
+{"time":"2026-07-27T21:55:05.14910182+09:00","level":"INFO","msg":"stream: created new stream","id":"y5evslf8"}
+{"time":"2026-07-27T21:55:05.149174186+09:00","level":"INFO","msg":"stream: started","id":"y5evslf8"}
+{"time":"2026-07-27T21:55:05.149258073+09:00","level":"INFO","msg":"writer: started","stream_id":"y5evslf8"}
+{"time":"2026-07-27T21:55:05.149294+09:00","level":"INFO","msg":"sender: started","stream_id":"y5evslf8"}
+{"time":"2026-07-27T21:55:05.149339136+09:00","level":"INFO","msg":"handler: started","stream_id":"y5evslf8"}
+{"time":"2026-07-27T22:17:50.778004498+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/y5evslf8/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-27T22:29:35.971544871+09:00","level":"INFO","msg":"stream: closing","id":"y5evslf8"}
+{"time":"2026-07-27T22:29:36.987857361+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-07-27T22:30:23.598100498+09:00","level":"INFO","msg":"sender: closed","stream_id":"y5evslf8"}
+{"time":"2026-07-27T22:30:23.611685028+09:00","level":"INFO","msg":"handler: closed","stream_id":"y5evslf8"}
+{"time":"2026-07-27T22:30:23.611756129+09:00","level":"INFO","msg":"stream: closed","id":"y5evslf8"}
