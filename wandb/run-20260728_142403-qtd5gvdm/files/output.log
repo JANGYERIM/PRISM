@@ -1,0 +1,49 @@
+100%|██████████| 23384/23384 [00:09<00:00, 2535.41it/s]
+100%|██████████| 1460/1460 [00:00<00:00, 2600.09it/s]
+Precomputing VQ-VAE outputs for the entire dataset...
+100%|██████████| 96/96 [00:51<00:00,  1.86it/s]
+Precomputing completed in 55.61 seconds.
+Total number of motions 24546
+Precomputing VQ-VAE outputs for the entire dataset...
+100%|██████████| 6/6 [00:14<00:00,  2.39s/it]
+Precomputing completed in 15.25 seconds.
+Total number of motions 1530
+100%|██████████| 1460/1460 [00:00<00:00, 2847.13it/s]
+Pointer Pointing at 0
+epoch 0 num_epochs 300
+Traceback (most recent call last):
+  File "run/train_rf_decoder_from_vqvae.py", line 317, in <module>
+    main(args)
+  File "run/train_rf_decoder_from_vqvae.py", line 255, in main
+    train_one_epoch(model_cfg, epoch, flow,vqvae, optimizer, train_dataloader, device=device, model_params=model_params, ema_params=ema_params, use_wandb=args.wandb)
+  File "run/train_rf_decoder_from_vqvae.py", line 84, in train_one_epoch
+    loss = flow(gt, z, padding_mask=padding_mask, text_embedding=text_embedding, noise=x0)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/rectified_flow.py", line 115, in forward
+    pred_flow = self.predict_flow(noised, times=padded_times, y=y, padding_mask=padding_mask, text_embedding=text_embedding)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/rectified_flow.py", line 70, in predict_flow
+    return self.net(noised, times=times, y=y, padding_mask=padding_mask, text_embedding=text_embedding)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/Unet1Dflow_decoder.py", line 489, in forward
+    x = self.final_res_block(x, t)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/models/rf_decoder/Unet1Dflow_decoder.py", line 194, in forward
+    return h + self.res_conv(x)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 308, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/nas2/data/dpfla3573/anaconda3/envs/prism/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 304, in _conv_forward
+    return F.conv1d(input, weight, bias, self.stride,
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 294.00 MiB. GPU 0 has a total capacity of 23.68 GiB of which 251.25 MiB is free. Including non-PyTorch memory, this process has 23.42 GiB memory in use. Of the allocated memory 22.22 GiB is allocated by PyTorch, and 984.51 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

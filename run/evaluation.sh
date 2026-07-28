@@ -18,6 +18,5 @@ export PYTHONPATH=/nas2/data/dpfla3573/code/PRISM:$PYTHONPATH
 --checkpoints_dir ./checkpoints/models \
 --model_ckpt_path "./checkpoints/RFDecoder_t2m_fmTrue_bs384_ep500_PostRefinement_0727224718/checkpoints/Unet1DforFlowDecoder_best_1_20.955944.pth" \
 --num_sample_steps 16 \
---seed 24 \
---no_refinement
+--seed 24 
 

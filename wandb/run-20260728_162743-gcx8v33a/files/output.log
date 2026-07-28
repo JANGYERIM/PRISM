@@ -1,0 +1,17 @@
+100%|██████████| 23384/23384 [00:23<00:00, 982.84it/s] 
+100%|██████████| 1460/1460 [00:01<00:00, 997.78it/s] 
+Precomputing VQ-VAE outputs for the entire dataset...
+  0%|          | 0/96 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "run/train_rf_decoder_from_vqvae.py", line 317, in <module>
+    main(args)
+  File "run/train_rf_decoder_from_vqvae.py", line 215, in main
+    refine_train_dataset = make_rf_decoder_dataset(train_dataset, vqvae, refinement_batch_size, cache_dir=f'{save_path}/cache/train')
+  File "/nas2/data/dpfla3573/code/PRISM/datasets/t2m_dataset.py", line 396, in make_rf_decoder_dataset
+    output_batch = vqvae.get_z(gt_batch.to(device)).to(device)
+  File "/nas2/data/dpfla3573/code/PRISM/MotionPriors/MotionPrior.py", line 99, in get_z
+    m_lens = torch.full((motion.shape[0],), motion.shape[1], device=motion.device)
+RuntimeError: CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.

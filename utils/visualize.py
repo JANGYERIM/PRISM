@@ -330,6 +330,91 @@ def plot_3d_motion_osx(save_path, joints, title, figsize=(10, 10), fps=120, radi
     
     plt.close()
 
+def plot_3d_motion_compare(save_path, joints_list, sub_titles, title='', figsize=(4, 4), fps=20, radius=4, fontsize=10):
+    """
+    joints_list: [(seq_len, 22, 3) or (seq_len, 263)] 리스트, 전부 같은 seq_len이어야 함.
+    sub_titles: joints_list와 같은 길이의 리스트, 각 subplot 제목 (예: ['GT', 'Generated', 'Base'])
+    한 프레임씩 동기화해서 좌우로 나란히 애니메이션.
+    """
+    matplotlib.use('Agg')
+
+    kinematic_tree = [[0, 2, 5, 8, 11], [0, 1, 4, 7, 10], [0, 3, 6, 9, 12, 15], [9, 14, 17, 19, 21], [9, 13, 16, 18, 20]]
+    colors = ['red', 'blue', 'black', 'red', 'blue',
+              'darkblue', 'darkblue', 'darkblue', 'darkblue', 'darkblue',
+              'darkred', 'darkred', 'darkred', 'darkred', 'darkred']
+
+    processed = []
+    for j in joints_list:
+        if j.shape[1] == 263:
+            j = recover_from_ric(torch.from_numpy(j).unsqueeze(0).float(), 22).squeeze().cpu().numpy()
+        assert j.shape[1] == 22 and j.shape[2] == 3, f"joints shape is {j.shape}"
+        processed.append(j.copy())
+
+    n = len(processed)
+    frame_number = processed[0].shape[0]
+
+    title_sp = title.split(' ')
+    if len(title_sp) > 14:
+        title = '\n'.join([' '.join(title_sp[:14]), ' '.join(title_sp[14:])])
+
+    fig = plt.figure(figsize=(figsize[0] * n, figsize[1]))
+    axes = [fig.add_subplot(1, n, k + 1, projection='3d') for k in range(n)]
+    fig.suptitle(title, fontsize=fontsize)
+
+    mins_list, maxs_list, trajec_list = [], [], []
+    for data in processed:
+        MINS = data.min(axis=0).min(axis=0)
+        MAXS = data.max(axis=0).max(axis=0)
+        data[:, :, 1] -= MINS[1]
+        trajec = data[:, 0, [0, 2]].copy()
+        data[..., 0] -= data[:, 0:1, 0]
+        data[..., 2] -= data[:, 0:1, 2]
+        mins_list.append(MINS)
+        maxs_list.append(MAXS)
+        trajec_list.append(trajec)
+
+    def plot_xzPlane(ax, minx, maxx, miny, minz, maxz):
+        verts = [[minx, miny, minz], [minx, miny, maxz], [maxx, miny, maxz], [maxx, miny, minz]]
+        xz_plane = Poly3DCollection([verts])
+        xz_plane.set_facecolor((0.5, 0.5, 0.5, 0.5))
+        ax.add_collection3d(xz_plane)
+
+    def update(index):
+        for k, ax in enumerate(axes):
+            ax.cla()
+            ax.set_xlim3d([-radius / 2, radius / 2])
+            ax.set_ylim3d([0, radius])
+            ax.set_zlim3d([0, radius])
+            ax.set_title(sub_titles[k], fontsize=fontsize)
+            ax.view_init(elev=120, azim=-90)
+            ax.dist = 7.5
+            ax.grid(False)
+
+            data = processed[k]
+            MINS, MAXS = mins_list[k], maxs_list[k]
+            trajec = trajec_list[k]
+            plot_xzPlane(ax, MINS[0] - trajec[index, 0], MAXS[0] - trajec[index, 0], 0,
+                         MINS[2] - trajec[index, 1], MAXS[2] - trajec[index, 1])
+            if index > 1:
+                ax.plot3D(trajec[:index, 0] - trajec[index, 0], np.zeros_like(trajec[:index, 0]),
+                          trajec[:index, 1] - trajec[index, 1], linewidth=1.0, color='blue')
+            for i, (chain, color) in enumerate(zip(kinematic_tree, colors)):
+                linewidth = 4.0 if i < 5 else 2.0
+                ax.plot3D(data[index, chain, 0], data[index, chain, 1], data[index, chain, 2], linewidth=linewidth, color=color)
+
+            ax.set_xticklabels([])
+            ax.set_yticklabels([])
+            ax.set_zticklabels([])
+
+    ani = FuncAnimation(fig, update, frames=frame_number, interval=1000 / fps, repeat=False)
+    try:
+        ani.save(save_path, writer=PillowWriter(fps=fps))
+    except Exception:
+        from matplotlib.animation import FFMpegWriter
+        ani.save(save_path, writer=FFMpegWriter(fps=fps))
+    plt.close(fig)
+
+
 def get_visualize_data(data_root, sample_num=10, batch=False):
     '''
     load visualize data from npz file

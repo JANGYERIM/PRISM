@@ -36,7 +36,19 @@
       "Bash(sinfo -o \"%.15P %.5a %.10l %.6D %N\")",
       "Bash(srun -p debug_grad *)",
       "Bash(squeue -j 383673 -o '%.10i %.9P %.40j %.8u %.2t %.12M %.20S %R')",
-      "Bash(sacct -j 383673 --format=JobID,Start,Elapsed,State -X)"
+      "Bash(sacct -j 383673 --format=JobID,Start,Elapsed,State -X)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 *)",
+      "Bash(python -m py_compile /nas2/data/dpfla3573/code/DisCoRD/MotionPriors/MotionPrior.py)",
+      "Bash(python -m py_compile /nas2/data/dpfla3573/code/DisCoRD/run/train_rf_decoder_from_vqvae.py)",
+      "Bash(timeout 30 /nas2/data/dpfla3573/anaconda3/envs/prism/bin/python -c \"import torch; print\\(torch.__version__\\); print\\('cuda avail', torch.cuda.is_available\\(\\)\\)\" 2>&1)",
+      "Bash(cd *)",
+      "Bash(/nas2/data/dpfla3573/anaconda3/envs/prism/bin/python *)",
+      "Bash(nvidia-smi --query-gpu=name,compute_cap,driver_version --format=csv)",
+      "Read(//usr/lib/**)",
+      "Bash(find / -maxdepth 4 -iname \"nvidia-smi\")",
+      "Bash(sinfo)",
+      "Bash(timeout 60 srun -p batch_grad -w ariel-n1 --gres=gpu:high_perf:1 -t 00:02:00 nvidia-smi --query-gpu=name,compute_cap,driver_version --format=csv 2>&1)"
     ]
   }
 }

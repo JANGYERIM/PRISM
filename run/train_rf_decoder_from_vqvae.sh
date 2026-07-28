@@ -1,12 +1,12 @@
 #!/usr/bin/bash
 #SBATCH -J RFDecoder_PostRefinement
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:high_perf:1
 #SBATCH --cpus-per-gpu=8
 #SBATCH --mem-per-gpu=29G
 #SBATCH -p batch_grad
-#SBATCH -w ariel-v2
+#SBATCH -w ariel-n1
 #SBATCH -t 4-0
-#SBATCH -o /nas2/data/dpfla3573/code/PRISM/logs/slurm-%A_RFDecoder_moscale_fmFalse_postRefinement.out
+#SBATCH -o /nas2/data/dpfla3573/code/PRISM/logs/slurm-%A_RFDecoder_moscale_fmTrue_postRefinement_bs768.out
 cd /nas2/data/dpfla3573/code/PRISM
 export PYTHONPATH=/nas2/data/dpfla3573/code/PRISM:$PYTHONPATH
 
