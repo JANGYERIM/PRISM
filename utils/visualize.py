@@ -407,11 +407,8 @@ def plot_3d_motion_compare(save_path, joints_list, sub_titles, title='', figsize
             ax.set_zticklabels([])
 
     ani = FuncAnimation(fig, update, frames=frame_number, interval=1000 / fps, repeat=False)
-    try:
-        ani.save(save_path, writer=PillowWriter(fps=fps))
-    except Exception:
-        from matplotlib.animation import FFMpegWriter
-        ani.save(save_path, writer=FFMpegWriter(fps=fps))
+    from matplotlib.animation import FFMpegWriter
+    ani.save(save_path, writer=FFMpegWriter(fps=fps))
     plt.close(fig)
 
 

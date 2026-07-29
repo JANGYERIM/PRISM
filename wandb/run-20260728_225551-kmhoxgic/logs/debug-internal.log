@@ -1,0 +1,31 @@
+{"time":"2026-07-28T22:55:52.254597901+09:00","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2026-07-28T22:55:52.783189234+09:00","level":"INFO","msg":"stream: created new stream","id":"kmhoxgic"}
+{"time":"2026-07-28T22:55:52.783257478+09:00","level":"INFO","msg":"stream: started","id":"kmhoxgic"}
+{"time":"2026-07-28T22:55:52.783351858+09:00","level":"INFO","msg":"handler: started","stream_id":"kmhoxgic"}
+{"time":"2026-07-28T22:55:52.78335552+09:00","level":"INFO","msg":"writer: started","stream_id":"kmhoxgic"}
+{"time":"2026-07-28T22:55:52.78339897+09:00","level":"INFO","msg":"sender: started","stream_id":"kmhoxgic"}
+{"time":"2026-07-28T23:44:25.05816077+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T03:43:38.270320579+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T04:11:48.646460422+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T04:41:40.792225124+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T04:43:03.703711311+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:21:53.061780278+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:24:35.058461218+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:26:38.052661676+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:28:19.027258105+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:29:48.55861698+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:30:49.940381475+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:31:47.251014504+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:33:18.510512435+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:34:35.363866466+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:35:33.886922166+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:38:19.889190676+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:39:26.206976909+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:42:16.795383752+09:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2026-07-29T06:43:48.854486279+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:48:19.389463397+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/kmhoxgic/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T08:06:24.2449558+09:00","level":"INFO","msg":"stream: closing","id":"kmhoxgic"}
+{"time":"2026-07-29T08:06:25.554051521+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-07-29T08:06:26.194406791+09:00","level":"INFO","msg":"handler: closed","stream_id":"kmhoxgic"}
+{"time":"2026-07-29T08:06:26.195386853+09:00","level":"INFO","msg":"sender: closed","stream_id":"kmhoxgic"}
+{"time":"2026-07-29T08:06:26.195401074+09:00","level":"INFO","msg":"stream: closed","id":"kmhoxgic"}

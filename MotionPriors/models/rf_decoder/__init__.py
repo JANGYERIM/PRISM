@@ -9,15 +9,13 @@ def get_flow_backbone(model_cfg):
             embed_dim=model_cfg.DiT.hidden_size,
             c_in_dim=model_cfg.DiT.c_in_dim,
             c_proj_dim=model_cfg.DiT.c_proj_dim,
-            num_heads=model_cfg.DiT.num_heads, 
-            mlp_ratio=model_cfg.DiT.mlp_ratio, 
-            t_embedder=model_cfg.DiT.t_embedder,
-            depth=model_cfg.DiT.num_layers, 
-            max_seq_len=model_cfg.DiT.max_seq_len, 
-            drop_out_prob=model_cfg.DiT.drop_out_prob,
+            num_heads=model_cfg.DiT.num_heads,
+            mlp_ratio=model_cfg.DiT.mlp_ratio,
+            depth=model_cfg.DiT.num_layers,
+            max_seq_len=model_cfg.DiT.max_seq_len,
             text_condition=model_cfg.text_condition if "text_condition" in model_cfg.keys() else None,
-            pos_encoding=model_cfg.DiT.pos_encoding,
-            temporal_bias=model_cfg.DiT.temporal_bias)
+            t5_version=model_cfg.DiT.t5_version,
+            t5_max_text_len=model_cfg.DiT.t5_max_text_len)
     elif model_cfg.Unet1D.use:
         if "up_conv_c" in model_cfg.Unet1D.keys():
             up_conv_c = model_cfg.Unet1D.up_conv_c

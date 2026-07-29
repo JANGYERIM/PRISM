@@ -1,0 +1,13 @@
+{"time":"2026-07-28T20:58:37.622412224+09:00","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2026-07-28T20:58:38.187677759+09:00","level":"INFO","msg":"stream: created new stream","id":"0kt7pz0r"}
+{"time":"2026-07-28T20:58:38.187782111+09:00","level":"INFO","msg":"stream: started","id":"0kt7pz0r"}
+{"time":"2026-07-28T20:58:38.187841298+09:00","level":"INFO","msg":"writer: started","stream_id":"0kt7pz0r"}
+{"time":"2026-07-28T20:58:38.187876901+09:00","level":"INFO","msg":"sender: started","stream_id":"0kt7pz0r"}
+{"time":"2026-07-28T20:58:38.187851276+09:00","level":"INFO","msg":"handler: started","stream_id":"0kt7pz0r"}
+{"time":"2026-07-28T20:58:40.270910253+09:00","level":"ERROR","msg":"file transfer: upload: failed to upload: 400 Bad Request","task":"DefaultUploadTask{FileKind: 1, Path: /nas2/data/dpfla3573/code/PRISM/wandb/run-20260728_205835-0kt7pz0r/files/wandb-metadata.json, Name: wandb-metadata.json, Url: https://storage.googleapis.com/wandb-production.appspot.com/jangyerim/decoderRF/0kt7pz0r/wandb-metadata.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer%40wandb-production.iam.gserviceaccount.com%2F20260728%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260728T115839Z&X-Goog-Expires=86399&X-Goog-Signature=cb4bfdcdff1ebb032e049af09b90810ee15965860896360e8a76057f6e6f0e67da75f418201540de6caff58275997db3aa57e2d09191600cc580bab09c92464b0732fbe73bb97448de20783a2c8df66d0475012281f7add0cf29f524a064abdfeb28f44945035c08de277011cee567607f980440149778a45e66106bbf3b7dcdbcad587b644956d6d88053a3005c512402b38cb0ff8a44bc9d981eb51e51d3c6fcadec1d73a76d83a5de88f5bf1a1278ebbc533f3e8710204a0d8869882dde738e5a32a67b88135085c2cb895ed11ab8e73959484b8ed5168b770dd66ce6e97929e7eb13dd5602a46562167e052e6ef71d60c151bde19503e27c73d26707a0a0&X-Goog-SignedHeaders=host&X-User=dpfla3573, Size: 790}"}
+{"time":"2026-07-28T23:46:19.958785699+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/0kt7pz0r/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T01:58:19.909346402+09:00","level":"INFO","msg":"stream: closing","id":"0kt7pz0r"}
+{"time":"2026-07-29T01:58:21.314082353+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-07-29T01:58:48.405961928+09:00","level":"INFO","msg":"handler: closed","stream_id":"0kt7pz0r"}
+{"time":"2026-07-29T01:58:48.406660942+09:00","level":"INFO","msg":"sender: closed","stream_id":"0kt7pz0r"}
+{"time":"2026-07-29T01:58:48.406707417+09:00","level":"INFO","msg":"stream: closed","id":"0kt7pz0r"}

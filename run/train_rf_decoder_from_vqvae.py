@@ -54,6 +54,16 @@ def update_ema(target_params, source_params, rate=0.99):
     for targ, src in zip(target_params, source_params):
         targ.detach().mul_(rate).add_(src, alpha=1 - rate)
         
+def compute_x0(config, vqvae, z):
+    """post_refinement=True: x0 = vqvae_out + noise_std*N(0,1) (PostRefinement).
+    False: x0 = None -> RectifiedFlowDecoder가 내부에서 순수 N(0,1)을 씀 (vanilla flow matching)."""
+    post_refinement = config.model.post_refinement if "post_refinement" in config.model.keys() else True
+    if not post_refinement:
+        return None
+    with torch.no_grad():
+        vqvae_out = vqvae.model.decoder(z.permute(0, 2, 1))  # z: (B,T,C) -> (B,C,T), decoder 입력 규격
+        return vqvae_out + config.model.noise_std * torch.randn_like(vqvae_out)
+
 def train_one_epoch(config, epoch, flow, vqvae, optimizer, data_loader, device,model_params=None, ema_params=None, use_wandb=False):
     """
     Train the model for one epoch
@@ -68,20 +78,22 @@ def train_one_epoch(config, epoch, flow, vqvae, optimizer, data_loader, device,m
             padding_mask = padding_mask.to(device)
             if "text_condition" in config.model.keys() and config.model.text_condition:
                 text_embedding = flow.net.encode_text(caption)  # text embedding already on device
+                t5_embedding, t5_padding_mask = flow.net.encode_text_t5(caption)
             else:
                 text_embedding = None
+                t5_embedding, t5_padding_mask = None, None
         else:
             gt, z = data
             padding_mask = None
             text_embedding = None
+            t5_embedding, t5_padding_mask = None, None
         z = z.to(device) #(b, n, 512
         gt = gt.float().to(device)
         optimizer.zero_grad()
-        with torch.no_grad():
-            vqvae_out = vqvae.model.decoder(z.permute(0,2,1)) # z: (B,T,C) -> (B,C,T), decoder 입력 규격
-            x0 = vqvae_out + config.model.noise_std * torch.randn_like(vqvae_out)
-            
-        loss = flow(gt, z, padding_mask=padding_mask, text_embedding=text_embedding, noise=x0)
+        x0 = compute_x0(config, vqvae, z)
+
+        loss = flow(gt, z, padding_mask=padding_mask, text_embedding=text_embedding,
+                    t5_embedding=t5_embedding, t5_padding_mask=t5_padding_mask, noise=x0)
         loss.backward()
         if config.train.max_grad_norm:
             torch.nn.utils.clip_grad_norm_(flow.parameters(), max_norm=config.train.max_grad_norm)
@@ -129,15 +141,20 @@ def val_one_epoch(config, epoch, flow, vqvae, data_loader, device, use_wandb=Fal
                 padding_mask = padding_mask.to(device)
                 if "text_condition" in config.model.keys() and config.model.text_condition:
                     text_embedding = flow.net.encode_text(caption)  # text embedding already on device
+                    t5_embedding, t5_padding_mask = flow.net.encode_text_t5(caption)
                 else:
                     text_embedding = None
+                    t5_embedding, t5_padding_mask = None, None
             else:
                 gt, z = data
                 padding_mask = None
                 text_embedding = None
+                t5_embedding, t5_padding_mask = None, None
             z = z.to(device)
             gt = gt.float().to(device)
-            loss = flow(gt, z, padding_mask=padding_mask, text_embedding=text_embedding)
+            x0 = compute_x0(config, vqvae, z)
+            loss = flow(gt, z, padding_mask=padding_mask, text_embedding=text_embedding,
+                        t5_embedding=t5_embedding, t5_padding_mask=t5_padding_mask, noise=x0)
             loss_epoch += loss.detach().item()
         avg_loss = loss_epoch / total_steps
 
@@ -161,7 +178,7 @@ def main(args):
     if not (model_cfg.model.DiT.use or model_cfg.model.Unet1D.use):
         raise NotImplementedError(f"Model {model_cfg.model.name} not implemented")
 
-    exp_name = f"{model_cfg.model.name}_{args.train_data}_fm{model_cfg.train.full_motion}_bs{model_cfg.train.batch_size}_ep{model_cfg.train.num_epochs}_{generate_date_time()}"
+    exp_name = f"{model_cfg.model.name}_{args.train_data}_Dit{model_cfg.model.DiT.use}_x0{model_cfg.model.post_refinement}_fm{model_cfg.train.full_motion}_bs{model_cfg.train.batch_size}_ep{model_cfg.train.num_epochs}_noise{model_cfg.model.noise_std}_{generate_date_time()}"
     if args.exp_tag:
         exp_name += f"_{args.exp_tag}"
 

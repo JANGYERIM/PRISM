@@ -1,0 +1,83 @@
+{
+  "os": "Linux-5.4.0-216-generic-x86_64-with-glibc2.17",
+  "python": "CPython 3.8.20",
+  "startedAt": "2026-07-28T14:34:55.663697Z",
+  "args": [
+    "--data_cfg_path",
+    "./configs/config_data.yaml",
+    "--model_cfg_path",
+    "./configs/config_model.yaml",
+    "--wandb"
+  ],
+  "program": "run/train_rf_decoder_from_vqvae.py",
+  "codePath": "run/train_rf_decoder_from_vqvae.py",
+  "codePathLocal": "run/train_rf_decoder_from_vqvae.py",
+  "git": {
+    "remote": "https://github.com/JANGYERIM/PRISM",
+    "commit": "efdfe539a9ba3bbc50d40c336857bd213ae79b79"
+  },
+  "email": "dpfla3573@khu.ac.kr",
+  "root": "/nas2/data/dpfla3573/code/PRISM",
+  "host": "ariel-v7",
+  "executable": "/nas2/data/dpfla3573/anaconda3/envs/prism/bin/python",
+  "cpu_count": 32,
+  "cpu_count_logical": 64,
+  "gpu": "NVIDIA RTX A5000",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "982240026624",
+      "used": "672348037120"
+    }
+  },
+  "memory": {
+    "total": "472733835264"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA RTX A5000",
+      "memoryTotal": "25757220864",
+      "cudaCores": 8192,
+      "architecture": "Ampere",
+      "uuid": "GPU-46f64b30-ad2c-1381-5adc-ba3a30f74265"
+    }
+  ],
+  "cudaVersion": "12.2",
+  "slurm": {
+    "cluster_name": "ariel",
+    "conf": "/etc/slurm/slurm.conf",
+    "cpus_on_node": "8",
+    "cpus_per_gpu": "8",
+    "gpus_on_node": "1",
+    "gtids": "0",
+    "job_account": "grad",
+    "job_cpus_per_node": "8",
+    "job_gid": "20406",
+    "job_gpus": "1",
+    "job_id": "384380",
+    "job_name": "RFDecoder_PostRefinement",
+    "job_nodelist": "ariel-v7",
+    "job_num_nodes": "1",
+    "job_partition": "batch_grad",
+    "job_qos": "qos_dpfla3573_2026_1",
+    "job_uid": "20406",
+    "job_user": "dpfla3573",
+    "jobid": "384380",
+    "localid": "0",
+    "mem_per_gpu": "29696",
+    "nnodes": "1",
+    "node_aliases": "(null)",
+    "nodeid": "0",
+    "nodelist": "ariel-v7",
+    "prio_process": "0",
+    "procid": "0",
+    "submit_dir": "/nas2/data/dpfla3573/code/PRISM",
+    "submit_host": "ariel-master",
+    "task_pid": "1782343",
+    "tasks_per_node": "8",
+    "topology_addr": "ariel-v7",
+    "topology_addr_pattern": "node",
+    "working_cluster": "ariel:ariel-master:6817:9728:109"
+  },
+  "writerId": "aueytomqdblwvchbdlznwnxm9npy7els"
+}

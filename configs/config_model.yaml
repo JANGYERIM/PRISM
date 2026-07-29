@@ -1,11 +1,12 @@
 model:
   name: RFDecoder
   output_dim: 263
-  noise_std: 0.1
+  noise_std: 1.0
+  post_refinement: false  # x0만 달라지고, y는 그대로 예측값 사용 |true: x0 = vqvae_out + noise_std*N(0,1) (PostRefinement). false: x0 = 순수 N(0,1) (vanilla flow matching)
   use_diffusion_pos_embed: false
-  text_condition: false
+  text_condition: true
   Unet1D:
-    use: true
+    use: false
     dim: 512
     dim_mults:
     - 1
@@ -23,18 +24,16 @@ model:
     attn_dim_head: 32
     attn_heads: 4
   DiT:
-    use: false
+    use: true
     c_in_dim: 512
     c_proj_dim: 384
     hidden_size: 512
     num_heads: 4
     mlp_ratio: 4
     num_layers: 4
-    t_embedder: dit
     max_seq_len: 200
-    drop_out_prob: 0.0
-    pos_encoding: None
-    temporal_bias: alibi_future
+    t5_version: google/t5-v1_1-base
+    t5_max_text_len: 20
   Reflow: false
   vqvae_weight_path: ./checkpoints/MoScale/checkpoints/net_best_fid.tar
 train:
@@ -50,7 +49,7 @@ train:
   save_every: 2
   save_dir: ./checkpoints
   log_step: 10
-  batch_size: 768
+  batch_size: 384
   recon_weight: 1.0
 val:
   batch_size: 512

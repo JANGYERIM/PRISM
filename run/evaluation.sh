@@ -6,7 +6,7 @@
 #SBATCH -p batch_grad
 #SBATCH -w ariel-v3
 #SBATCH -t 1-0
-#SBATCH -o /nas2/data/dpfla3573/code/PRISM/logs/slurm-%A_EVAL_slurm-383673_RFDecoder_moscale_fmTrue_postRefinement_20260727_224711.out
+#SBATCH -o /nas2/data/dpfla3573/code/PRISM/logs/slurm-%A_EVAL_RFDecoder_t2m_DitTrue_x0False_fmTrue_bs384_ep300_noise1.0_0728233454.out
 cd /nas2/data/dpfla3573/code/PRISM
 export PYTHONPATH=/nas2/data/dpfla3573/code/PRISM:$PYTHONPATH
 
@@ -16,7 +16,7 @@ export PYTHONPATH=/nas2/data/dpfla3573/code/PRISM:$PYTHONPATH
 --model_cfg_path ./checkpoints/RFDecoder_t2m_0724221600_RFDecoder_Base/configs/config_model.yaml \
 --train_data t2m \
 --checkpoints_dir ./checkpoints/models \
---model_ckpt_path "./checkpoints/RFDecoder_t2m_fmTrue_bs384_ep500_PostRefinement_0727224718/checkpoints/Unet1DforFlowDecoder_best_1_20.955944.pth" \
+--model_ckpt_path "./checkpoints/RFDecoder_t2m_DitTrue_x0False_fmTrue_bs384_ep300_noise1.0_0728233454/checkpoints/RFDecoder_270_0.260025_fid0.11282_mpjpe0.06575.pth" \
 --num_sample_steps 16 \
 --seed 24 
 

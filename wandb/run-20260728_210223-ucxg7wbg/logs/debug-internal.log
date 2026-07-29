@@ -1,0 +1,13 @@
+{"time":"2026-07-28T21:02:24.246838401+09:00","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2026-07-28T21:02:24.78869855+09:00","level":"INFO","msg":"stream: created new stream","id":"ucxg7wbg"}
+{"time":"2026-07-28T21:02:24.788775514+09:00","level":"INFO","msg":"stream: started","id":"ucxg7wbg"}
+{"time":"2026-07-28T21:02:24.788785019+09:00","level":"INFO","msg":"handler: started","stream_id":"ucxg7wbg"}
+{"time":"2026-07-28T21:02:24.788877972+09:00","level":"INFO","msg":"writer: started","stream_id":"ucxg7wbg"}
+{"time":"2026-07-28T21:02:24.788861282+09:00","level":"INFO","msg":"sender: started","stream_id":"ucxg7wbg"}
+{"time":"2026-07-28T23:32:26.969769962+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/ucxg7wbg/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T01:07:37.226539063+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/ucxg7wbg/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T01:57:56.915064076+09:00","level":"INFO","msg":"stream: closing","id":"ucxg7wbg"}
+{"time":"2026-07-29T01:57:59.466623709+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-07-29T01:58:00.021265748+09:00","level":"INFO","msg":"sender: closed","stream_id":"ucxg7wbg"}
+{"time":"2026-07-29T01:58:00.036929201+09:00","level":"INFO","msg":"handler: closed","stream_id":"ucxg7wbg"}
+{"time":"2026-07-29T01:58:00.036964826+09:00","level":"INFO","msg":"stream: closed","id":"ucxg7wbg"}

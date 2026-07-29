@@ -59,7 +59,7 @@ class RectifiedFlowDecoder(Module):
     def device(self):
         return next(self.net.parameters()).device
 
-    def predict_flow(self, noised, *, times, y, padding_mask=None, text_embedding=None):
+    def predict_flow(self, noised, *, times, y, padding_mask=None, text_embedding=None, t5_embedding=None, t5_padding_mask=None):
         """noised(x_t), times(t), y(조건, z)를 받아 self.net으로 flow(속도)를 예측"""
         batch = noised.shape[0]
 
@@ -67,7 +67,8 @@ class RectifiedFlowDecoder(Module):
         if times.numel() == 1:
             times = repeat(times, '1 -> b', b=batch)
 
-        return self.net(noised, times=times, y=y, padding_mask=padding_mask, text_embedding=text_embedding)
+        return self.net(noised, times=times, y=y, padding_mask=padding_mask, text_embedding=text_embedding,
+                         t5_embedding=t5_embedding, t5_padding_mask=t5_padding_mask)
 
     @torch.no_grad()
     def sample(
@@ -78,6 +79,8 @@ class RectifiedFlowDecoder(Module):
         noise=None,  # x0. 안 주면 순수 가우시안 노이즈에서 시작 (refinement에서는 decoder(z)+noise를 넘김)
         padding_mask=None,
         text_embedding=None,
+        t5_embedding=None,
+        t5_padding_mask=None,
         data_shape: Tuple[int, ...] | None = None,
     ):
         was_training = self.training
@@ -87,7 +90,8 @@ class RectifiedFlowDecoder(Module):
         assert exists(data_shape), 'you need to either pass in a `data_shape` or have trained at least with one forward'
 
         def ode_fn(t, x):
-            return self.predict_flow(x, times=t, y=y, padding_mask=padding_mask, text_embedding=text_embedding)
+            return self.predict_flow(x, times=t, y=y, padding_mask=padding_mask, text_embedding=text_embedding,
+                                      t5_embedding=t5_embedding, t5_padding_mask=t5_padding_mask)
 
         noise = default(noise, torch.randn((batch_size, *data_shape), device=self.device))
 
@@ -98,7 +102,7 @@ class RectifiedFlowDecoder(Module):
         self.train(was_training)
         return sampled_data
 
-    def forward(self, data, y, padding_mask=None, text_embedding=None, noise: Tensor | None = None):
+    def forward(self, data, y, padding_mask=None, text_embedding=None, t5_embedding=None, t5_padding_mask=None, noise: Tensor | None = None):
         batch, *data_shape = data.shape
         self.data_shape = default(self.data_shape, data_shape)
 
@@ -112,6 +116,7 @@ class RectifiedFlowDecoder(Module):
         noised = padded_times * data + (1. - padded_times) * noise
         target_flow = data - noise  # 직선 경로의 속도(상수) = 정답 flow
 
-        pred_flow = self.predict_flow(noised, times=padded_times, y=y, padding_mask=padding_mask, text_embedding=text_embedding)
+        pred_flow = self.predict_flow(noised, times=padded_times, y=y, padding_mask=padding_mask, text_embedding=text_embedding,
+                                       t5_embedding=t5_embedding, t5_padding_mask=t5_padding_mask)
 
         return self.loss_fn(pred_flow, target_flow, padding_mask=padding_mask)

@@ -32,13 +32,17 @@ def evaluation_vqvae_plus_mpjpe(val_loader, net, repeat_id, eval_wrapper, num_jo
         motion = motion.to(device)
         bs, seq = motion.shape[0], motion.shape[1]
         text_embedding = None
+        t5_embedding, t5_padding_mask = None, None
         if net.__class__.__name__ == "MotionPriorWrapper":
             if 'text_condition' in net.model_cfg.model.keys() and net.model_cfg.model.text_condition:
                 text_embedding = net.model.net.encode_text(caption)
+                t5_embedding, t5_padding_mask = net.model.net.encode_text_t5(caption)
             if 'full_motion' in net.model_cfg.train.keys() and net.model_cfg.train.full_motion:
-                pred_pose_eval, others = net(motion, text_embedding=text_embedding, m_length=m_length)
+                pred_pose_eval, others = net(motion, text_embedding=text_embedding,
+                                              t5_embedding=t5_embedding, t5_padding_mask=t5_padding_mask, m_length=m_length)
             else:
-                pred_pose_eval, others = net(motion, text_embedding=text_embedding, m_length=None)
+                pred_pose_eval, others = net(motion, text_embedding=text_embedding,
+                                              t5_embedding=t5_embedding, t5_padding_mask=t5_padding_mask, m_length=None)
 
         elif net.__class__.__name__ == "RVQVAE":
             pred_pose_eval, commit_loss, perplexity = net(motion)

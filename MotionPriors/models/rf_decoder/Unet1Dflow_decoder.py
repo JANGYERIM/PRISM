@@ -399,7 +399,7 @@ class Unet1DforFlowDecoder(Module):
         self.final_res_block = resnet_block(dim * 2, dim)
         self.final_conv = nn.Conv1d(dim, self.out_dim, 1)
 
-    def forward(self, x, times, y,  padding_mask=None, text_embedding=None):
+    def forward(self, x, times, y,  padding_mask=None, text_embedding=None, t5_embedding=None, t5_padding_mask=None):
         """
         # text embedding means noting in this case
         x: tensor of shape (batch, seq_len, channels)
@@ -408,9 +408,10 @@ class Unet1DforFlowDecoder(Module):
         assert x.shape[1] % 4 == 0, 'sequence length must be divisible by 4'
         if x.shape[1] //4 != y.shape[1]:
             print('x.shape, y.shape',x.shape, y.shape)
-            
-        
+
+
         assert text_embedding is None, 'padding mask and text embedding not supported yet'
+        assert t5_embedding is None, 'cross-attention text conditioning not supported by Unet1D backbone'
 
         x = rearrange(x, 'b n c -> b c n')
         y = rearrange(y, 'b n c -> b c n') # last_dim = False

@@ -112,7 +112,7 @@ class MotionPriorWrapper(nn.Module):
         else:
             raise ValueError(f"Unsupported model type: {self.model.__class__.__name__}")
     
-    def sample_from_z(self, z, m_length=None, text_embedding=None, noise=None):
+    def sample_from_z(self, z, m_length=None, text_embedding=None, t5_embedding=None, t5_padding_mask=None, noise=None):
         """z: (B,T,C) - 이미 ocdebook에서 dequantize된 값.
         vqvae encode/decode를 거치지 않고 flow decoder sampling만 수행(eval을 위함)"""
         net = self.model
@@ -122,12 +122,13 @@ class MotionPriorWrapper(nn.Module):
         pred_pose_eval = net.sample(
             z, batch_size=bs, steps=self.num_sample_steps,
             padding_mask=padding_mask, text_embedding=text_embedding,
+            t5_embedding=t5_embedding, t5_padding_mask=t5_padding_mask,
             data_shape=(196, self.model_cfg.model.output_dim),
             noise=noise,
         )
         return pred_pose_eval
 
-    def forward(self, motion, m_length=None, cfg_scale=1.0, text_embedding=None):
+    def forward(self, motion, m_length=None, cfg_scale=1.0, text_embedding=None, t5_embedding=None, t5_padding_mask=None):
         """
         motion: (B, seq_len, 263)
         """
@@ -175,8 +176,10 @@ class MotionPriorWrapper(nn.Module):
                 vqvae_out = self.vqvae.model.vqvae.decoder(y)
             y = y.permute(0, 2, 1)  # (B, N/4, dim)
             
-            x0 = vqvae_out + self.model_cfg.model.noise_std * torch.randn_like(vqvae_out)
-            pred_pose_eval = self.sample_from_z(y, m_length=m_length, text_embedding=text_embedding, noise=x0)
+            post_refinement = self.model_cfg.model.post_refinement if "post_refinement" in self.model_cfg.model.keys() else True
+            x0 = vqvae_out + self.model_cfg.model.noise_std * torch.randn_like(vqvae_out) if post_refinement else None
+            pred_pose_eval = self.sample_from_z(y, m_length=m_length, text_embedding=text_embedding,
+                                                 t5_embedding=t5_embedding, t5_padding_mask=t5_padding_mask, noise=x0)
             others = (vqvae_out,)
 
         else:

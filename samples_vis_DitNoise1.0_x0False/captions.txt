@@ -1,0 +1,31 @@
+idx	token_len(gt)	frame_len(gt)	diff_vs_x0(mean)	diff_vs_x0(max)	caption
+0	49	196	4.881575	1098.803955	someone's using both arms to gesticulate to these rhymes, im a little teapot, "pick me over and pour me out"
+1	49	196	4.012656	884.387695	a person who is prone pushes himself up off the ground using his arms and propping himself with his knees before standing awkwardly in a ready to wrestle position.
+2	42	168	4.208460	938.611084	a person walks up to a backwards chair and sits down on it with legs outstretched, then stands back up.
+3	48	192	1.609527	115.622833	the sim is doing a range of motion exercise from their wrist to their shoulders on both their right & left sides.
+4	45	180	3.097676	918.530701	person balances on left leg then with arms up high has arms fully extended keeping balance on left leg
+5	49	196	3.264716	492.735992	a person grabs a ladder in front of them, then climbs up the ladder, before returning down.
+6	41	164	4.641829	1208.473389	someone is jogging in place, waving their arms up and down and then moving in a circle.
+7	28	112	2.843080	684.060547	a person carries something it their hands and then uses their right hand to throw it
+8	19	76	1.804703	196.359024	a person, while standing in still, starts to fold arms, pauses shortly and releases them.
+9	14	56	2.553224	220.418152	a person struggling to push arms forward and upwards, arms shaking.
+10	49	196	7.870576	2003.409668	a person is moving around the room while moving his hands.
+11	23	92	5.001729	1236.867676	a person walks forward, barely drifting to their right, before stopping.
+12	46	184	4.030739	1119.121094	moving forward and backward finally come on the same place.
+13	12	48	1.836593	98.407555	a person jogs forward with arms moving to his side.
+14	14	56	1.756952	178.986130	a person lifts up their right arm to the side.
+15	36	144	3.049924	1002.309326	a man bends forward and then takes a step.
+16	23	92	3.886882	1180.872314	a person walks forward lightly swaying and then stops.
+17	22	88	5.295732	1335.958130	the person is walking and making a right turn.
+18	21	84	3.150851	732.479736	the person through something up and kicked it forward.
+19	19	76	2.317714	409.808044	a person reaches forward with their left arm
+20	13	52	4.083298	925.806885	someone is pushed and stumbles to the right.
+21	32	128	5.526712	1299.882202	a person walks in a clockwise circle.
+22	32	128	2.407422	781.386108	the person is walking slowly forward.
+23	42	168	2.215575	812.017029	the person is balancing facing forward.
+24	49	196	3.208509	1399.782104	a man is doing karate moves.
+25	47	188	2.841067	217.195435	raising arms and then kneeling
+26	10	40	1.706111	135.308212	a person claps four times.
+27	24	96	2.483203	995.139160	a person slowly jumped forward
+28	49	196	3.677699	1891.034546	a person twists their ankle
+29	25	100	3.823535	972.957214	person is walking forward.

@@ -1,0 +1,24 @@
+{"time":"2026-07-28T23:34:55.991144534+09:00","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2026-07-28T23:34:56.541599252+09:00","level":"INFO","msg":"stream: created new stream","id":"fqykgpin"}
+{"time":"2026-07-28T23:34:56.541657766+09:00","level":"INFO","msg":"stream: started","id":"fqykgpin"}
+{"time":"2026-07-28T23:34:56.541694423+09:00","level":"INFO","msg":"writer: started","stream_id":"fqykgpin"}
+{"time":"2026-07-28T23:34:56.541706619+09:00","level":"INFO","msg":"sender: started","stream_id":"fqykgpin"}
+{"time":"2026-07-28T23:34:56.541816599+09:00","level":"INFO","msg":"handler: started","stream_id":"fqykgpin"}
+{"time":"2026-07-28T23:37:26.337053084+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T02:50:01.719927832+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T04:11:06.659137191+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:24:23.12130323+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:25:20.884649358+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:28:01.980317869+09:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2026-07-29T06:28:21.217149966+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:29:18.817543032+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:30:50.745370959+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:33:13.623708675+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:37:18.561643778+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:38:15.926143782+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T06:39:47.803152457+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/jangyerim/decoderRF/fqykgpin/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-07-29T08:31:31.342234439+09:00","level":"INFO","msg":"stream: closing","id":"fqykgpin"}
+{"time":"2026-07-29T08:31:32.652272635+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-07-29T08:31:33.216839489+09:00","level":"INFO","msg":"handler: closed","stream_id":"fqykgpin"}
+{"time":"2026-07-29T08:31:33.21749488+09:00","level":"INFO","msg":"sender: closed","stream_id":"fqykgpin"}
+{"time":"2026-07-29T08:31:33.217510675+09:00","level":"INFO","msg":"stream: closed","id":"fqykgpin"}
