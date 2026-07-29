@@ -1,0 +1,31 @@
+idx	token_len(gt)	frame_len(gt)	diff_vs_x0(mean)	diff_vs_x0(max)	caption
+0	49	196	0.112234	71.501190	a man steps in a circular motion using both hands simultaneously to point at someone as if they are having a conversation.
+1	49	196	0.226322	71.739822	a person stands up from a sitting position, makes an overhand throw motion, and underhand throw motion, then a basketball shot motion.
+2	49	196	0.070884	3.066319	a person stands at the bottom edge of the path right in the center with a slight squat, raises both arms, places them down, then raises the right red arm and holds it there for a few seconds before placing it back down
+3	24	96	0.129319	7.330658	a person picks something up with both hands at mid thigh height, lifts it to waist height then sets it down close to the original position
+4	43	172	0.240378	96.429092	a person runs to their left, then right, then left again, and finally walk back to their starting position.
+5	47	188	0.125640	70.911964	the man reaches to the ground for something places it on the table then reaches for another thing.
+6	49	196	0.179922	71.003090	person moves forward to their left side and picks something up and does a full turn back
+7	19	76	0.148110	69.099113	a person bounces quickly between their feet and moves their arms in time with their feet.
+8	48	192	0.164842	72.532776	the sim is standing, swaying waving both hands the left after the right several times.
+9	34	136	0.124386	70.577347	a person casually walks abruptly steps right and then recovers to a straight walk.
+10	35	140	0.136983	70.326416	a person walks in a circle counterclockwise and returns to their original position.
+11	49	196	0.092197	7.223929	a person grab with hands something and carries over to the other place
+12	22	88	0.252487	71.374054	a man who is jumping and raising his arms over his head
+13	17	68	0.185507	80.769920	a figure throws out a foul ball with their left arm.
+14	19	76	0.076533	2.537334	a person standing still lifts their right arm to their mouth.
+15	35	140	0.105813	70.939758	a person walks forward with his arms at his side slowly.
+16	47	188	0.264113	71.468544	the person is doing a military crawl across the floor
+17	41	164	0.235059	71.604256	a person dancing and clapping his hands over his head
+18	36	144	0.201312	71.718933	a person squatted down walks forward, stands, then walks backward.
+19	39	156	0.098930	38.418232	person is balancing and walking across something thin
+20	48	192	0.263401	71.506767	a person gets down and crawls around the floor.a
+21	49	196	0.132754	70.138611	someone is walking in a circle.
+22	35	140	0.065754	1.813897	a man is washing a window
+23	32	128	0.106683	51.261852	a person walks forward very slowly.
+24	45	180	0.127260	5.683098	a person gestures with both arms.
+25	48	192	0.198804	69.095665	waving arms side to side.
+26	49	196	0.072490	3.646308	the man is making gestures
+27	10	40	0.337364	8.858461	punching arms while standing still.
+28	29	116	0.178265	68.004265	a person pitches a ball.
+29	33	132	0.093928	71.935669	a man walkes slowly forward
